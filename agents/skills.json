@@ -1,0 +1,143 @@
+{
+    "version": "1.1.0",
+    "agent_name": "Evolution-Architect",
+    "description": "Agentic Tool Hub for the Evolution of Todo project - Phase 4 Kubernetes deployment",
+    "protocol": "MCP (Model Context Protocol)",
+    "namespace": "todo-chatbot",
+    "skills": [
+        {
+            "name": "k8s_cluster_status",
+            "category": "cluster_management",
+            "description": "Retrieves the current status of all pods in the todo-chatbot namespace.",
+            "risk_level": "safe",
+            "parameters": {}
+        },
+        {
+            "name": "scale_deployment",
+            "category": "cluster_management",
+            "description": "Scales the frontend or backend deployment to a specific number of replicas.",
+            "risk_level": "moderate",
+            "safety_constraints": {
+                "max_replicas": 5,
+                "min_replicas": 0
+            },
+            "parameters": {
+                "deployment_name": {
+                    "type": "string",
+                    "enum": [
+                        "frontend",
+                        "backend"
+                    ],
+                    "required": true
+                },
+                "replicas": {
+                    "type": "integer",
+                    "min": 0,
+                    "max": 5,
+                    "required": true
+                }
+            }
+        },
+        {
+            "name": "db_query_stats",
+            "category": "database",
+            "description": "Runs a connectivity check on the PostgreSQL database and returns basic stats.",
+            "risk_level": "safe",
+            "parameters": {}
+        },
+        {
+            "name": "analyze_pod_logs",
+            "category": "debugging",
+            "description": "Retrieves the last N lines of logs from a specific pod for debugging.",
+            "risk_level": "safe",
+            "parameters": {
+                "pod_name": {
+                    "type": "string",
+                    "required": true
+                },
+                "lines": {
+                    "type": "integer",
+                    "default": 50,
+                    "required": false
+                }
+            }
+        },
+        {
+            "name": "restart_deployment",
+            "category": "cluster_management",
+            "description": "Performs a rolling restart of a deployment by killing all pods.",
+            "risk_level": "moderate",
+            "parameters": {
+                "deployment_name": {
+                    "type": "string",
+                    "enum": [
+                        "frontend",
+                        "backend"
+                    ],
+                    "required": true
+                }
+            }
+        },
+        {
+            "name": "get_service_endpoints",
+            "category": "networking",
+            "description": "Lists all service endpoints and their URLs in the cluster.",
+            "risk_level": "safe",
+            "parameters": {}
+        },
+        {
+            "name": "health_check_full",
+            "category": "monitoring",
+            "description": "Performs a comprehensive health check across all services.",
+            "risk_level": "safe",
+            "parameters": {}
+        },
+        {
+            "name": "verify_neondb_ssl",
+            "category": "database",
+            "description": "Verifies that the backend is connecting to NeonDB with SSL enabled.",
+            "risk_level": "safe",
+            "parameters": {}
+        }
+    ],
+    "workflow_patterns": {
+        "self_healing": {
+            "trigger": "pod_crash_loop",
+            "steps": [
+                "k8s_cluster_status",
+                "analyze_pod_logs",
+                "restart_deployment"
+            ]
+        },
+        "performance_debug": {
+            "trigger": "user_reports_slow_response",
+            "steps": [
+                "health_check_full",
+                "db_query_stats",
+                "k8s_cluster_status"
+            ]
+        },
+        "scale_on_demand": {
+            "trigger": "high_load_detected",
+            "steps": [
+                "k8s_cluster_status",
+                "scale_deployment"
+            ]
+        },
+        "database_troubleshooting": {
+            "trigger": "db_connection_error",
+            "steps": [
+                "verify_neondb_ssl",
+                "db_query_stats",
+                "analyze_pod_logs"
+            ]
+        }
+    },
+    "safety_rules": [
+        "Never scale above 5 replicas in local Minikube",
+        "Always check cluster status before performing destructive actions",
+        "Log all tool executions with timestamps",
+        "Require explicit confirmation for restart_deployment",
+        "Ensure SSL is enabled for all production database connections"
+    ]
+}

@@ -1,0 +1,227 @@
+{
+    "version": "1.0.0",
+    "agent_name": "Docker-Architect-Agent",
+    "specification": "AgentSkills-v1",
+    "protocol": "MCP",
+    "description": "Autonomous Docker build, optimization, and repair capabilities",
+    "capabilities": [
+        {
+            "name": "analyze_container_stats",
+            "category": "monitoring",
+            "description": "Analyzes container resource usage (CPU, RAM, Network, I/O) in real-time.",
+            "risk_level": "safe",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "container_name": {
+                        "type": "string",
+                        "description": "Name or ID of the container to analyze"
+                    }
+                },
+                "required": [
+                    "container_name"
+                ]
+            }
+        },
+        {
+            "name": "verify_prisma_binary",
+            "category": "validation",
+            "description": "Verifies that the correct Prisma engine binary (linux-musl-openssl-3.0.x) exists in the container.",
+            "risk_level": "safe",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "container_name": {
+                        "type": "string",
+                        "description": "Name of the container to check"
+                    }
+                },
+                "required": [
+                    "container_name"
+                ]
+            }
+        },
+        {
+            "name": "analyze_image_layers",
+            "category": "optimization",
+            "description": "Analyzes Docker image layers to identify bloat and suggest multi-stage optimizations.",
+            "risk_level": "safe",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "image_name": {
+                        "type": "string",
+                        "description": "Image name or ID to analyze"
+                    }
+                },
+                "required": [
+                    "image_name"
+                ]
+            }
+        },
+        {
+            "name": "detect_build_failures",
+            "category": "debugging",
+            "description": "Analyzes Docker build logs to identify common failure patterns (ETIMEDOUT, missing binaries, permission errors).",
+            "risk_level": "safe",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "build_log": {
+                        "type": "string",
+                        "description": "Docker build error log to analyze"
+                    }
+                },
+                "required": [
+                    "build_log"
+                ]
+            }
+        },
+        {
+            "name": "suggest_dockerfile_fixes",
+            "category": "repair",
+            "description": "Suggests Dockerfile improvements based on detected issues (retry loops, binary targets, caching).",
+            "risk_level": "moderate",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "dockerfile_path": {
+                        "type": "string",
+                        "description": "Path to Dockerfile to analyze"
+                    },
+                    "detected_issues": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of detected issues"
+                    }
+                },
+                "required": [
+                    "dockerfile_path"
+                ]
+            }
+        },
+        {
+            "name": "compare_image_sizes",
+            "category": "optimization",
+            "description": "Compares image sizes before and after optimization to measure improvement.",
+            "risk_level": "safe",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "image_before": {
+                        "type": "string",
+                        "description": "Original image name:tag"
+                    },
+                    "image_after": {
+                        "type": "string",
+                        "description": "Optimized image name:tag"
+                    }
+                },
+                "required": [
+                    "image_before",
+                    "image_after"
+                ]
+            }
+        },
+        {
+            "name": "check_security_vulnerabilities",
+            "category": "security",
+            "description": "Scans image for known vulnerabilities using docker scan or trivy.",
+            "risk_level": "safe",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "image_name": {
+                        "type": "string",
+                        "description": "Image to scan for vulnerabilities"
+                    }
+                },
+                "required": [
+                    "image_name"
+                ]
+            }
+        },
+        {
+            "name": "optimize_build_cache",
+            "category": "optimization",
+            "description": "Analyzes Dockerfile for cache optimization opportunities (layer ordering, COPY commands).",
+            "risk_level": "safe",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "dockerfile_path": {
+                        "type": "string",
+                        "description": "Path to Dockerfile"
+                    }
+                },
+                "required": [
+                    "dockerfile_path"
+                ]
+            }
+        }
+    ],
+    "workflow_patterns": {
+        "build_failure_recovery": {
+            "trigger": "docker_build_fails",
+            "steps": [
+                "detect_build_failures",
+                "suggest_dockerfile_fixes",
+                "verify_prisma_binary (if Prisma-related)"
+            ]
+        },
+        "image_optimization": {
+            "trigger": "user_requests_faster_builds_or_smaller_images",
+            "steps": [
+                "analyze_image_layers",
+                "optimize_build_cache",
+                "compare_image_sizes"
+            ]
+        },
+        "performance_tuning": {
+            "trigger": "container_slow_or_high_resource_usage",
+            "steps": [
+                "analyze_container_stats",
+                "suggest resource limits",
+                "verify optimization"
+            ]
+        },
+        "security_audit": {
+            "trigger": "pre_production_deployment",
+            "steps": [
+                "check_security_vulnerabilities",
+                "verify no secrets in layers",
+                "check base image freshness"
+            ]
+        }
+    },
+    "best_practices": [
+        "Always use multi-stage builds (deps -> builder -> runner)",
+        "Always use .dockerignore to minimize build context",
+        "Never include secrets in Docker image layers",
+        "Use specific image tags, not latest",
+        "Keep layers ordered by change frequency (least changing first)",
+        "Combine RUN commands to reduce layers",
+        "Use COPY instead of ADD unless you need tar extraction",
+        "Set resource limits in docker-compose or K8s manifests"
+    ],
+    "common_issues": {
+        "ETIMEDOUT": {
+            "description": "Network timeout during npm install",
+            "fix": "Add fetch-retries to npm config or use retry loops"
+        },
+        "PrismaClientInitializationError": {
+            "description": "Missing Prisma engine binary for target OS",
+            "fix": "Add binaryTargets = ['native', 'linux-musl-openssl-3.0.x'] to schema.prisma"
+        },
+        "ENOSPC": {
+            "description": "No space left on device during build",
+            "fix": "Clean up Docker: docker system prune -a"
+        },
+        "Permission_denied": {
+            "description": "Container user lacks permissions",
+            "fix": "Use non-root user with correct file ownership"
+        }
+    }
+}
