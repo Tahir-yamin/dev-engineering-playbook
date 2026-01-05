@@ -104,25 +104,6 @@ const getAuthHeaders = async () => {
   return {
     'Content-Type': 'application/json',
     ...(userId && { 'X-User-ID': userId }),
-  };
-};
-```
-
----
-
-## Testing Strategies
-
-### 1. Autonomous QA Workflow
-
-- **Tool**: `/complete-application-qa`
-- **Focus**: Infrastructure, Config, Auth, Features
-- **Protocol**: Self-examination and auto-resolution
-
-### 2. API Testing
-
-```python
-def test_create_task():
-    response = client.post('/api/tasks/', json={
         'title': 'Test Task',
         'priority': 'high'
     })

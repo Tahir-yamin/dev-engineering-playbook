@@ -1,7 +1,7 @@
 {
-    "version": "1.1.0",
+    "version": "2.0.0",
     "agent_name": "Evolution-Architect",
-    "description": "Agentic Tool Hub for the Evolution of Todo project - Phase 4 Kubernetes deployment",
+    "description": "Agentic Tool Hub for the Evolution of Todo project - Phase 4 & 5 Cloud Native deployment",
     "protocol": "MCP (Model Context Protocol)",
     "namespace": "todo-chatbot",
     "skills": [
@@ -26,7 +26,9 @@
                     "type": "string",
                     "enum": [
                         "frontend",
-                        "backend"
+                        "backend",
+                        "notification-service",
+                        "recurring-task-service"
                     ],
                     "required": true
                 },
@@ -72,7 +74,8 @@
                     "type": "string",
                     "enum": [
                         "frontend",
-                        "backend"
+                        "backend",
+                        "notification-service"
                     ],
                     "required": true
                 }
@@ -98,6 +101,126 @@
             "description": "Verifies that the backend is connecting to NeonDB with SSL enabled.",
             "risk_level": "safe",
             "parameters": {}
+        },
+        {
+            "name": "dapr_sidecar_status",
+            "category": "phase5_dapr",
+            "description": "Checks if Dapr sidecars are injected and running in all application pods.",
+            "risk_level": "safe",
+            "parameters": {}
+        },
+        {
+            "name": "dapr_publish_event",
+            "category": "phase5_dapr",
+            "description": "Publishes an event to a Dapr pub/sub topic for testing event-driven architecture.",
+            "risk_level": "moderate",
+            "parameters": {
+                "pubsub_name": {
+                    "type": "string",
+                    "default": "kafka-pubsub",
+                    "required": false
+                },
+                "topic": {
+                    "type": "string",
+                    "enum": [
+                        "task-events",
+                        "reminders",
+                        "task-updates"
+                    ],
+                    "required": true
+                },
+                "data": {
+                    "type": "object",
+                    "required": true
+                }
+            }
+        },
+        {
+            "name": "dapr_get_state",
+            "category": "phase5_dapr",
+            "description": "Retrieves state from a Dapr state store by key.",
+            "risk_level": "safe",
+            "parameters": {
+                "store_name": {
+                    "type": "string",
+                    "default": "statestore",
+                    "required": false
+                },
+                "key": {
+                    "type": "string",
+                    "required": true
+                }
+            }
+        },
+        {
+            "name": "kafka_topic_list",
+            "category": "phase5_kafka",
+            "description": "Lists all Kafka topics in the cluster.",
+            "risk_level": "safe",
+            "parameters": {}
+        },
+        {
+            "name": "kafka_topic_create",
+            "category": "phase5_kafka",
+            "description": "Creates a new Kafka topic with specified partitions and replication factor.",
+            "risk_level": "moderate",
+            "parameters": {
+                "topic_name": {
+                    "type": "string",
+                    "required": true
+                },
+                "partitions": {
+                    "type": "integer",
+                    "default": 1,
+                    "required": false
+                },
+                "replication_factor": {
+                    "type": "integer",
+                    "default": 1,
+                    "required": false
+                }
+            }
+        },
+        {
+            "name": "strimzi_cluster_status",
+            "category": "phase5_kafka",
+            "description": "Checks the status of the Strimzi Kafka cluster and its components.",
+            "risk_level": "safe",
+            "parameters": {}
+        },
+        {
+            "name": "aks_cluster_status",
+            "category": "phase5_cloud",
+            "description": "Retrieves the status of the Azure AKS cluster.",
+            "risk_level": "safe",
+            "parameters": {}
+        },
+        {
+            "name": "acr_image_list",
+            "category": "phase5_cloud",
+            "description": "Lists all images in the Azure Container Registry.",
+            "risk_level": "safe",
+            "parameters": {}
+        },
+        {
+            "name": "schedule_reminder",
+            "category": "phase5_reminders",
+            "description": "Schedules a reminder using Dapr Jobs API for exact-time delivery.",
+            "risk_level": "moderate",
+            "parameters": {
+                "task_id": {
+                    "type": "integer",
+                    "required": true
+                },
+                "remind_at": {
+                    "type": "datetime",
+                    "required": true
+                },
+                "user_id": {
+                    "type": "string",
+                    "required": true
+                }
+            }
         }
     ],
     "workflow_patterns": {
@@ -131,6 +254,29 @@
                 "db_query_stats",
                 "analyze_pod_logs"
             ]
+        },
+        "dapr_troubleshooting": {
+            "trigger": "dapr_sidecar_failure",
+            "steps": [
+                "dapr_sidecar_status",
+                "analyze_pod_logs",
+                "restart_deployment"
+            ]
+        },
+        "kafka_event_flow": {
+            "trigger": "event_not_received",
+            "steps": [
+                "kafka_topic_list",
+                "strimzi_cluster_status",
+                "dapr_sidecar_status"
+            ]
+        },
+        "reminder_scheduling": {
+            "trigger": "task_with_due_date_created",
+            "steps": [
+                "schedule_reminder",
+                "dapr_get_state"
+            ]
         }
     },
     "safety_rules": [
@@ -138,6 +284,8 @@
         "Always check cluster status before performing destructive actions",
         "Log all tool executions with timestamps",
         "Require explicit confirmation for restart_deployment",
-        "Ensure SSL is enabled for all production database connections"
+        "Ensure SSL is enabled for all production database connections",
+        "Verify Dapr sidecar is running before publishing events",
+        "Check Kafka topic exists before publishing messages"
     ]
 }

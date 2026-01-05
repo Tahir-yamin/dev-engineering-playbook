@@ -610,6 +610,221 @@ Examples: redis-skills.md, testing-skills.md
 - Includes templates and examples
 - Real-world scenario provided
 
+### v2.0 - January 5, 2026
+- Added GitHub Knowledge Base sync (my-dev-knowledge-base)
+- Added Phase 5 skills/agents documentation
+- Added Claude contributor repos with credits
+- Added local folder sync for easy retrieval
+
+---
+
+## 🔄 Step 11: Sync to GitHub Knowledge Base
+
+### Purpose
+Automatically sync all documentation updates to your GitHub knowledge base repository for future reuse across projects.
+
+### Target Repository
+- **Local Path**: `my-dev-knowledge-base/`
+- **GitHub URL**: `https://github.com/Tahir-yamin/dev-engineering-playbook`
+
+### Files to Sync
+
+| Source | Destination | Content |
+|--------|-------------|---------|
+## 📦 Step 12: Update Phase 5 Skills & Agents
+
+### When to Update
+- New Phase 5 feature implemented (Kafka, Dapr, AKS)
+- New skill learned from cloned repos
+- New agent configuration added
+
+### Source Repositories (Cloned)
+
+| Folder | Source | Credits |
+|--------|--------|---------|
+| `claude-skills-library/` | [travisvn/awesome-claude-skills](https://github.com/travisvn/awesome-claude-skills) | @travisvn |
+| `claude-subagents/` | [VoltAgent/awesome-claude-code-subagents](https://github.com/VoltAgent/awesome-claude-code-subagents) | @VoltAgent |
+| `dapr-quickstarts/` | [dapr/quickstarts](https://github.com/dapr/quickstarts) | @dapr |
+| `claude-cookbooks/` | [anthropics/claude-cookbooks](https://github.com/anthropics/claude-cookbooks) | @anthropic |
+
+### How to Add New Skill from Cloned Repos
+
+**1. Browse the cloned repo**:
+```bash
+# Check available skills
+dir claude-skills-library\
+
+# Check available subagents
+dir claude-subagents\categories\
+```
+
+**2. Copy relevant skill to your project**:
+```bash
+# Example: Copy a skill from claude-skills-library
+Copy-Item -Path ".\claude-skills-library\skills\kubernetes-skills.md" -Destination ".\docs\misc\" -Force
+```
+
+**3. Add credit in the copied file**:
+```markdown
+---
+Original Source: https://github.com/travisvn/awesome-claude-skills
+Author: @travisvn
+License: MIT
+Modified: January 2026 by @Tahir-yamin
+---
+```
+
+**4. Update skills.json**:
+```json
+{
+  "name": "new_skill_from_community",
+  "category": "phase5_community",
+  "description": "Description here",
+  "source": "travisvn/awesome-claude-skills",
+  "credit": "@travisvn"
+}
+```
+
+### Phase 5 Skills Locations
+
+| File | Purpose |
+|------|---------|
+| `docs/misc/SKILL_PATH_PHASE5.md` | Kafka, Dapr, AKS micro-skills |
+| `phase4/agent/skills.json` | Agent skill definitions (v2.0.0) |
+| `.agent/workflows/phase5-troubleshooting.md` | Phase 5 troubleshooting |
+
+---
+
+## 🔗 Step 13: Update Recommended GitHub Repos
+
+### Purpose
+Keep track of valuable community repos for future reference.
+
+### File Location
+`docs/misc/RECOMMENDED_GITHUB_REPOS.md`
+
+### Template for Adding New Repo
+
+```markdown
+### N. **owner/repo-name** ⭐
+**Type**: [Skills/Subagents/Templates] | **Stars**: X,XXX | **Updated**: Month Year
+```
+https://github.com/owner/repo-name
+```
+Brief description of what this repo offers.
+
+---
+```
+
+### Current Categories
+
+| Category | Count | Description |
+|----------|-------|-------------|
+| Claude Skills | 4 | Claude prompt templates and skills |
+| Claude Subagents | 3 | Specialized AI agents |
+| Claude Tools | 3 | Workflow and integration tools |
+| Dapr | 4 | Distributed runtime examples |
+| Kafka | 3 | Event streaming resources |
+| AKS/CI-CD | 3 | Cloud deployment guides |
+
+### When to Add New Repo
+- Found useful community resource
+- Forked a valuable repo
+- Discovered Phase 5 related tools
+
+---
+
+## 💾 Step 14: Sync Local Skill Folders
+
+### Purpose
+Maintain local copies of all skills for easy retrieval without internet.
+
+### Local Skill Folders
+
+| Folder | Content | File Count |
+|--------|---------|------------|
+| `claude-skills-library/` | 50+ Claude skills | 3 files |
+| `claude-subagents/categories/` | 137 specialized agents | 10 subdirs |
+| `dapr-quickstarts/` | Dapr examples | 1,223 files |
+| `claude-cookbooks/` | Official Anthropic guides | 387 files |
+
+### Quick Access Commands
+
+// turbo
+```bash
+# List all available Claude skills
+Get-ChildItem -Path "claude-skills-library\" -Recurse -Filter "*.md"
+
+# List all subagent categories
+Get-ChildItem -Path "claude-subagents\categories\" -Directory
+
+# List Dapr Python examples
+Get-ChildItem -Path "dapr-quickstarts\pub_sub\python" -Recurse
+
+# Search for a specific skill
+Select-String -Path "claude-skills-library\*.md" -Pattern "kubernetes"
+```
+
+### Sync from Upstream
+
+// turbo
+```bash
+# Update cloned repos from upstream
+cd claude-skills-library
+git pull origin main
+cd ..
+
+cd claude-subagents
+git pull origin main
+cd ..
+
+cd dapr-quickstarts
+git pull origin main
+cd ..
+
+cd claude-cookbooks
+git pull origin main
+cd ..
+```
+
+---
+
+## 🚀 Full Documentation Sync Workflow
+
+When running `/documentation-maintenance`, follow these additional steps:
+
+### Checklist
+
+- [ ] **Step 11**: Sync files to `my-dev-knowledge-base/`
+- [ ] **Step 12**: Update Phase 5 skills with credits
+- [ ] **Step 13**: Add any new recommended repos
+- [ ] **Step 14**: Pull latest from cloned repos
+- [ ] **Commit**: Push changes to GitHub
+
+### One-Command Sync
+
+// turbo
+```bash
+# Full sync script
+cd "d:\Hackathon phase 1 TODO App\todo_hackathon_phase1"
+
+# Sync to knowledge base
+Copy-Item -Path ".\.agent\workflows\*.md" -Destination ".\my-dev-knowledge-base\workflows\" -Force
+Copy-Item -Path ".\docs\misc\SKILL_PATH_*.md" -Destination ".\my-dev-knowledge-base\skills\" -Force
+Copy-Item -Path ".\docs\misc\RECOMMENDED_GITHUB_REPOS.md" -Destination ".\my-dev-knowledge-base\" -Force
+Copy-Item -Path ".\phase4\agent\skills.json" -Destination ".\my-dev-knowledge-base\agents\" -Force
+Copy-Item -Path ".\docs\misc\MODERN_SKILLS.md" -Destination ".\my-dev-knowledge-base\skills\" -Force
+
+# Commit knowledge base
+cd my-dev-knowledge-base
+git add .
+git commit -m "docs: sync latest Phase 5 documentation"
+git push origin main
+cd ..
+
+Write-Host "✅ Documentation synced to my-dev-knowledge-base!" -ForegroundColor Green
+```
+
 ---
 
 **Keep your documentation alive - update it regularly!** 🎉
@@ -620,3 +835,5 @@ Examples: redis-skills.md, testing-skills.md
 - `.specify/design-system.md`
 - `.spec-kit/COMPLIANCE_SUMMARY.md`
 - `.history/prompts/successful-prompts.md`
+- `my-dev-knowledge-base/` (GitHub: dev-engineering-playbook)
+- `claude-skills-library/`, `claude-subagents/`, `dapr-quickstarts/`, `claude-cookbooks/`
