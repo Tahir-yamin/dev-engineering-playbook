@@ -4,24 +4,168 @@ description: Meta-workflow for updating documentation - workflows, skills, desig
 
 # Documentation Maintenance Workflow
 
-**Purpose**: Keep the documentation system up-to-date  
+**Purpose**: Keep the documentation system up-to-date with automatic scanning and duplicate detection  
 **When to Use**: After solving new problems, adding features, or learning new patterns  
-**Frequency**: After each major task or weekly
+**Frequency**: After each major task or weekly  
+**New**: Automatically scans workspace for updates and merges duplicate files
 
 ---
 
 ## 🎯 Overview
 
 This workflow helps you maintain:
-- `.agent/workflows/` - Step-by-step workflows
-- `.claude/` - Skills library
-- `.specify/` - Design system
-- `.spec-kit/` - Requirements tracking
-- `.history/prompts/` - Successful prompts
+- `agents/workflows/` - Step-by-step workflows
+- `skills/` - Skills library  
+- `guides/` - Design and architecture docs
+- `community/` - Community resource tracking
+- `WORKSPACE_STATS.md` - File counts and statistics
+
+**What's Automated**:
+- ✅ Workspace scanning for file changes
+- ✅ Duplicate file detection
+- ✅ Document update recommendations
+- ✅ Stats recalculation
 
 ---
 
-## Step 1: Identify What Needs Updating
+## Step 0: Automatic Workspace Scan (NEW)
+
+**Run this FIRST every time you invoke this workflow**
+
+### Scan Workspace for Changes
+
+```bash
+# Count total files
+$totalFiles = (Get-ChildItem "d:\Hackathon phase 1 TODO App\todo_hackathon_phase1\my-dev-knowledge-base" -Recurse -File | Measure-Object).Count
+
+# Count by category
+$skillsCount = (Get-ChildItem "d:\Hackathon phase 1 TODO App\todo_hackathon_phase1\my-dev-knowledge-base\skills" -Recurse -File | Measure-Object).Count
+$agentsCount = (Get-ChildItem "d:\Hackathon phase 1 TODO App\todo_hackathon_phase1\my-dev-knowledge-base\agents" -Recurse -File | Measure-Object).Count
+$workflowsCount = (Get-ChildItem "d:\Hackathon phase 1 TODO App\todo_hackathon_phase1\my-dev-knowledge-base\workflows" -Recurse -File | Measure-Object).Count
+$guidesCount = (Get-ChildItem "d:\Hackathon phase 1 TODO App\todo_hackathon_phase1\my-dev-knowledge-base\guides" -Recurse -File | Measure-Object).Count
+
+Write-Host "Total: $totalFiles | Skills: $skillsCount | Agents: $agentsCount | Workflows: $workflowsCount | Guides: $guidesCount"
+```
+
+**Action**: Compare counts with `README.md` and `WORKSPACE_STATS.md`. If different → **Update needed**.
+
+---
+
+## Step 1: Detect and Merge Duplicate Files (NEW)
+
+**Purpose**: Find similar files and merge them to avoid redundancy
+
+### A. Scan for Duplicate/Similar Files
+
+**Common duplicate patterns to check**:
+
+```bash
+# Find files with similar names
+Get-ChildItem "d:\Hackathon phase 1 TODO App\todo_hackathon_phase1\my-dev-knowledge-base" -Recurse -File -Filter "*.md" | 
+  Group-Object Name | 
+  Where-Object { $_.Count -gt 1 } |
+  Select-Object Name, Count, @{Name="Locations";Expression={$_.Group.DirectoryName -join ", "}}
+```
+
+**Manual checks**:
+- [ ] Multiple INDEX.md or README.md files with same content?
+- [ ] Skill files covering same topic in different locations?
+- [ ] Duplicate workflow files?
+- [ ] Similar agent configurations?
+
+### B. Merge Duplicate Files
+
+**If duplicates found, use this process**:
+
+1. **Identify which to keep**:
+   - Keep the most complete version
+   - Keep the one in the correct directory structure
+   - Prefer newer files with more detail
+
+2. **Merge content**:
+   ```markdown
+   # Combined [Topic] 
+   
+   [Content from File 1]
+   
+   ---
+   
+   ## Additional from [File 2 source]
+   
+   [Unique content from File 2]
+   
+   ---
+   
+   **Sources merged**: 
+   - [File 1 location]
+   - [File 2 location]
+   ```
+
+3. **Update cross-references**:
+   - Search workspace for links to old file
+   - Update all references to point to merged file
+   
+4. **Delete duplicate**:
+   ```bash
+   Remove-Item "path/to/duplicate/file.md"
+   ```
+
+5. **Document in CHANGELOG**:
+   Update `community/CHANGELOG.md`:
+   ```markdown
+   ### [Date]: Merged Duplicates
+   - Merged [file1] and [file2] into [final-file]
+   - Reason: [why they were duplicates]
+   ```
+
+---
+
+## Step 2: Update All Documentation (NEW)
+
+**Systematically update all main documentation files**
+
+### Files to Always Check and Update:
+
+#### 1.`README.md`
+- [ ] Update total file count (from Step 0)
+- [ ] Update stats by category
+- [ ] Update growth percentage
+- [ ] Update "Last Updated" date
+- [ ] Add any new sections if needed
+
+#### 2. `WORKSPACE_STATS.md`
+- [ ] Update file counts by tier
+- [ ] Update category breakdowns
+- [ ] Recalculate growth percentages
+- [ ] Update timestamp
+
+#### 3. `skills/INDEX.md`
+- [ ] Check for new skills added to workspace
+- [ ] Add entries for new skill files
+- [ ] Update categorization if needed
+- [ ] Verify all links work
+
+#### 4. `agents/INDEX.md` (if exists, create if not)
+- [ ] List all agent categories
+- [ ] Add new agents from recent additions
+- [ ] Organize by use case
+- [ ] Add quick search section
+
+#### 5. `workflows/INDEX.md` (if exists, create if not)
+- [ ] List all workflows
+- [ ] Organize by problem type
+- [ ] Add your original workflows + community ones
+- [ ] Add cross-references
+
+#### 6. `community/SOURCES.md`
+- [ ] Ensure all sources are credited
+- [ ] Add license information for new additions
+- [ ] Update changelog
+- [ ] Add usage guidelines
+
+---
+
+## Step 3: Identify What Needs Updating
 
 **Ask yourself**:
 - [ ] Did I solve a new type of problem? → **New Workflow**
@@ -29,10 +173,11 @@ This workflow helps you maintain:
 - [ ] Did I create/modify UI components? → **Update Design System**
 - [ ] Did I complete a feature? → **Update Requirements**
 - [ ] Did I use a successful prompt? → **Document Prompt**
+- [ ] Did I add community resources? → **Update attribution**
 
 ---
 
-## Step 2: Create New Workflow
+## Step 4: Create New Workflow
 
 ### When to Create
 - Solved a complex problem with multiple steps
@@ -112,7 +257,7 @@ Add entry to `.agent/workflows/README.md`:
 
 ---
 
-## Step 3: Create New Skill
+## Step 5: Create New Skill
 
 ### When to Create
 - Discovered a useful AI prompt pattern

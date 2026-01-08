@@ -1,0 +1,49 @@
+{
+  "name": "dev-workflows-frontend",
+  "version": "0.9.4",
+  "description": "Skills + Subagents for React/TypeScript - Use skills for coding guidance, or run commands for full orchestrated agentic coding with 14 specialized agents",
+  "author": {
+    "name": "Shinsuke Kagawa",
+    "url": "https://github.com/shinpr"
+  },
+  "homepage": "https://github.com/shinpr/dev-workflows",
+  "repository": "https://github.com/shinpr/dev-workflows.git",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "frontend",
+    "workflows",
+    "typescript",
+    "testing",
+    "quality",
+    "sub-agents",
+    "tdd",
+    "react-testing-library",
+    "best-practices"
+  ],
+  "commands": [
+    "./commands/diagnose.md",
+    "./commands/front-build.md",
+    "./commands/front-design.md",
+    "./commands/front-plan.md",
+    "./commands/reverse-engineer.md",
+    "./commands/review.md",
+    "./commands/task.md"
+  ],
+  "agents": [
+    "./agents/code-reviewer.md",
+    "./agents/code-verifier.md",
+    "./agents/document-reviewer.md",
+    "./agents/investigator.md",
+    "./agents/prd-creator.md",
+    "./agents/quality-fixer-frontend.md",
+    "./agents/requirement-analyzer.md",
+    "./agents/scope-discoverer.md",
+    "./agents/solver.md",
+    "./agents/task-decomposer.md",
+    "./agents/task-executor-frontend.md",
+    "./agents/technical-designer-frontend.md",
+    "./agents/verifier.md",
+    "./agents/work-planner.md"
+  ]
+}
