@@ -124,9 +124,55 @@ Get-ChildItem "d:\Hackathon phase 1 TODO App\todo_hackathon_phase1\my-dev-knowle
 
 **Systematically update all main documentation files**
 
-### Files to Always Check and Update:
+### ⭐ ALWAYS Update These Files First:
 
-#### 1.`README.md`
+#### 1. **README.md** (MOST IMPORTANT - Update EVERY time!)
+
+**Required Updates**:
+- [ ] **File counts** - Update total files and categories (from Step 0 scan)
+- [ ] **Growth percentage** - Recalculate growth from original 84 files
+- [ ] **Last Updated date** - Change to current date
+- [ ] **Tier counts** - Verify Tier 1, 2, 3 file counts are accurate
+- [ ] **Credits section** - Ensure all contributors are listed
+- [ ] **Your maintainer info** - Keep your GitHub link current
+
+**Template to follow**:
+```markdown
+## 📊 Stats
+
+- **Total Files**: [CURRENT_COUNT] (was 84)
+- **Skills**: [SKILLS_COUNT]+ (was 8)
+- **Agents**: [AGENTS_COUNT]+ (was 37)
+- **Workflows**: [WORKFLOWS_COUNT]+ (was 24)
+- **Guides**: [GUIDES_COUNT]+ (was 15)
+
+**Growth**: **[GROWTH_%] expansion** - Almost 20x larger!
+
+### Community Sources:
+**Tier 1 - Official & Multi-Agent** ([TIER1_COUNT] files):
+[List sources...]
+
+**Tier 2 - Business & Production** ([TIER2_COUNT] files):
+[List sources...]
+
+**Tier 3 - Advanced Orchestration** ([TIER3_COUNT] files):
+[List sources...]
+
+---
+
+## 🙏 Credits & Acknowledgments
+
+[Full credits section - keep updated]
+
+---
+
+**Last Updated**: [YYYY-MM-DD] (**ALL 3 TIERS COMPLETE!**)
+**Maintainer**: Tahir Yamin ([@tahir-yamin](https://github.com/tahir-yamin))
+```
+
+---
+
+#### 2. `WORKSPACE_STATS.md`
 - [ ] Update total file count (from Step 0)
 - [ ] Update stats by category
 - [ ] Update growth percentage
