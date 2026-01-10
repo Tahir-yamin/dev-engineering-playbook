@@ -2,7 +2,7 @@
 description: Best practices for GitHub repository management, security, and environment handling
 ---
 
-# GitHub Best Practices Workflow
+# GitHub Best Practices & Repository Analysis Workflow Workflow
 
 ## When to Use
 - Setting up a new repository
@@ -142,3 +142,142 @@ For handling alerts (Code Scanning, Dependabot, Secrets), follow the **[Security
 ---
 
 **Related Skills**: env-skills.md #2, debug-skills.md
+
+---
+
+## Step 10: Comprehensive Repository Analysis & Bug-Fixing
+
+**Purpose**: Systematic identification, prioritization, fixing, and documentation of ALL verifiable bugs, security vulnerabilities, and critical issues.
+
+**When to Use**:
+- Before major releases
+- After inheriting a codebase
+- During security audits
+- When implementing quality improvements
+
+**Reference**: See [comprehensive-bug-analysis.md](./comprehensive-bug-analysis.md) for full detailed workflow
+
+### Quick Overview - 7 Phase Process:
+
+#### Phase 1: Initial Repository Assessment
+- Map complete project structure
+- Identify technology stack and dependencies
+- Document entry points and critical paths
+- Analyze build configurations
+- Review existing documentation
+
+#### Phase 2: Systematic Bug Discovery
+**Categories**:
+- Critical: Security vulnerabilities, data corruption, crashes
+- Functional: Logic errors, state management issues
+- Integration: Database errors,API issues, network problems
+- Edge Cases: Null handling, boundary conditions
+- Code Quality: Dead code, deprecated APIs, bottlenecks
+
+**Methods**:
+- Static code analysis
+- Dependency vulnerability scanning
+- Code path analysis
+- Configuration validation
+
+#### Phase 3: Bug Documentation & Prioritization
+- Document each bug with BUG-ID, severity, category
+- Root cause analysis
+- Impact assessment (user/system/business)
+- Prioritization matrix (P0-P3)
+
+#### Phase 4: Fix Implementation
+- Create isolated branches for each fix
+- Write failing test first (TDD)
+- Implement minimal fixes
+- Run regression tests
+
+#### Phase 5: Testing & Validation
+- Unit, integration, and regression tests
+- Static analysis validation
+- Performance benchmarks
+
+#### Phase 6: Documentation & Reporting
+- Update inline comments and API docs
+- Create executive summary
+- Generate reports (Markdown, JSON/YAML, CSV)
+
+#### Phase 7: Continuous Improvement
+- Identify common bug patterns
+- Recommend preventive measures
+- Propose process enhancements
+
+### Quick Commands:
+
+\\\ash
+# Static Analysis
+npm install -g eslint
+eslint . --ext .js,.ts
+
+# Security Scanning
+npm audit
+npm audit fix
+
+# Dependency Vulnerabilities
+safety check  # Python
+./gradlew dependencyCheckAnalyze  # Java
+
+# Coverage Analysis
+npm test -- --coverage
+pytest --cov=. --cov-report=html
+\\\
+
+### Bug Report Template:
+
+\\\markdown
+## BUG-[ID]: [Short Description]
+
+**Severity**: Critical | High | Medium | Low
+**Category**: Security | Functional | Integration | Edge Case
+**Priority**: P0 | P1 | P2 | P3
+
+### Location
+- File(s): path/to/file.js:123
+- Component: Module Name
+- Function: functionName()
+
+### Current vs Expected Behavior
+[What happens vs what should happen]
+
+### Root Cause
+[Technical explanation]
+
+### Impact
+- User: [H/M/L] - [Details]
+- System: [H/M/L] - [Details]
+- Business: [H/M/L] - [Details]
+
+### Fix Approach
+[Solution strategy]
+\\\
+
+### Constraints:
+
+-  Never compromise security for simplicity
+-  Maintain audit trail of all changes
+-  Follow semantic versioning for API changes
+-  Document all assumptions
+-  Respect rate limits and quotas
+
+### Success Criteria:
+
+-  All P0 (critical) bugs fixed
+-  90%+ P1 (high priority) bugs fixed
+-  Test coverage 80%
+-  Zero high/critical security vulnerabilities
+-  CI/CD pipeline passing
+-  Preventive measures implemented
+
+---
+
+**For Full Details**: See [@comprehensive-bug-analysis.md](./comprehensive-bug-analysis.md)
+
+---
+
+**Related Skills**: security-audit.md, code-review-testing.md, security-remediation.md
+**Last Updated**: 2026-01-09
