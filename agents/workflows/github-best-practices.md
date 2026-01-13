@@ -12,6 +12,45 @@ description: Best practices for GitHub repository management, security, and envi
 
 ---
 
+## ⚠️ CRITICAL BEST PRACTICE: Always Update README.md
+
+**Golden Rule**: ALWAYS update your README.md file when:
+- Adding new features or functionality
+- Making significant changes to the project
+- Updating dependencies or technology stack
+- Changing project structure or architecture
+- Adding or removing files from the repository
+- Completing major milestones or releases
+
+**Why This Matters**:
+- README is the first thing people see
+- Keeps documentation synchronized with code
+- Helps future you remember what changed
+- Essential for team collaboration
+- Required for professional repositories
+
+**What to Update in README**:
+- [ ] Project description (if scope changed)
+- [ ] Installation instructions (if dependencies changed)
+- [ ] Usage examples (if API changed)
+- [ ] Features list (when adding/removing features)
+- [ ] Technology stack (when updating tools)
+- [ ] Last Updated date (ALWAYS!)
+- [ ] File counts or statistics (if using in your README)
+- [ ] Links to new documentation
+
+**Quick README Update Checklist**:
+```markdown
+- [ ] Updated "Last Updated" date
+- [ ] Added new features to features list
+- [ ] Updated installation if needed
+- [ ] Updated usage examples if API changed
+- [ ] Verified all links still work
+- [ ] Updated badges if applicable
+```
+
+---
+
 ## Step 1: Repository Configuration
 
 ### Visibility
