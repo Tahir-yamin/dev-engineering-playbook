@@ -7,7 +7,8 @@ description: Meta-workflow for updating documentation - workflows, skills, desig
 **Purpose**: Keep the documentation system up-to-date with automatic scanning and duplicate detection  
 **When to Use**: After solving new problems, adding features, or learning new patterns  
 **Frequency**: After each major task or weekly  
-**New**: Automatically scans workspace for updates and merges duplicate files
+**Last Major Update**: 2026-01-13 (AI ecosystem updates integrated)  
+**New**: Automatically scans workspace for updates, merges duplicates, tracks AI trends
 
 ---
 
@@ -25,6 +26,8 @@ This workflow helps you maintain:
 - ✅ Duplicate file detection
 - ✅ Document update recommendations
 - ✅ Stats recalculation
+- ✅ AI ecosystem monitoring (weekly)
+- ✅ Latest trend integration
 
 ---
 
@@ -134,6 +137,7 @@ Get-ChildItem "d:\Hackathon phase 1 TODO App\todo_hackathon_phase1\my-dev-knowle
 - [ ] **Last Updated date** - Change to current date
 - [ ] **Tier counts** - Verify Tier 1, 2, 3 file counts are accurate
 - [ ] **Credits section** - Ensure all contributors are listed
+- [ ] **Latest Updates section** - Reference newest AI update report
 - [ ] **Your maintainer info** - Keep your GitHub link current
 
 **Template to follow**:
@@ -208,6 +212,13 @@ Get-ChildItem "d:\Hackathon phase 1 TODO App\todo_hackathon_phase1\my-dev-knowle
 - [ ] Add license information for new additions
 - [ ] Update changelog
 - [ ] Add usage guidelines
+
+#### 7. AI Update Tracking Files
+- [ ] `claude_update_log.md` - Add new monitoring entries
+- [ ] `claude_updates_knowledge_base.md` - Integrate latest findings
+- [ ] `claude_update_report_*.md` - Create new reports as needed
+- [ ] `AGENTS.md` - Update with latest agent developments
+- [ ] `SKILL_PATH_B_AI_ENGINEERING.md` - Add new AI skills
 
 ---
 

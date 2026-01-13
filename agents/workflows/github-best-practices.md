@@ -279,5 +279,7 @@ pytest --cov=. --cov-report=html
 
 ---
 
-**Related Skills**: security-audit.md, code-review-testing.md, security-remediation.md
-**Last Updated**: 2026-01-09
+**Related Skills**: security-audit.md, code-review-testing.md, security-remediation.md  
+**AI Resources**: `claude_update_report_2026-01-13.md` (AI-powered code review \u0026 repository management)  
+**Last Updated**: 2026-01-13
+

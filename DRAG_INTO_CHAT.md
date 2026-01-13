@@ -44,6 +44,14 @@
 @[workflows/monitor-claude-updates.md]
 ```
 
+### AI Update Reports (NEW!)
+```
+@[claude_update_report_2026-01-13.md]
+@[claude_update_report_2026-01-08.md]
+@[claude_updates_knowledge_base.md]
+@[claude_update_log.md]
+```
+
 ---
 
 ## 📚 Skills (Drag into chat)

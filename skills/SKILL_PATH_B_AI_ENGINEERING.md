@@ -78,3 +78,72 @@ Treat AI like software engineering.
 ### Learning Project
 1. **Trace**: Add tracing to your chatbot to see how long each step takes.
 2. **Eval**: Create a dataset of 20 questions and automatically test your bot against them.
+
+---
+
+## 4. 2026 AI Trends & Emerging Skills
+
+### Multi-Agent Orchestration (Agent Ops)
+Build and coordinate teams of specialized AI agents.
+
+- **Tools**: CrewAI, AutoGen, Microsoft Agent Framework, Google ADK
+
+### 🔬 Micro-Skills
+1.  **Agent Coordination**:
+    -   *Skill*: Orchestrating multiple agents with different roles (research, write, review).
+    -   *Test*: Create a 3-agent system where agents collaborate on a document.
+2.  **Context Management**:
+    -   *Skill*: Sharing state and context between agents efficiently.
+    -   *Test*: Build a workflow where Agent A's output becomes Agent B's input.
+3.  **Platform Selection**:
+    -   *Skill*: Choosing the right orchestration framework for use case.
+    -   *Test*: Compare CrewAI vs AutoGen for a specific multi-step workflow.
+
+### 🛠️ Workflow: Build a Multi-Agent System
+1.  **Define Roles**: Create Researcher, Writer, Editor agents.
+2.  **Set Up Communication**: Configure inter-agent messaging.
+3.  **Orchestrate**: Use CrewAI to coordinate sequential workflow.
+4.  **Monitor**: Track performance and token usage.
+
+### Recommended Frameworks
+- `joaomdmoura/crewai` (most popular open source)
+- `microsoft/autogen`
+- Microsoft/Google/OpenAI enterprise platforms
+
+---
+
+## 5. AI Co-Workers & Collaboration Tools
+
+### Desktop AI Agents
+- **Claude Cowork** (macOS) - File management for non-technical users
+- **Microsoft 365 Copilot** - Integrated into Office suite
+- **Google Workspace Gemini** - Cross-app AI assistance
+
+### Key Skills
+- Prompt engineering for productivity tools
+- AI tool stacking (connecting multiple AI tools)
+- Designing human-agent collaboration workflows
+
+---
+
+## Critical 2026 Skills Summary
+
+| Skill | Priority | Market Demand |
+|-------|----------|---------------|
+| **Prompt Engineering** | ⭐⭐⭐ | Foundational |
+| **Agent Ops (Multi-Agent Orchestration)** | ⭐⭐⭐ | Emerging High |
+| **RAG Systems** | ⭐⭐⭐ | Essential |
+| **Agentic Workflows** | ⭐⭐ | Growing |
+| **LLM Ops** | ⭐⭐ | Production |
+| **Multimodal AI** | ⭐⭐ | Emerging |
+| **AI Governance** | ⭐⭐ | Critical |
+
+**Market Stats (2026)**:
+- $8.5B AI agent market
+- 40% of apps will embed agents
+- 74% of B2B orgs deployed agents
+- 90% using AI for development
+
+**Updated**: 2026-01-13  
+**Original Timeline**: 2025 Q2-Q3  
+**Status**: Active and rapidly evolving
