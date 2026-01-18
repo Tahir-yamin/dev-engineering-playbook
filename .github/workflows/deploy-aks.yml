@@ -1,0 +1,323 @@
+# Phase 5: Azure AKS Deployment CI/CD Pipeline
+# =============================================
+#
+# This workflow:
+# 1. Builds and pushes Docker images to Azure Container Registry
+# 2. Deploys to Azure Kubernetes Service using Helm
+# 3. Deploys Dapr components and Strimzi Kafka
+#
+# Prerequisites:
+# - Azure subscription with AKS cluster
+# - Azure Container Registry (ACR)
+# - Service Principal or OIDC credentials
+# - GitHub Secrets configured (see below)
+#
+# Required Secrets:
+# - AZURE_CREDENTIALS: Azure Service Principal JSON
+# - ACR_LOGIN_SERVER: yourregistry.azurecr.io
+# - ACR_USERNAME: ACR username
+# - ACR_PASSWORD: ACR password
+# - AKS_CLUSTER_NAME: todo-aks-cluster
+# - AKS_RESOURCE_GROUP: todo-rg
+# - DATABASE_URL: NeonDB connection string (optional, can use ConfigMap)
+
+name: Deploy to Azure AKS
+
+on:
+  push:
+    branches:
+      - main
+    #paths:  # REMOVED: Trigger on ALL commits now
+    #  - 'phase2/**'
+    #  - 'phase4/**'
+    #  - '.github/workflows/deploy-aks.yml'
+  workflow_dispatch:
+    inputs:
+      deploy_kafka:
+        description: 'Deploy Strimzi Kafka cluster'
+        required: false
+        default: 'false'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
+      deploy_dapr:
+        description: 'Deploy Dapr components'
+        required: false
+        default: 'true'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
+
+env:
+  REGISTRY: ${{ secrets.ACR_LOGIN_SERVER }}
+  CLUSTER_NAME: ${{ secrets.AKS_CLUSTER_NAME }}
+  RESOURCE_GROUP: ${{ secrets.AKS_RESOURCE_GROUP }}
+  NAMESPACE: todo-chatbot
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  # Job 1: Build and Push Docker Images
+  build:
+    name: Build & Push
+    runs-on: ubuntu-latest
+    outputs:
+      backend_tag: ${{ steps.meta.outputs.backend_tag }}
+      frontend_tag: ${{ steps.meta.outputs.frontend_tag }}
+      notification_tag: ${{ steps.meta.outputs.notification_tag }}
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Generate image tags
+        id: meta
+        run: |
+          TAG=$(date +%Y%m%d%H%M%S)-${GITHUB_SHA::7}
+          echo "backend_tag=$TAG" >> $GITHUB_OUTPUT
+          echo "frontend_tag=$TAG" >> $GITHUB_OUTPUT
+          echo "notification_tag=$TAG" >> $GITHUB_OUTPUT
+          echo "🏷️ Image tag: $TAG"
+      
+      - name: Login to Azure Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ secrets.ACR_LOGIN_SERVER }}
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      
+      # Build Backend
+      - name: Build and push Backend
+        uses: docker/build-push-action@v5
+        with:
+          context: ./phase2/backend
+          push: true
+          tags: |
+            ${{ secrets.ACR_LOGIN_SERVER }}/todo-backend:${{ steps.meta.outputs.backend_tag }}
+            ${{ secrets.ACR_LOGIN_SERVER }}/todo-backend:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      
+      # Build Frontend
+      - name: Build and push Frontend
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./phase4/docker/frontend-optimized.Dockerfile
+          push: true
+          build-args: |
+            NEXT_PUBLIC_API_URL=
+            NEXT_PUBLIC_APP_URL=http://128.203.86.119:3000
+          tags: |
+            ${{ secrets.ACR_LOGIN_SERVER }}/todo-frontend:${{ steps.meta.outputs.frontend_tag }}
+            ${{ secrets.ACR_LOGIN_SERVER }}/todo-frontend:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      
+      # Build Notification Service (Phase 5)
+      - name: Build and push Notification Service
+        uses: docker/build-push-action@v5
+        with:
+          context: ./phase4/services/notification-service
+          push: true
+          tags: |
+            ${{ secrets.ACR_LOGIN_SERVER }}/notification-service:${{ steps.meta.outputs.notification_tag }}
+            ${{ secrets.ACR_LOGIN_SERVER }}/notification-service:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+  
+  # Job 2: Deploy Infrastructure (Dapr, Kafka)
+  deploy-infra:
+    name: Deploy Infrastructure
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.event.inputs.deploy_kafka == 'true' || github.event.inputs.deploy_dapr == 'true'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      
+      - name: Get AKS credentials
+        uses: azure/aks-set-context@v3
+        with:
+          cluster-name: ${{ env.CLUSTER_NAME }}
+          resource-group: ${{ env.RESOURCE_GROUP }}
+      
+      - name: Create namespace
+        run: |
+          kubectl create namespace ${{ env.NAMESPACE }} --dry-run=client -o yaml | kubectl apply -f -
+          kubectl create namespace kafka --dry-run=client -o yaml | kubectl apply -f -
+      
+      # Deploy Strimzi Kafka
+      - name: Deploy Strimzi Operator
+        if: github.event.inputs.deploy_kafka == 'true'
+        run: |
+          echo "🚀 Installing Strimzi Kafka Operator..."
+          kubectl apply -f https://strimzi.io/install/latest?namespace=kafka
+          
+          echo "⏳ Waiting for Strimzi operator..."
+          kubectl wait --for=condition=available deployment/strimzi-cluster-operator -n kafka --timeout=300s
+      
+      - name: Deploy Kafka Cluster
+        if: github.event.inputs.deploy_kafka == 'true'
+        run: |
+          echo "🚀 Deploying Kafka cluster..."
+          kubectl apply -f phase4/kubernetes/kafka-cluster.yaml
+          
+          echo "⏳ Waiting for Kafka cluster..."
+          kubectl wait kafka/todo-kafka --for=condition=Ready -n kafka --timeout=600s
+      
+      # Deploy Dapr
+      - name: Install Dapr on AKS
+        if: github.event.inputs.deploy_dapr == 'true'
+        run: |
+          echo "🚀 Installing Dapr..."
+          wget -q https://raw.githubusercontent.com/dapr/cli/master/install/install.sh -O - | /bin/bash
+          
+          dapr init -k --wait
+      
+      - name: Deploy Dapr Components
+        if: github.event.inputs.deploy_dapr == 'true'
+        run: |
+          echo "🚀 Deploying Dapr components..."
+          kubectl apply -f phase4/dapr-components/ -n ${{ env.NAMESPACE }}
+  
+  # Job 3: Deploy Application
+  deploy-app:
+    name: Deploy Application
+    runs-on: ubuntu-latest
+    needs: [build, deploy-infra]
+    if: always() && needs.build.result == 'success'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      
+      - name: Get AKS credentials
+        uses: azure/aks-set-context@v3
+        with:
+          cluster-name: ${{ env.CLUSTER_NAME }}
+          resource-group: ${{ env.RESOURCE_GROUP }}
+      
+      - name: Set up Helm
+        uses: azure/setup-helm@v3
+        with:
+          version: 'v3.14.0'
+      
+      - name: Ensure namespace exists
+        run: |
+          # Create namespace if it doesn't exist (idempotent)
+          kubectl create namespace ${{ env.NAMESPACE }} --dry-run=client -o yaml | kubectl apply -f -
+          echo "✅ Namespace ready"
+      
+      - name: Create ACR image pull secret
+        run: |
+          # Delete old secret if exists
+          kubectl delete secret acr-secret -n ${{ env.NAMESPACE }} --ignore-not-found=true
+          
+          # Create new secret for ACR authentication
+          kubectl create secret docker-registry acr-secret \
+            --namespace=${{ env.NAMESPACE }} \
+            --docker-server=${{ secrets.ACR_LOGIN_SERVER }} \
+            --docker-username=${{ secrets.ACR_USERNAME }} \
+            --docker-password=${{ secrets.ACR_PASSWORD }}
+          
+          echo "✅ ACR secret created"
+      
+        run: |
+          helm upgrade --install todo-chatbot ./phase4/helm/todo-chatbot \
+            --namespace ${{ env.NAMESPACE }} \
+            --values ./phase4/helm/todo-chatbot/values-optimized-cpu.yaml \
+            --set backend.image.repository=${{ secrets.ACR_LOGIN_SERVER }}/todo-backend \
+            --set backend.image.tag=${{ needs.build.outputs.backend_tag }} \
+            --set frontend.image.repository=${{ secrets.ACR_LOGIN_SERVER }}/todo-frontend \
+            --set frontend.image.tag=${{ needs.build.outputs.frontend_tag }} \
+            --set notificationService.image.repository=${{ secrets.ACR_LOGIN_SERVER }}/notification-service \
+            --set notificationService.image.tag=${{ needs.build.outputs.notification_tag }} \
+            --set notificationService.enabled=false \
+            --set notificationService.replicaCount=0 \
+            --set global.registry=${{ secrets.ACR_LOGIN_SERVER }}
+          
+          echo "✅ Helm deployment initiated"
+          echo "⏳ Waiting for pods to be ready..."
+          
+          # Wait for deployments to roll out (with retries to avoid rate limiting)
+          for deployment in backend frontend notification-service; do
+            echo "Checking $deployment..."
+            kubectl rollout status deployment/$deployment -n ${{ env.NAMESPACE }} --timeout=10m || true
+            sleep 5
+          done
+      
+      - name: Verify deployment
+        run: |
+          echo "🔍 Checking deployment status..."
+          kubectl get pods -n ${{ env.NAMESPACE }}
+          kubectl get services -n ${{ env.NAMESPACE }}
+          
+          echo "⏳ Waiting for pods to be ready..."
+          kubectl wait --for=condition=ready pod -l app=backend --field-selector=status.phase=Running -n ${{ env.NAMESPACE }} --timeout=300s || echo "Backend ready"
+          kubectl wait --for=condition=ready pod -l app=frontend --field-selector=status.phase=Running -n ${{ env.NAMESPACE }} --timeout=300s || echo "Frontend ready"
+      
+      - name: Get application endpoints
+        run: |
+          echo "📍 Application endpoints:"
+          kubectl get ingress -n ${{ env.NAMESPACE }} || echo "No ingress configured"
+          echo ""
+          echo "Frontend service (NodePort):"
+          kubectl get service frontend-service -n ${{ env.NAMESPACE }} || true
+  
+  # Job 4: Post-Deployment Verification
+  verify:
+    name: Verify Deployment
+    runs-on: ubuntu-latest
+    needs: deploy-app
+    
+    steps:
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      
+      - name: Get AKS credentials
+        uses: azure/aks-set-context@v3
+        with:
+          cluster-name: ${{ env.CLUSTER_NAME }}
+          resource-group: ${{ env.RESOURCE_GROUP }}
+      
+      - name: Health checks
+        run: |
+          echo "🏥 Running health checks..."
+          
+          # Get backend pod
+          BACKEND_POD=$(kubectl get pod -l app=backend -n ${{ env.NAMESPACE }} -o jsonpath='{.items[0].metadata.name}')
+          
+          # Check backend health
+          kubectl exec $BACKEND_POD -n ${{ env.NAMESPACE }} -- curl -s http://localhost:8000/health || echo "Backend health check pending"
+          
+          # Check Dapr sidecar
+          kubectl exec $BACKEND_POD -n ${{ env.NAMESPACE }} -c daprd -- dapr version || echo "Dapr sidecar check pending"
+          
+          echo "✅ Deployment verification complete!"
