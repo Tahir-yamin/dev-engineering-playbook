@@ -1,296 +1,352 @@
-# Helm Configuration Skills
+# Helm Configuration and Optimization Skills
 
-**Purpose**: Optimize Helm charts for small clusters and resource-constrained environments  
-**Source**: Extracted from Phase 5 AKS Deployment  
+**Purpose**: Optimize Helm chart configurations for different environments  
+**Source**: Todo Hackathon Phase 5 - Single-node AKS optimization  
 **Date**: January 2026
 
 ---
 
-## Skill #1: Deployment Strategy Selection
+## Skill #1: Creating Environment-Specific Values Files
 
 ### When to Use
-- Small Kubernetes clusters with limited resources
-- Single-node environments
-- Need to minimize resource overhead during deployments
+- Need different resource allocations for dev/staging/prod
+- Want to optimize costs in development
+- Single-node vs multi-node clusters
 
 ### The Problem
-Default Rolling Update strategy requires extra capacity (surge pods) that small clusters can't provide.
+One-size-fits-all Helm values waste resources or cause scheduling failures.
 
 ### The Solution
 
-**Check current strategy:**
-```yaml
-# In deployment template
-spec:
-  strategy:
-    type: RollingUpdate  # Default
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 0
+**File structure**:
+```
+helm/todo-chatbot/
+├── values.yaml                    # Production (base)
+├── values-dev.yaml                # Development (minimal)
+├── values-staging.yaml            # Staging (balanced)
+└── values-optimized-cpu.yaml      # Single-node (optimized)
 ```
 
-**For small clusters, use Recreate:**
+**values.yaml** (production baseline):
 ```yaml
-spec:
-  replicas: 1
-  strategy:
-    type: Recreate  # Kills old pods first
+backend:
+  replicaCount: 2  # HA in production
+  resources:
+    requests:
+      cpu: "250m"
+      memory: "256Mi"
+    limits:
+      memory: "512Mi"
+      cpu: "500m"
 ```
 
-**Comparison:**
-
-| Strategy | Pros | Cons | Use When |
-|----------|------|------|----------|
-| RollingUpdate | Zero downtime | Needs 2x resources | Production, large clusters |
-| Recreate | Minimal resources | Brief downtime | Dev, small clusters, hackathons |
-
-### Key Insights
-- ✅ Recreate = 0 extra resource overhead
-- ✅ Perfect for demo/dev environments
-- ❌ Don't use RollingUpdate with limited nodes
-- 💡 Can switch strategies per environment
-
-**Related Skills**: kubernetes-resource-management-skills.md #1
-
----
-
-## Skill #2: ImagePullSecrets Configuration
-
-### When to Use
-- Pulling from private Docker registry (ACR, DockerHub, etc.)
-- Getting `ErrImageNeverPull` or `ImagePullBackOff` errors
-
-### The Problem
-Kubernetes can't authenticate with private registries without credentials.
-
-### The Solution
-
-**Step 1: Add to values.yaml**
+**values-optimized-cpu.yaml** (single-node):
 ```yaml
-imagePullSecrets:
-  - name: acr-secret  # Must match secret name in cluster
+backend:
+  replicaCount: 1
+  resources:
+    requests:
+      cpu: "100m"      # 60% reduction
+      memory: "192Mi"
+    limits:
+      memory: "384Mi"
+      # NO CPU LIMIT for bursting
 ```
 
-**Step 2: Reference in deployment template**
-```yaml
-spec:
-  imagePullSecrets:
-    {{- toYaml .Values.imagePullSecrets | nindent 8 }}
-  containers:
-    - name: {{ .Chart.Name }}
-      image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-      imagePullPolicy: {{ .Values.imagePullPolicy }}
-```
-
-**Step 3: Create secret in workflow**
+**Deploy with environment values**:
 ```bash
-kubectl create secret docker-registry acr-secret \
-  --namespace={{ .Values.namespace }} \
-  --docker-server=$ACR_LOGIN_SERVER \
-  --docker-username=$ACR_USERNAME \
-  --docker-password=$ACR_PASSWORD
+# Development
+helm upgrade app ./chart -n ns -f values-dev.yaml
+
+# Single-node cluster
+helm upgrade app ./chart -n ns -f values-optimized-cpu.yaml
+
+# Production (default)
+helm upgrade app ./chart -n ns
 ```
 
 ### Key Insights
-- ✅ Secret must be in same namespace as pods
-- ✅ Use `toYaml` helper for proper formatting
-- 💡 Create secret before Helm install
-- ❌ Never hardcode credentials in values files
-
-**Related Skills**: aks-troubleshooting-skills.md #2, kubernetes-secrets-skills.md #1
+- ✅ Base values.yaml should be production-ready
+- ✅ Use `-f` to overlay environment-specific changes
+- ✅ Multiple `-f` flags merge (last wins)
+- 💡 Document which file is used in each environment
 
 ---
 
-## Skill #3: Resource Request Optimization
+## Skill #2: Optimizing for Single-Node Clusters
 
 ### When to Use
+- Deploying to free-tier AKS (single node)
 - Pods stuck in Pending state
-- Small cluster with limited CPU/RAM
-- Need to fit multiple services on minimal nodes
+- CPU constraints preventing scheduling
 
 ### The Problem
-Default resource requests are often too high for small clusters.
+Default resource requests designed for multi-node clusters don't fit on single node.
 
 ### The Solution
 
-**Step 1: Define minimal defaults in values.yaml**
+**Calculate available resources**:
+```
+2-vCPU Node:
+Total:           2000m CPU
+AKS Reserved:    -100m
+Dapr Control:    -500m
+System Pods:     -200m
+Buffer (10%):    -200m
+-------------------
+Available:       ~1000m CPU
+```
+
+**Optimization strategy**:
+1. Start with Dapr recommendations (100m per sidecar)
+2. Remove CPU limits (allow bursting)
+3. Disable non-critical services
+4. Keep memory limits (prevent OOM)
+
+**Example optimized values**:
 ```yaml
+# Global defaults
 resources:
   requests:
-    memory: "64Mi"   # Start small
-    cpu: "50m"       # 0.05 CPU cores
+    cpu: "50m"
+    memory: "64Mi"
   limits:
-    memory: "256Mi"  # 4x requests
-    cpu: "200m"      # 4x requests
-```
+    memory: "128Mi"
 
-**Step 2: Use in deployment template**
-```yaml
-resources:
-  {{- toYaml .Values.resources | nindent 12 }}
-```
-
-**Step 3: Override per service if needed**
-```yaml
+# Backend (critical)
 backend:
   resources:
     requests:
-      memory: "128Mi"  # Backend needs more
       cpu: "100m"
-      
+      memory: "192Mi"
+    limits:
+      memory: "384Mi"
+
+# Frontend (critical)
 frontend:
   resources:
     requests:
-      memory: "64Mi"   # Frontend can be minimal
-      cpu: "50m"
+      cpu: "100m"
+      memory: "192Mi"
+    limits:
+      memory: "384Mi"
+
+# Database (critical)
+database:
+  resources:
+    requests:
+      cpu: "100m"
+      memory: "256Mi"
+    limits:
+      memory: "512Mi"
+
+# Notification (non-critical)
+notificationService:
+  enabled: false  # Disable to save CPU
 ```
 
-**Resource Sizing Guide:**
-
-| Service Type | Minimal | Recommended | Production |
-|--------------|---------|-------------|------------|
-| Static frontend | 64Mi/50m | 128Mi/100m | 256Mi/250m |
-| API backend | 128Mi/100m | 256Mi/250m | 512Mi/500m |
-| Database | 256Mi/250m | 512Mi/500m | 1Gi/1000m |
-
 ### Key Insights
-- ✅ Start minimal, scale up if needed
-- ✅ Limits should be 2-4x requests
-- 💡 Monitor actual usage with `kubectl top pods`
-- ❌ Don't over-provision on small clusters
-
-**Related Skills**: aks-troubleshooting-skills.md #3, kubernetes-resource-management-skills.md #2
+- ✅ Total requests: 300m (fits comfortably)
+- ✅ Freed 450m CPU vs defaults
+- ❌ Don't reduce below Dapr minimums (100m)
+- 💡 Monitor actual usage, can reduce further if stable
 
 ---
 
-## Skill #4: Health Probe Timing
+## Skill #3: Helm Upgrade vs Install
 
 ### When to Use
-- Pods failing readiness/liveness checks
-- Applications take time to start
-- Running on slow nodes
+- Understanding when to use `upgrade` vs `install`
+- Avoiding "release already exists" errors
 
 ### The Problem
-Default probe timing is too aggressive for slow-starting apps or resource-constrained environments.
+`helm install` fails if release exists, `helm upgrade` fails if release doesn't exist.
 
 ### The Solution
 
-**Adjust timing in values.yaml:**
-```yaml
-livenessProbe:
-  enabled: true
-  initialDelaySeconds: 120  # Wait 2 minutes after start
-  periodSeconds: 10         # Check every 10 seconds
-  timeoutSeconds: 5         # 5 second timeout
-  failureThreshold: 3       # 3 failures = restart
-
-readinessProbe:
-  enabled: true
-  initialDelaySeconds: 120  # Wait 2 minutes
-  periodSeconds: 5
-  timeoutSeconds: 3
-  failureThreshold: 3
+**Use `upgrade --install` (best practice)**:
+```bash
+# Works for both new and existing releases
+helm upgrade --install todo-chatbot ./chart -n namespace \
+  -f values-optimized-cpu.yaml
 ```
 
-**Timing Guidelines:**
+**Benefits**:
+- ✅ Creates release if doesn't exist
+- ✅ Upgrades if already exists
+- ✅ Idempotent (can run multiple times)
 
-| Environment | initialDelaySeconds | Rationale |
-|-------------|---------------------|-----------|
-| Local (fast SSD) | 30s | Quick startup |
-| Small cloud nodes | 60-120s | Slower provisioning |
-| Large apps (DB+cache) | 120-180s | Complex initialization |
-
-**In deployment template:**
-```yaml
-{{- if .Values.livenessProbe.enabled }}
-livenessProbe:
-  httpGet:
-    path: {{ .Values.livenessProbe.path }}
-    port: {{ .Values.containerPort }}
-  initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
-  periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
-{{- end }}
+**Alternative - Check first**:
+```bash
+# Check if release exists
+if helm list -n namespace | grep -q "todo-chatbot"; then
+  helm upgrade todo-chatbot ./chart -n namespace
+else
+  helm install todo-chatbot ./chart -n namespace
+fi
 ```
 
 ### Key Insights
-- ✅ Increase delays for slow environments
-- ✅ Liveness = restart if unhealthy (be conservative)
-- ✅ Readiness = route traffic when ready (can be aggressive)
-- 💡 Set `initialDelaySeconds` > app startup time
-- ❌ Don't set too low or pods restart unnecessarily
+- ✅ `upgrade --install` is idempotent
+- ✅ Use for CI/CD pipelines
+- 💡 Add `--atomic` for automatic rollback on failure
 
-**Related Skills**: None
+---
+
+## Skill #4: Viewing and Comparing Helm Values
+
+### When to Use
+- Debugging Helm deployments
+- Verifying which values are actually applied
+- Comparing environments
+
+### The Solution
+
+**See current deployed values**:
+```bash
+# Get user-supplied values
+helm get values todo-chatbot -n namespace
+
+# Get all computed values (includes defaults)
+helm get values todo-chatbot -n namespace --all
+
+# Get specific nested value
+helm get values todo-chatbot -n namespace -o json | jq '.backend.resources'
+```
+
+**Compare values files**:
+```powershell
+# Compare dev vs prod values
+$dev = Get-Content values-dev.yaml
+$prod = Get-Content values.yaml
+Compare-Object $dev $prod
+```
+
+**Test values before deploying**:
+```bash
+# Dry-run with template
+helm template todo-chatbot ./chart -f values-optimized-cpu.yaml > /tmp/rendered.yaml
+
+# Review rendered YAML
+cat /tmp/rendered.yaml | grep -A 5 "resources:"
+```
+
+### Key Insights
+- ✅ `helm get values` shows what's actually deployed
+- ✅ `helm template` previews without deploying
+- ✅ Use `--debug` to see merge logic
+- 💡 Compare rendered YAML between environments
+
+---
+
+## Skill #5: Helm Rollback Strategy
+
+### When to Use
+- New deployment breaks production
+- Need to quickly revert to previous version
+- Testing new configurations
+
+### The Solution
+
+**List revision history**:
+```bash
+# See all revisions
+helm history todo-chatbot -n namespace
+
+# Sample output:
+# REVISION  STATUS      CHART           DESCRIPTION
+# 1         superseded  todo-chatbot-1  Install complete
+# 2         superseded  todo-chatbot-1  Upgrade complete
+# 3         deployed    todo-chatbot-1  Upgrade complete
+```
+
+**Rollback to previous version**:
+```bash
+# Rollback to previous revision
+helm rollback todo-chatbot -n namespace
+
+# Rollback to specific revision
+helm rollback todo-chatbot 2 -n namespace
+```
+
+**Atomic upgrades** (auto-rollback on failure):
+```bash
+helm upgrade --install todo-chatbot ./chart -n namespace \
+  --atomic \
+  --timeout 5m
+```
+
+**What `--atomic` does**:
+1. Deploys new version
+2. Waits for pods to be Ready
+3. If timeout or failure → automatic rollback
+4. Returns error code (good for CI/CD)
+
+### Key Insights
+- ✅ `--atomic` prevents broken deployments
+- ✅ Helm stores last ~10 revisions by default
+- ✅ Rollback is instant (just updates K8s resources)
+- 💡 Use `--wait` to ensure rollout succeeds
 
 ---
 
 ## Quick Reference
 
-### Essential Values.yaml Patterns
-
-```yaml
-# Global settings
-namespace:  todo-chatbot
-imagePullPolicy: IfNotPresent
-imagePullSecrets:
-  - name: acr-secret
-
-# Resource defaults (override per service)
-resources:
-  requests:
-    memory: "64Mi"
-    cpu: "50m"
-  limits:
-    memory: "256Mi"
-    cpu: "200m"
-
-# Per-service pattern
-backend:
-  enabled: true
-  replicaCount: 1
-  
-  image:
-    repository: todo-backend
-    tag: v1
-    pullPolicy: IfNotPresent
-  
-  strategy:
-    type: Recreate
-  
-  resources:  # Override defaults if needed
-   requests:
-      memory: "128Mi"
-      cpu: "100m"
-  
-  livenessProbe:
-    enabled: true
-    path: /health
-    initialDelaySeconds: 120
-    periodSeconds: 10
-```
-
-### Helm Command Patterns
+### Common Helm Commands
 
 ```bash
-# Install with custom values
-helm install my-app ./chart \
-  --namespace my-namespace \
-  --set image.tag=v2.0 \
-  --set resources.requests.memory=128Mi
+# Install or upgrade
+helm upgrade --install <release> ./chart -n <ns>
 
-# Upgrade (use Recreate strategy)
-helm upgrade my-app ./chart \
-  --namespace my-namespace \
-  --set image.tag=v2.1
+# With custom values
+helm upgrade --install <release> ./chart -n <ns> \
+  -f values-custom.yaml \
+  --set image.tag=v1.2.3
 
-# Debug (see generated YAML)
-helm template my-app ./chart --debug
+# Atomic upgrade (auto-rollback)
+helm upgrade --install <release> ./chart -n <ns> \
+  --atomic --timeout 5m
 
-# Get values
-helm get values my-app -n my-namespace
+# Dry-run
+helm upgrade --install <release> ./chart -n <ns> --dry-run
+
+# Template (preview)
+helm template <release> ./chart -f values.yaml
+
+# Get deployed values
+helm get values <release> -n <ns>
+
+# Rollback
+helm rollback <release> -n <ns>
+
+# Uninstall
+helm uninstall <release> -n <ns>
 ```
+
+### Values File Merge Order
+
+```bash
+# Last value wins
+helm upgrade app ./chart \
+  -f values.yaml \           # Base
+  -f values-prod.yaml \      # Overrides base
+  --set image.tag=latest    # Overrides everything
+```
+
+### Resource Optimization Checklist
+
+For single-node optimization:
+- [ ] Calculate available CPU (Total - Reserved - System)
+- [ ] Set requests to Dapr minimums (100m)
+- [ ] Remove CPU limits
+- [ ] Keep memory limits
+- [ ] Disable non-critical services
+- [ ] Test with `helm template` first
+- [ ] Deploy with `--atomic`
+- [ ] Monitor with `kubectl top pods`
 
 ---
 
-**Total Skills**: 4  
-**Last Updated**: January 2026  
-**Optimized For**: Small clusters, resource-constrained environments, hackathons
+**Total Skills**: 5  
+**Last Updated**: January 18, 2026  
+**Production Tested**: ✅ Single-node AKS (Phase 5)
