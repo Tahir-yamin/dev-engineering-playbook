@@ -1,5 +1,6 @@
 # 📎 Quick File Reference - For Dragging Into Chat
 
+**Workspace**: 2,460 files | Last Updated: 2026-01-19  
 **How to use**: Copy any line below and paste it into the chat - it will automatically become a draggable file reference!
 
 ---
@@ -8,40 +9,89 @@
 
 ### Troubleshooting
 ```
-@[agents/workflows/authentication-issues.md]
-@[agents/workflows/build-failures.md]
-@[agents/workflows/cors-errors.md]
-@[agents/workflows/database-connection-issues.md]
-@[agents/workflows/docker-container-problems.md]
-@[agents/workflows/deployment-issues.md]
-@[agents/workflows/performance-problems.md]
-@[agents/workflows/kubernetes-deployment-testing.md]
+@[.agent/workflows/authentication-issues.md]
+@[.agent/workflows/build-failures.md]
+@[.agent/workflows/cors-errors.md]
+@[.agent/workflows/database-connection-issues.md]
+@[.agent/workflows/docker-container-problems.md]
+@[.agent/workflows/deployment-issues.md]
+@[.agent/workflows/performance-problems.md]
+@[.agent/workflows/kubernetes-deployment-testing.md]
 ```
 
 ### Development
 ```
-@[agents/workflows/adding-new-feature.md]
-@[agents/workflows/code-review-testing.md]
-@[agents/workflows/database-schema-changes.md]
-@[agents/workflows/environment-setup.md]
-@[agents/workflows/starting-new-project.md]
+@[.agent/workflows/adding-new-feature.md]
+@[.agent/workflows/code-review-testing.md]
+@[.agent/workflows/create-course.md]
+@[.agent/workflows/database-schema-changes.md]
+@[.agent/workflows/environment-setup.md]
+@[.agent/workflows/starting-new-project.md]
 ```
 
 ### Quality & Security
 ```
-@[agents/workflows/complete-application-qa.md]
-@[agents/workflows/qa-kanban.md]
-@[agents/workflows/security-audit.md]
-@[agents/workflows/security-remediation.md]
+@[.agent/workflows/complete-application-qa.md]
+@[.agent/workflows/qa-kanban.md]
+@[.agent/workflows/security-audit.md]
+@[.agent/workflows/security-remediation.md]
 ```
 
-### Meta Workflows
+### 💼 Job Application Automation
 ```
-@[agents/workflows/documentation-maintenance.md]
-@[agents/workflows/skill-upgrade.md]
-@[agents/workflows/github-best-practices.md]
-@[agents/workflows/workflow-orchestrator.md]
-@[workflows/monitor-claude-updates.md]
+@[.agent/workflows/apply-for-jobs.md]
+@[job-application/data/recent_jobs.md]
+@[job-application/data/applications_log.json]
+@[job-application/scripts/apply_job.py]
+@[job-application/scripts/gmail_oauth_sender.py]
+@[skills/cv-optimization-skills.md]
+```
+
+**Quick Commands:**
+```bash
+# Apply with email
+python job-application/scripts/apply_job.py --company "AECOM" --role "Project Controls Manager" --email "hr@aecom.com"
+
+# Apply with website form
+python job-application/scripts/apply_job.py --company "AECOM" --role "Project Controls Manager" --website
+
+# View stats
+python job-application/scripts/job_scraper.py --stats
+```
+
+### 🏢 Enterprise Agents (Meta-Orchestration)
+
+**Production-ready agents for enterprise automation:**
+
+- **📄 `.agent/agents/multi-agent-coordinator.md`** - Coordinate 100+ agents (234K msg/min, 99.9% delivery)
+- **📄 `.agent/agents/workflow-orchestrator.md`** - Business process automation (99.9% reliability, Saga patterns)
+- **📄 `.agent/agents/task-distributor.md`** - Intelligent work allocation and load balancing
+- **📄 `.agent/agents/performance-monitor.md`** - Real-time metrics and bottleneck detection
+- **📄 `.agent/agents/error-coordinator.md`** - Error handling and auto-recovery
+- **📄 `.agent/agents/context-manager.md`** - State management and memory persistence
+- **📄 `.agent/agents/agent-organizer.md`** - Team assembly and agent selection
+- **📄 `.agent/agents/knowledge-synthesizer.md`** - Pattern recognition and documentation
+
+**Full Guide**: `skills/enterprise-meta-orchestration-guide.md`
+
+**Usage**:
+```
+@multi-agent-coordinator "Coordinate 5 agents to build a full-stack app"
+@workflow-orchestrator "Create deployment pipeline with rollback"
+```
+
+**137 Total Agents Available**: `external-libs/awesome-claude-code-subagents/`
+
+---
+
+## Meta Workflows
+```
+@[.agent/workflows/documentation-maintenance.md]
+@[.agent/workflows/ai-ecosystem-monitoring.md]
+@[.agent/workflows/skill-upgrade.md]
+@[.agent/workflows/github-best-practices.md]
+@[.agent/workflows/workflow-orchestrator.md]
+@[.agent/workflows/continuous-deployment-monitoring.md]
 ```
 
 ### AI Update Reports (NEW!)
@@ -65,6 +115,23 @@
 @[skills/claude-monitoring-skills.md]
 ```
 
+### Project Management
+```
+@[skills/project-management/]
+@[.agent/workflows/create-project-schedule.md]
+@[.agent/workflows/p6-schedule-analysis.md]
+```
+
+### Windows Desktop Automation
+```
+@[skills/windows-desktop-automation-skills.md]
+```
+
+### Automation Scripts
+```
+@[scripts/project-management/]
+```
+
 ### Official Anthropic Skills
 ```
 @[skills/official_anthropic/docx/]
@@ -83,18 +150,24 @@
 @[skills/alirezarezvani/engineering/]
 ```
 
+### 🌌 Antigravity Ecosystem (NEW)
+```
+@[external-libs/antigravity-awesome-skills/skills/]   # 223+ skills
+@[external-libs/antigravity-kit/.agent/]              # 16 agents, 40 skills, 11 workflows
+@[external-libs/antigravity-workspace-template/]      # Gemini workspace template
+```
+
 ---
 
-## 🗂️ Master Indexes (Drag into chat)
+## 🗂️ Master Files (Drag into chat)
 
 ```
-@[skills/INDEX.md]
-@[agents/INDEX.md]
-@[workflows/INDEX.md]
 @[README.md]
 @[WORKSPACE_STATS.md]
-@[community/SOURCES.md]
-@[community/DUPLICATE_FILES_ANALYSIS.md]
+@[QUICKSTART_GUIDE.md]
+@[DRAG_INTO_CHAT.md]
+@[claude_update_log.md]
+@[claude_updates_knowledge_base.md]
 ```
 
 ---
@@ -146,38 +219,36 @@
 
 ### "I need help with authentication"
 ```
-@[agents/workflows/authentication-issues.md]
+@[.agent/workflows/authentication-issues.md]
 @[guides/authentication/]
 ```
 
 ### "I need help with Docker"
 ```
-@[agents/workflows/docker-container-problems.md]
-@[guides/docker/GORDON-AI-GUIDE.md]
+@[.agent/workflows/docker-container-problems.md]
 ```
 
 ### "I need help with deployment"
 ```
-@[agents/workflows/deployment-issues.md]
-@[agents/workflows/kubernetes-deployment-testing.md]
+@[.agent/workflows/deployment-issues.md]
+@[.agent/workflows/kubernetes-deployment-testing.md]
 ```
 
 ### "I want to learn something new"
 ```
-@[agents/workflows/skill-upgrade.md]
-@[skills/INDEX.md]
+@[.agent/workflows/skill-upgrade.md]
+@[QUICKSTART_GUIDE.md]
 ```
 
 ### "I want to review code"
 ```
-@[agents/workflows/code-review-testing.md]
-@[agents/wshobson/code-review-ai/]
+@[.agent/workflows/code-review-testing.md]
 ```
 
 ### "I need to document something"
 ```
-@[agents/workflows/documentation-maintenance.md]
-@[agents/wshobson/code-documentation/]
+@[.agent/workflows/documentation-maintenance.md]
+@[.agent/workflows/workflow-orchestrator.md]
 ```
 
 ---
@@ -190,7 +261,7 @@
 4. **It becomes a draggable file reference!**
 
 Example:
-- Copy: `@[agents/workflows/docker-container-problems.md]`
+- Copy: `@[.agent/workflows/docker-container-problems.md]`
 - Paste in chat
 - I can now access that file!
 
