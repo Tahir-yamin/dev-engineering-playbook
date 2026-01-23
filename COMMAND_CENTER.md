@@ -28,9 +28,9 @@ VIEW STATS? → docs/workspace/WORKSPACE_STATS.md
 
 | Persona | Use For |
 |---------|---------|
-| [workflow-orchestrator](../.agent/rules/workflow-orchestrator-persona.md) | Complex workflows, state machines, process automation |
-| [devops-engineer](../.agent/rules/devops-persona.md) | Infrastructure, deployments, CI/CD |
-| [rules.md](../.agent/rules/rules.md) | DevOps agent guidelines |
+| [workflow-orchestrator](.agent/rules/workflow-orchestrator-persona.md) | Complex workflows, state machines, process automation |
+| [devops-engineer](.agent/rules/devops-persona.md) | Infrastructure, deployments, CI/CD |
+| [rules.md](.agent/rules/rules.md) | DevOps agent guidelines |
 
 **Quick Use**:
 ```
@@ -45,13 +45,13 @@ Design a multi-step approval workflow
 **Count**: 37 production-tested skills
 
 **Top Skills**:
-- [multi-agent-patterns-google-adk.md](../skills/multi-agent-patterns-google-adk.md) - 8 multi-agent architectures
-- [constitutional-ai-anthropic.md](../skills/constitutional-ai-anthropic.md) - AI ethics framework
-- [mcp-debugging-skills.md](../skills/mcp-debugging-skills.md) - MCP troubleshooting
-- [kubernetes-resource-optimization-skills.md](../skills/kubernetes-resource-optimization-skills.md) - K8s optimization
-- [dapr-configuration-skills.md](../skills/dapr-configuration-skills.md) - Dapr setup
+- [multi-agent-patterns-google-adk.md](skills/multi-agent-patterns-google-adk.md) - 8 multi-agent architectures
+- [constitutional-ai-anthropic.md](skills/constitutional-ai-anthropic.md) - AI ethics framework
+- [mcp-debugging-skills.md](skills/mcp-debugging-skills.md) - MCP troubleshooting
+- [kubernetes-resource-optimization-skills.md](skills/kubernetes-resource-optimization-skills.md) - K8s optimization
+- [dapr-configuration-skills.md](skills/dapr-configuration-skills.md) - Dapr setup
 
-**Browse All**: [skills/](../skills/)
+**Browse All**: [skills/](skills/)
 
 ---
 
@@ -79,7 +79,7 @@ Design a multi-step approval workflow
 /orchestrate - Multi-agent coordination
 ```
 
-**Browse All**: [.agent/workflows/](../.agent/workflows/)
+**Browse All**: [.agent/workflows/](.agent/workflows/)
 
 ---
 
