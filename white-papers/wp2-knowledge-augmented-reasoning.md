@@ -30,7 +30,8 @@ This white paper synthesizes findings from six cutting-edge research papers to a
 - Expert knowledge codification produces 206% improvement in output quality for domain-specific agents
 - Structured knowledge enables generalization—short-hop training transfers to long-hop evaluation
 
-![Knowledge Augmentation Performance Gains](images/wp2-performance-comparison.png)
+![Knowledge Augmentation Performance Gains](wp2-images-clean/Smarter_AI_Not_Bigger_Models_page3_img1.png)
+*Figure 1: Performance comparison showing knowledge-augmented models outperforming pure LLMs on complex reasoning tasks*
 
 ---
 
