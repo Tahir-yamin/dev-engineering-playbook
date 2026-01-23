@@ -1,120 +1,141 @@
-# Skills Master Index
+# Skills Index
 
-**Total Skills**: 16+ Anthropic official + wshobson community  
-**Last Updated**: 2026-01-08
+## 📚 All Skills
 
----
+### AI & Automation Skills
+1. **[crewai-framework-skills.md](crewai-framework-skills.md)** - Complete CrewAI multi-agent framework
+   - Core concepts: Agents, Tasks, Crews, Flows
+   - 16 example crew patterns
+   - Job application integration
+   - Content creation & research patterns
 
-## Official Anthropic Skills
+2. **[gemini-ai-job-search.md](gemini-ai-job-search.md)** - Gemini API job search integration
+   - Zero-cost job URL extraction
+   - Gemini 3 Flash integration
+   - Structured JSON output
 
-Located in: `skills/official_anthropic/`
+3. **[gemini-agent-skills.md](gemini-agent-skills.md)** - Gemini AI agent capabilities
+   - Agent configuration
+   - Tool integration
+   - Advanced patterns
 
-### Document Creation
-- **[DOCX](official_anthropic/docx/)** - Create Word documents with formatting
-- **[PDF](official_anthropic/pdf/)** - Generate PDF files
-- **[PPTX](official_anthropic/pptx/)** - Build PowerPoint presentations
-- **[XLSX](official_anthropic/xlsx/)** - Create Excel spreadsheets
+4. **[openai-agentkit-skills.md](openai-agentkit-skills.md)** - OpenAI agent toolkit
+   - Agent development
+   - Tool creation
+   - Workflow orchestration
 
-### Design & Creative
-- **[Algorithmic Art](official_anthropic/algorithmic-art/)** - Generate creative visuals
-- **[Canvas Design](official_anthropic/canvas-design/)** - Design visual assets
-- **[Frontend Design](official_anthropic/frontend-design/)** - UI/UX design
-- **[Theme Factory](official_anthropic/theme-factory/)** - Create design themes
-- **[Slack GIF Creator](official_anthropic/slack-gif-creator/)** - Generate Slack GIFs
+### Job Application & Career
+5. **[cv-optimization-skills.md](cv-optimization-skills.md)** - CV and application optimization
+   - ATS optimization
+   - Recruiter insights
+   - Copy-paste form fields
 
-### Development
-- **[MCP Builder](official_anthropic/mcp-builder/)** - Build MCP servers
-- **[Webapp Testing](official_anthropic/webapp-testing/)** - Test web applications
-- **[Web Artifacts Builder](official_anthropic/web-artifacts-builder/)** - Create web components
+### Content Creation
+6. **[content-creation-research-guide.md](content-creation-research-guide.md)** - Content research strategies
+   - Research methodologies
+   - Content planning
+   - Audience analysis
 
-### Business & Communication
-- **[Doc Coauthoring](official_anthropic/doc-coauthoring/)** - Collaborative writing
-- **[Brand Guidelines](official_anthropic/brand-guidelines/)** - Apply branding
-- **[Internal Comms](official_anthropic/internal-comms/)** - Internal communications
-- **[Skill Creator](official_anthropic/skill-creator/)** - Create new skills
+7. **[course-design-skills.md](course-design-skills.md)** - Interactive course creation
+   - Curriculum design
+   - Assessment creation
+   - Engagement patterns
 
----
+8. **[white-paper-writing-skills.md](white-paper-writing-skills.md)** - Professional white paper creation ⭐ NEW
+   - Anti-AI detection techniques (perplexity/burstiness)
+   - Plagiarism-free writing (FRESH method)
+   - 4 white paper templates
+   - Quality metrics & verification
 
-## wshobson Multi-Agent System Plugins
+### Domain-Specific
+9. **[claude-healthcare-skills.md](claude-healthcare-skills.md)** - Healthcare AI applications
+   - Medical documentation
+   - Patient care workflows
+   - Compliance patterns
 
-Located in: `agents/wshobson/`
+### Enterprise & Orchestration
+10. **[enterprise-meta-orchestration-guide.md](enterprise-meta-orchestration-guide.md)** - Enterprise orchestration
+   - Multi-agent coordination
+   - Workflow management
+   - Scaling patterns
 
-### Development & Architecture
-- **[Backend Development](../agents/wshobson/backend-development/)** - API design, microservices
-- **[API Scaffolding](../agents/wshobson/api-scaffolding/)** - REST/GraphQL scaffolds
-- **[C4 Architecture](../agents/wshobson/c4-architecture/)** - Architecture diagrams
-- **[Code Documentation](../agents/wshobson/code-documentation/)** - Auto documentation
-- **[Code Refactoring](../agents/wshobson/code-refactoring/)** - Refactoring patterns
-- **[Codebase Cleanup](../agents/wshobson/codebase-cleanup/)** - Remove tech debt
+### Automation
+11. **[windows-desktop-automation-skills.md](windows-desktop-automation-skills.md)** - Desktop automation
+    - UI automation
+    - Workflow scripts
+    - Integration patterns
 
-### Cloud & Infrastructure
-- **[Cloud Infrastructure](../agents/wshobson/cloud-infrastructure/)** - Terraform, multi-cloud
-- **[CI/CD Automation](../agents/wshobson/cicd-automation/)** - GitHub Actions, pipelines
-- **[Application Performance](../agents/wshobson/application-performance/)** - Optimization
-
-### Security & Compliance
-- **[Backend API Security](../agents/wshobson/backend-api-security/)** - API hardening
-- **[Accessibility Compliance](../agents/wshobson/accessibility-compliance/)** - WCAG standards
-
-### Specialized Domains
-- **[Blockchain/Web3](../agents/wshobson/blockchain-web3/)** - DeFi, Smart contracts
-- **[ARM Cortex Microcontrollers](../agents/wshobson/arm-cortex-microcontrollers/)** - Embedded systems
-- **[Business Analytics](../agents/wshobson/business-analytics/)** - Data analysis
-
-### Orchestration & AI
-- **[Agent Orchestration](../agents/wshobson/agent-orchestration/)** - Multi-agent coordination
-- **[Code Review AI](../agents/wshobson/code-review-ai/)** - Automated reviews
-
----
-
-## Your Original Skills
-
-Located in: `skills/`
-
-- **[Claude Monitoring Skills](claude-monitoring-skills.md)** - Monitor Claude ecosystem
-- **[SKILL_PATH_0_CORE_STACK](SKILL_PATH_0_CORE_STACK.md)** - Next.js, FastAPI, PostgreSQL
-- **[SKILL_PATH_A_DEVOPS](SKILL_PATH_A_DEVOPS.md)** - GitOps, ArgoCD
-- **[SKILL_PATH_B_AI_ENGINEERING](SKILL_PATH_B_AI_ENGINEERING.md)** - RAG, LLM Ops
-- **[SKILL_PATH_C_ARCHITECTURE](SKILL_PATH_C_ARCHITECTURE.md)** - Event-Driven, Dapr
+### Project Management
+12. **[project-management/](project-management/)** - PM skills (4 files)
+    - Primavera P6 integration
+    - Schedule analysis
+    - Resource management
 
 ---
 
-## By Use Case
+## By Category
 
-### **Authentication & Security**
-- Backend API Security (wshobson)
-- Your existing auth workflows
+### 🤖 AI & Multi-Agent Systems
+- crewai-framework-skills.md
+- gemini-agent-skills.md
+- openai-agentkit-skills.md
+- enterprise-meta-orchestration-guide.md
 
-### **Testing**
-- Webapp Testing (Anthropic)
-- API Testing & Observability (wshobson)
-- Your existing test workflows
+### 💼 Job & Career
+- gemini-ai-job-search.md
+- cv-optimization-skills.md
 
-### **Documentation**
-- Doc Coauthoring (Anthropic)
-- Code Documentation (wshobson)
-- Your existing documentation workflows
+### ✍️ Content & Learning
+- content-creation-research-guide.md
+- course-design-skills.md
+- white-paper-writing-skills.md ⭐
 
-### **Cloud & DevOps**
-- Cloud Infrastructure (wshobson)
-- CI/CD Automation (wshobson)
-- Your SKILL_PATH_A_DEVOPS
+### 🏢 Domain-Specific
+- claude-healthcare-skills.md
+- project-management/
 
-### **AI & ML**
-- Agent Orchestration (wshobson)
-- MCP Builder (Anthropic)
-- Your SKILL_PATH_B_AI_ENGINEERING
+### 🔧 Automation & Tools
+- windows-desktop-automation-skills.md
 
 ---
 
-## Quick Search
+## Quick Reference
 
-**Need to create a document?** → Anthropic document skills (DOCX/PDF/PPTX/XLSX)  
-**Need to test a web app?** → Anthropic webapp-testing  
-**Need to build an API?** → wshobson API scaffolding + backend development  
-**Need to set up CI/CD?** → wshobson CI/CD automation  
-**Need architecture help?** → wshobson C4 architecture
+**Total Skills**: 15 skill files  
+**Categories**: 6 main categories  
+**New Additions** (2026-01-22):
+- **[ui-ux-pro-max/](ui-ux-pro-max/)** - Design system generator (100 industry rules) ⭐ NEW
+- **[skill-seekers/](skill-seekers/)** - Doc-to-skill converter (MCP integrated) ⭐ NEW
+- **[agent-commands/](agent-commands/)** - Session handoff/pickup commands (mitsuhiko) ⭐ NEW
+- White Paper Writing Skills (anti-AI detection, plagiarism-free)
+
+**Previous Additions** (2026-01-21):
+- CrewAI Framework Integration
+- Multi-agent orchestration patterns
+- Job application research automation
 
 ---
 
-**Total Resources**: 16 Anthropic skills + 17+ wshobson plugins + Your original 8 files
+## 🌐 Community Skills (NEW - 2026-01-22)
+
+### 13. **[ui-ux-pro-max/](ui-ux-pro-max/)** - UI/UX Design Intelligence ⭐
+   - Design system generator
+   - 100 industry-specific reasoning rules
+   - Pre-delivery checklist
+   - Source: [@nextlevelbuilder](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)
+
+### 14. **[skill-seekers/](skill-seekers/)** - Documentation to Skill Converter ⭐
+   - Scrape docs/GitHub/PDFs
+   - Convert to AI skills
+   - MCP integration for 5 agents
+   - Source: [@yusufkaraaslan](https://github.com/yusufkaraaslan/Skill_Seekers)
+
+### 15. **[agent-commands/](agent-commands/)** - Agent Session Commands ⭐
+   - /handoff - Session continuation
+   - /pickup - Resume from handoff
+   - /make-release - Version management
+   - Source: [@mitsuhiko](https://github.com/mitsuhiko/agent-stuff)
+
+---
+
+**Last Updated**: 2026-01-22

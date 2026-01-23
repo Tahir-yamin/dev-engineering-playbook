@@ -2,13 +2,52 @@
 description: Best practices for GitHub repository management, security, and environment handling
 ---
 
-# GitHub Best Practices Workflow
+# GitHub Best Practices & Repository Analysis Workflow Workflow
 
 ## When to Use
 - Setting up a new repository
 - Auditing an existing repository
 - Configuring security features
 - Managing secrets and environment variables
+
+---
+
+## ⚠️ CRITICAL BEST PRACTICE: Always Update README.md
+
+**Golden Rule**: ALWAYS update your README.md file when:
+- Adding new features or functionality
+- Making significant changes to the project
+- Updating dependencies or technology stack
+- Changing project structure or architecture
+- Adding or removing files from the repository
+- Completing major milestones or releases
+
+**Why This Matters**:
+- README is the first thing people see
+- Keeps documentation synchronized with code
+- Helps future you remember what changed
+- Essential for team collaboration
+- Required for professional repositories
+
+**What to Update in README**:
+- [ ] Project description (if scope changed)
+- [ ] Installation instructions (if dependencies changed)
+- [ ] Usage examples (if API changed)
+- [ ] Features list (when adding/removing features)
+- [ ] Technology stack (when updating tools)
+- [ ] Last Updated date (ALWAYS!)
+- [ ] File counts or statistics (if using in your README)
+- [ ] Links to new documentation
+
+**Quick README Update Checklist**:
+```markdown
+- [ ] Updated "Last Updated" date
+- [ ] Added new features to features list
+- [ ] Updated installation if needed
+- [ ] Updated usage examples if API changed
+- [ ] Verified all links still work
+- [ ] Updated badges if applicable
+```
 
 ---
 
@@ -141,280 +180,145 @@ For handling alerts (Code Scanning, Dependabot, Secrets), follow the **[Security
 
 ---
 
-## Step 10: Handling Large Files & Git Push Failures
-
-### When This Section Applies
-- `git push` fails with "Resolving deltas" error
-- "remote rejected" errors during push
-- Large binary files in repository (>10MB)
-- Repository has complex history/conflicts
-
-### Common Symptoms
-- Push fails at "Resolving deltas" phase
-- Error: "failed to push some refs"
-- Error: "remote rejected main -> main"
-- Large files causing timeout/memory issues
+**Related Skills**: env-skills.md #2, debug-skills.md
 
 ---
 
-### Step 10.1: Identify Large Files
+## Step 10: Comprehensive Repository Analysis & Bug-Fixing
 
-Before committing, check for large files:
+**Purpose**: Systematic identification, prioritization, fixing, and documentation of ALL verifiable bugs, security vulnerabilities, and critical issues.
 
-```powershell
-# turbo
-# Find files larger than 10MB
-Get-ChildItem -Recurse -File | Where-Object {$_.Length -gt 10MB} | 
-  Select-Object FullName, @{Name="Size(MB)";Expression={[math]::Round($_.Length/1MB,2)}} |
-  Sort-Object "Size(MB)" -Descending
+**When to Use**:
+- Before major releases
+- After inheriting a codebase
+- During security audits
+- When implementing quality improvements
 
-# Check what's being tracked by git
-git ls-files --cached | ForEach-Object { Get-Item $_ -ErrorAction SilentlyContinue } | 
-  Where-Object { $_.Length -gt 10MB }
-```
+**Reference**: See [comprehensive-bug-analysis.md](./comprehensive-bug-analysis.md) for full detailed workflow
 
-**GitHub Limits**:
-- File size limit: 100MB (hard limit)
-- Recommended: Keep files under 10MB
-- Use Git LFS for legitimate large files (datasets, models)
+### Quick Overview - 7 Phase Process:
 
----
+#### Phase 1: Initial Repository Assessment
+- Map complete project structure
+- Identify technology stack and dependencies
+- Document entry points and critical paths
+- Analyze build configurations
+- Review existing documentation
 
-### Step 10.2: Enhance .gitignore for Large Files
+#### Phase 2: Systematic Bug Discovery
+**Categories**:
+- Critical: Security vulnerabilities, data corruption, crashes
+- Functional: Logic errors, state management issues
+- Integration: Database errors,API issues, network problems
+- Edge Cases: Null handling, boundary conditions
+- Code Quality: Dead code, deprecated APIs, bottlenecks
 
-Add these patterns to exclude common large files:
+**Methods**:
+- Static code analysis
+- Dependency vulnerability scanning
+- Code path analysis
+- Configuration validation
 
-```bash
-# turbo
-# Append to .gitignore
-cat >> .gitignore << 'EOF'
+#### Phase 3: Bug Documentation & Prioritization
+- Document each bug with BUG-ID, severity, category
+- Root cause analysis
+- Impact assessment (user/system/business)
+- Prioritization matrix (P0-P3)
 
-# Large binary files
-*.zip
-*.exe
-*.dll
-*.so
-*.dylib
-*.tar.gz
-*.rar
-*.7z
+#### Phase 4: Fix Implementation
+- Create isolated branches for each fix
+- Write failing test first (TDD)
+- Implement minimal fixes
+- Run regression tests
 
-# Data and temp files
-data/
-logs/
-*.log
-*.tmp
-*_extracted/
-*_backup/
+#### Phase 5: Testing & Validation
+- Unit, integration, and regression tests
+- Static analysis validation
+- Performance benchmarks
 
-# Build outputs
-*.min.js
-*.map
-build/
-dist/
-EOF
-```
+#### Phase 6: Documentation & Reporting
+- Update inline comments and API docs
+- Create executive summary
+- Generate reports (Markdown, JSON/YAML, CSV)
 
-**Verify exclusions**:
-```powershell
-# Check if specific file is ignored
-git check-ignore -v large_file.zip
-# Should output: .gitignore:X:*.zip
+#### Phase 7: Continuous Improvement
+- Identify common bug patterns
+- Recommend preventive measures
+- Propose process enhancements
 
-# See all ignored files
-git status --ignored
-```
+### Quick Commands:
 
----
+\\\ash
+# Static Analysis
+npm install -g eslint
+eslint . --ext .js,.ts
 
-### Step 10.3: Remove Large Files from Git Tracking
+# Security Scanning
+npm audit
+npm audit fix
 
-If you've already committed large files:
+# Dependency Vulnerabilities
+safety check  # Python
+./gradlew dependencyCheckAnalyze  # Java
 
-```powershell
-# Remove single file (keeps on disk)
-git rm --cached filename.zip
+# Coverage Analysis
+npm test -- --coverage
+pytest --cov=. --cov-report=html
+\\\
 
-# Remove directory (keeps on disk)
-git rm --cached -r data/ -f
+### Bug Report Template:
 
-# Remove multiple files matching pattern
-git rm --cached *.exe
+\\\markdown
+## BUG-[ID]: [Short Description]
 
-# Verify removal
-git status
-# Files should appear as untracked (red), not deleted
-```
+**Severity**: Critical | High | Medium | Low
+**Category**: Security | Functional | Integration | Edge Case
+**Priority**: P0 | P1 | P2 | P3
 
-**Then update .gitignore and commit**:
-```powershell
-git add .gitignore
-git commit -m "chore: Remove large files from git tracking and update .gitignore"
-```
+### Location
+- File(s): path/to/file.js:123
+- Component: Module Name
+- Function: functionName()
 
----
+### Current vs Expected Behavior
+[What happens vs what should happen]
 
-### Step 10.4: Sync with Remote (Fix Push Conflicts)
+### Root Cause
+[Technical explanation]
 
-If push fails due to diverged history:
+### Impact
+- User: [H/M/L] - [Details]
+- System: [H/M/L] - [Details]
+- Business: [H/M/L] - [Details]
 
-```powershell
-# Fetch latest remote state
-git fetch origin
+### Fix Approach
+[Solution strategy]
+\\\
 
-# Option A: Merge (safer, keeps full history)
-git pull origin main --no-rebase
+### Constraints:
 
-# Option B: Rebase (cleaner linear history)
-git pull origin main --rebase
+-  Never compromise security for simplicity
+-  Maintain audit trail of all changes
+-  Follow semantic versioning for API changes
+-  Document all assumptions
+-  Respect rate limits and quotas
 
-# Option C: Hard reset (⚠️ loses local changes)
-git reset --hard origin/main
-```
+### Success Criteria:
 
-**Choose based on situation**:
-- ✅ Use **merge** if multiple people working on repo
-- ✅ Use **rebase** for personal repos/clean history
-- ⚠️ Use **hard reset** only if you're sure local changes don't matter
-
----
-
-### Step 10.5: Alternative - Dedicated Folder Strategy
-
-If standard push still fails due to complex conflicts:
-
-```powershell
-# Create isolated folder for new code
-New-Item -ItemType Directory -Path "phase5" -Force
-
-# Copy only essential files (NO binaries)
-Copy-Item "source/*.py" "phase5/" -Recurse -Exclude *.zip,*.exe
-
-# Add and push ONLY the new folder
-git add phase5/
-git commit -m "feat(Phase 5): Add new implementation in isolated folder"
-git push origin main
-```
-
-**Advantages**:
-- ✅ Avoids conflicts with existing structure
-- ✅ Clean separation of concerns
-- ✅ Smaller, focused commits
-- ✅ Easier code review
-- ✅ Can be deleted/archived independently
+-  All P0 (critical) bugs fixed
+-  90%+ P1 (high priority) bugs fixed
+-  Test coverage 80%
+-  Zero high/critical security vulnerabilities
+-  CI/CD pipeline passing
+-  Preventive measures implemented
 
 ---
 
-### Step 10.6: Verify Push Success
-
-```powershell
-# Check local status
-git status
-
-# Verify remote has commit
-git log origin/main --oneline -5
-
-# Compare local and remote
-git log origin/main..HEAD
-# Should show nothing (all pushed)
-```
-
-**Visit GitHub**: Check repository to confirm files are there
+**For Full Details**: See [@comprehensive-bug-analysis.md](./comprehensive-bug-analysis.md)
 
 ---
 
-### Step 10.7: Git LFS for Legitimate Large Files
+**Related Skills**: security-audit.md, code-review-testing.md, security-remediation.md  
+**AI Resources**: `claude_update_report_2026-01-13.md` (AI-powered code review \u0026 repository management)  
+**Last Updated**: 2026-01-13
 
-If you MUST track large files (models, datasets):
-
-```bash
-# Install Git LFS
-git lfs install
-
-# Track specific file types
-git lfs track "*.psd"
-git lfs track "*.zip"
-git lfs track "data/*.csv"
-
-# Add .gitattributes (created by git lfs track)
-git add .gitattributes
-
-# Now add large files
-git add large_model.psd
-git commit -m "Add large files via Git LFS"
-git push origin main
-```
-
-**Git LFS Benefits**:
-- Replaces large files with text pointers in Git
-- Actual files stored on LFS server
-- Much faster cloning and operations
-
----
-
-### Common Push Failure Troubleshooting
-
-#### Error: "Resolving deltas" hangs
-**Cause**: Large binaries timing out  
-**Solution**: Remove binaries, use .gitignore, try dedicated folder approach
-
-#### Error: "remote rejected"  
-**Cause**: Local/remote history diverged  
-**Solution**: `git fetch origin`, then `git pull origin main`
-
-#### Error: "file size exceeds 100MB"
-**Cause**: GitHub hard limit hit  
-**Solution**: Remove file, use Git LFS, or host file elsewhere
-
-#### Push succeeds but takes 10+ minutes
-**Cause**: Large repository or slow connection  
-**Solution**: Use .gitignore more aggressively, consider monorepo alternatives
-
----
-
-### Emergency: Accidentally Pushed Large File
-
-```powershell
-# 1. Remove from latest commit (before anyone pulls)
-git reset HEAD~1
-git rm --cached large_file.zip
-git commit -m "chore: Remove large file"
-git push --force-with-lease origin main
-
-# 2. Already pushed and others pulled? Use BFG Repo-Cleaner
-# Download from: https://rtyley.github.io/bfg-repo-cleaner/
-java -jar bfg.jar --delete-files large_file.zip
-git reflog expire --expire=now --all && git gc --prune=now --aggressive
-git push --force --all
-
-# ⚠️ WARNING: Force push notifies all collaborators to re-clone
-```
-
----
-
-### Best Practices Summary
-
-**Prevention**:
-1. ✅ Set up comprehensive .gitignore BEFORE first commit
-2. ✅ Run `git check-ignore` to verify exclusions work
-3. ✅ Check file sizes before `git add` (use workflow Step 10.1)
-4. ✅ Use Git LFS for legitimate large files
-5. ✅ Commit small, focused changes frequently
-
-**If Push Fails**:
-1. ✅ Don't panic - nothing is broken locally
-2. ✅ Identify large files (Step 10.1)
-3. ✅ Remove from git cache (Step 10.3)
-4. ✅ Update .gitignore (Step 10.2)
-5. ✅ Sync with remote (Step 10.4)
-6. ✅ Try dedicated folder if still failing (Step 10.5)
-
-**Web Search Template**:
-- "git push failed Resolving deltas error solution 2026"
-- "github large file error fix"
-- "git remove file from history"
-
----
-
-**Related Workflows**: `/security-audit` - Check for secrets before push  
-**Related Skills**: `.claude/git-large-files-skills.md`, `.claude/github-best-practices-skills.md`

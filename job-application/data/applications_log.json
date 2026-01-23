@@ -1,0 +1,137 @@
+{
+    "applied_jobs": [
+        {
+            "company": "Jacobs Engineering",
+            "role": "Senior Project Controls Engineer",
+            "date": "2026-01-21",
+            "method": "gmail_draft",
+            "status": "draft_created"
+        },
+        {
+            "company": "AECOM",
+            "role": "Project Controls Manager",
+            "date": "2026-01-21",
+            "method": "website",
+            "status": "package_ready"
+        },
+        {
+            "company": "AECOM Dubai",
+            "role": "Senior Project Controls Specialist",
+            "date": "2026-01-21",
+            "method": "website",
+            "status": "package_ready"
+        },
+        {
+            "company": "Bechtel",
+            "role": "Project Controls Manager",
+            "date": "2026-01-21",
+            "method": "website",
+            "status": "package_ready"
+        },
+        {
+            "company": "Petrofac",
+            "role": "Planning Manager",
+            "date": "2026-01-21",
+            "method": "website",
+            "status": "package_ready"
+        },
+        {
+            "company": "Petrofac Sharjah",
+            "role": "Manager Project Controls",
+            "date": "2026-01-21",
+            "method": "website",
+            "status": "package_ready"
+        },
+        {
+            "company": "Emkan Engineering",
+            "role": "Senior Planning Manager",
+            "date": "2026-01-21",
+            "method": "website",
+            "status": "package_ready"
+        },
+        {
+            "company": "China State Construction",
+            "role": "Senior Planning Manager",
+            "date": "2026-01-21",
+            "method": "website",
+            "status": "package_ready"
+        },
+        {
+            "company": "Medgulf Construction",
+            "role": "Planning Manager",
+            "date": "2026-01-21",
+            "method": "website",
+            "status": "package_ready"
+        },
+        {
+            "company": "CG Resourcing",
+            "role": "Planning Manager",
+            "date": "2026-01-21",
+            "method": "website",
+            "status": "package_ready"
+        },
+        {
+            "company": "Wood ADNOC PMC",
+            "role": "Site Project Control Manager",
+            "date": "2026-01-21",
+            "method": "website",
+            "status": "package_ready"
+        },
+        {
+            "company": "Penspen Abu Dhabi",
+            "role": "Senior Project Control Manager",
+            "date": "2026-01-21",
+            "method": "website",
+            "status": "package_ready"
+        },
+        {
+            "company": "SKB Consultancy",
+            "role": "Planning Manager Primavera",
+            "date": "2026-01-21",
+            "method": "website",
+            "status": "package_ready"
+        },
+        {
+            "company": "Data Centre Dubai",
+            "role": "Project Controls Manager",
+            "date": "2026-01-21",
+            "method": "website",
+            "status": "package_ready"
+        },
+        {
+            "company": "ADNOC Abu Dhabi",
+            "role": "Senior Engineer Projects Control",
+            "date": "2026-01-21",
+            "method": "website",
+            "status": "package_ready"
+        },
+        {
+            "company": "Parsons Abu Dhabi",
+            "role": "Program Document Database Control Lead",
+            "date": "2026-01-21",
+            "method": "website",
+            "status": "package_ready"
+        },
+        {
+            "company": "Hill International Abu Dhabi",
+            "role": "Project Controls Manager",
+            "date": "2026-01-21",
+            "method": "website",
+            "status": "package_ready"
+        },
+        {
+            "company": "Technip Energies Abu Dhabi",
+            "role": "Project Control Manager PMC Gas",
+            "date": "2026-01-21",
+            "method": "website",
+            "status": "package_ready"
+        }
+    ],
+    "stats": {
+        "total_applications": 18,
+        "drafts_created": 1,
+        "packages_ready": 17,
+        "submitted": 0,
+        "last_updated": "2026-01-21T13:47:00"
+    }
+}

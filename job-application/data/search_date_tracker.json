@@ -1,0 +1,21 @@
+{
+    "last_search_date": "2026-01-21",
+    "last_search_time": "16:11:00",
+    "next_search_from": "2026-01-22",
+    "search_history": [
+        {
+            "date": "2026-01-21",
+            "jobs_found": 42,
+            "sources": [
+                "job_boards",
+                "linkedin_posts"
+            ],
+            "applications_generated": 42
+        }
+    ],
+    "settings": {
+        "auto_search_gap_days_only": true,
+        "include_linkedin_posts": true,
+        "max_jobs_per_search": 50
+    }
+}

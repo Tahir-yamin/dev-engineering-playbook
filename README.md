@@ -2,6 +2,20 @@
 
 **Complete knowledge archive from Todo Hackathon project**
 
+**Last Updated**: 2026-01-19  
+**Total Files**: 2,460  
+**Growth**: Massive expansion from original project
+
+---
+
+## 📊 Current Stats
+
+- **Total Files**: 2,460
+- **Workflows**: 51 executable workflows
+- **Agents**: 933 agent files and subagents
+- **Skills**: Growing library
+- **External Libraries**: Claude Cookbooks, Skills Library, Dapr Quickstarts
+
 ---
 
 ## 📁 Complete Structure
@@ -89,8 +103,9 @@ my-dev-knowledge-base/
 - **Demo**: `demo-scripts/`
 
 ### By Type
-- **Skills**: `.claude/` (30 production-tested skills)
-- **Workflows**: `.agent/workflows/` (25+ executable)
+- **Skills**: `.claude/` (production-tested skills)
+- **Workflows**: `.agent/workflows/` (51 executable workflows)
+- **Agents**: `agents/` (933 agent files)
 - **CI/CD**: `.github/workflows/`
 - **Documentation**: `docs/`
 

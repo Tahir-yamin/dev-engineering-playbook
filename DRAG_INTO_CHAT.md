@@ -47,6 +47,11 @@
 @[skills/cv-optimization-skills.md]
 ```
 
+**⚠️ CRITICAL: Always verify URLs before applying**
+- Use `@[job-application/data/job_apply_links.md]` for stable career portal links
+- Test the link first (avoid 404 errors)
+- Include `--url` parameter with verified link when generating applications
+
 **Quick Commands:**
 ```bash
 # Apply with email

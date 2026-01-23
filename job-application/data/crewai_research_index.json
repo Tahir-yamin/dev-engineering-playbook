@@ -1,0 +1,52 @@
+[
+  {
+    "job": {
+      "title": "Senior Project Controls Manager",
+      "company": "Parsons Corporation",
+      "location": "Tabuk, Saudi Arabia",
+      "url": "https://parsons.wd5.myworkdayjobs.com/en-US/ParsonsCareers/job/Senior-Project-Controls-Manager_R154884"
+    },
+    "status": "failed",
+    "error": "404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}"
+  },
+  {
+    "job": {
+      "title": "Project Controls Manager",
+      "company": "AtkinsR\u00e9alis",
+      "location": "Riyadh, Saudi Arabia",
+      "url": "https://careers.atkinsrealis.com/job/project-controls-manager-riyadh-in-riyadh-jid-72534"
+    },
+    "status": "failed",
+    "error": "404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}"
+  },
+  {
+    "job": {
+      "title": "Planning Manager",
+      "company": "Hill International",
+      "location": "Dubai, UAE",
+      "url": "https://hillintl.taleo.net/careersection/2/jobdetail.ftl?job=24001099"
+    },
+    "status": "failed",
+    "error": "404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}"
+  },
+  {
+    "job": {
+      "title": "Project Controls Manager",
+      "company": "Mace",
+      "location": "Riyadh, Saudi Arabia",
+      "url": "https://mace.wd3.myworkdayjobs.com/en-US/Mace_Careers/job/Project-Controls-Manager_R12932"
+    },
+    "status": "failed",
+    "error": "404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}"
+  },
+  {
+    "job": {
+      "title": "Planning Manager",
+      "company": "AECOM",
+      "location": "Abu Dhabi, UAE",
+      "url": "https://aecom.jobs/abu-dhabi-are/planning-manager/09E8687D70A3437497676E4B49580F65/job/"
+    },
+    "status": "failed",
+    "error": "404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}"
+  }
+]

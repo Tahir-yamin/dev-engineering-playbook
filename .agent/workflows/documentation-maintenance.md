@@ -4,24 +4,225 @@ description: Meta-workflow for updating documentation - workflows, skills, desig
 
 # Documentation Maintenance Workflow
 
-**Purpose**: Keep the documentation system up-to-date  
+**Purpose**: Keep the documentation system up-to-date with automatic scanning and duplicate detection  
 **When to Use**: After solving new problems, adding features, or learning new patterns  
-**Frequency**: After each major task or weekly
+**Frequency**: After each major task or weekly  
+**Last Major Update**: 2026-01-13 (AI ecosystem updates integrated)  
+**New**: Automatically scans workspace for updates, merges duplicates, tracks AI trends
 
 ---
 
 ## 🎯 Overview
 
 This workflow helps you maintain:
-- `.agent/workflows/` - Step-by-step workflows
-- `.claude/` - Skills library
-- `.specify/` - Design system
-- `.spec-kit/` - Requirements tracking
-- `.history/prompts/` - Successful prompts
+- `agents/workflows/` - Step-by-step workflows
+- `skills/` - Skills library  
+- `guides/` - Design and architecture docs
+- `community/` - Community resource tracking
+- `WORKSPACE_STATS.md` - File counts and statistics
+
+**What's Automated**:
+- ✅ Workspace scanning for file changes
+- ✅ Duplicate file detection
+- ✅ Document update recommendations
+- ✅ Stats recalculation
+- ✅ AI ecosystem monitoring (weekly)
+- ✅ Latest trend integration
 
 ---
 
-## Step 1: Identify What Needs Updating
+## Step 0: Automatic Workspace Scan (NEW)
+
+**Run this FIRST every time you invoke this workflow**
+
+### Scan Workspace for Changes
+
+```bash
+# Count total files
+$totalFiles = (Get-ChildItem "d:\Hackathon phase 1 TODO App\todo_hackathon_phase1\my-dev-knowledge-base" -Recurse -File | Measure-Object).Count
+
+# Count by category
+$skillsCount = (Get-ChildItem "d:\Hackathon phase 1 TODO App\todo_hackathon_phase1\my-dev-knowledge-base\skills" -Recurse -File | Measure-Object).Count
+$agentsCount = (Get-ChildItem "d:\Hackathon phase 1 TODO App\todo_hackathon_phase1\my-dev-knowledge-base\agents" -Recurse -File | Measure-Object).Count
+$workflowsCount = (Get-ChildItem "d:\Hackathon phase 1 TODO App\todo_hackathon_phase1\my-dev-knowledge-base\workflows" -Recurse -File | Measure-Object).Count
+$guidesCount = (Get-ChildItem "d:\Hackathon phase 1 TODO App\todo_hackathon_phase1\my-dev-knowledge-base\guides" -Recurse -File | Measure-Object).Count
+
+Write-Host "Total: $totalFiles | Skills: $skillsCount | Agents: $agentsCount | Workflows: $workflowsCount | Guides: $guidesCount"
+```
+
+**Action**: Compare counts with `README.md` and `WORKSPACE_STATS.md`. If different → **Update needed**.
+
+---
+
+## Step 1: Detect and Merge Duplicate Files (NEW)
+
+**Purpose**: Find similar files and merge them to avoid redundancy
+
+### A. Scan for Duplicate/Similar Files
+
+**Common duplicate patterns to check**:
+
+```bash
+# Find files with similar names
+Get-ChildItem "d:\Hackathon phase 1 TODO App\todo_hackathon_phase1\my-dev-knowledge-base" -Recurse -File -Filter "*.md" | 
+  Group-Object Name | 
+  Where-Object { $_.Count -gt 1 } |
+  Select-Object Name, Count, @{Name="Locations";Expression={$_.Group.DirectoryName -join ", "}}
+```
+
+**Manual checks**:
+- [ ] Multiple INDEX.md or README.md files with same content?
+- [ ] Skill files covering same topic in different locations?
+- [ ] Duplicate workflow files?
+- [ ] Similar agent configurations?
+
+### B. Merge Duplicate Files
+
+**If duplicates found, use this process**:
+
+1. **Identify which to keep**:
+   - Keep the most complete version
+   - Keep the one in the correct directory structure
+   - Prefer newer files with more detail
+
+2. **Merge content**:
+   ```markdown
+   # Combined [Topic] 
+   
+   [Content from File 1]
+   
+   ---
+   
+   ## Additional from [File 2 source]
+   
+   [Unique content from File 2]
+   
+   ---
+   
+   **Sources merged**: 
+   - [File 1 location]
+   - [File 2 location]
+   ```
+
+3. **Update cross-references**:
+   - Search workspace for links to old file
+   - Update all references to point to merged file
+   
+4. **Delete duplicate**:
+   ```bash
+   Remove-Item "path/to/duplicate/file.md"
+   ```
+
+5. **Document in CHANGELOG**:
+   Update `community/CHANGELOG.md`:
+   ```markdown
+   ### [Date]: Merged Duplicates
+   - Merged [file1] and [file2] into [final-file]
+   - Reason: [why they were duplicates]
+   ```
+
+---
+
+## Step 2: Update All Documentation (NEW)
+
+**Systematically update all main documentation files**
+
+### ⭐ ALWAYS Update These Files First:
+
+#### 1. **README.md** (MOST IMPORTANT - Update EVERY time!)
+
+**Required Updates**:
+- [ ] **File counts** - Update total files and categories (from Step 0 scan)
+- [ ] **Growth percentage** - Recalculate growth from original 84 files
+- [ ] **Last Updated date** - Change to current date
+- [ ] **Tier counts** - Verify Tier 1, 2, 3 file counts are accurate
+- [ ] **Credits section** - Ensure all contributors are listed
+- [ ] **Latest Updates section** - Reference newest AI update report
+- [ ] **Your maintainer info** - Keep your GitHub link current
+
+**Template to follow**:
+```markdown
+## 📊 Stats
+
+- **Total Files**: [CURRENT_COUNT] (was 84)
+- **Skills**: [SKILLS_COUNT]+ (was 8)
+- **Agents**: [AGENTS_COUNT]+ (was 37)
+- **Workflows**: [WORKFLOWS_COUNT]+ (was 24)
+- **Guides**: [GUIDES_COUNT]+ (was 15)
+
+**Growth**: **[GROWTH_%] expansion** - Almost 20x larger!
+
+### Community Sources:
+**Tier 1 - Official & Multi-Agent** ([TIER1_COUNT] files):
+[List sources...]
+
+**Tier 2 - Business & Production** ([TIER2_COUNT] files):
+[List sources...]
+
+**Tier 3 - Advanced Orchestration** ([TIER3_COUNT] files):
+[List sources...]
+
+---
+
+## 🙏 Credits & Acknowledgments
+
+[Full credits section - keep updated]
+
+---
+
+**Last Updated**: [YYYY-MM-DD] (**ALL 3 TIERS COMPLETE!**)
+**Maintainer**: Tahir Yamin ([@tahir-yamin](https://github.com/tahir-yamin))
+```
+
+---
+
+#### 2. `WORKSPACE_STATS.md`
+- [ ] Update total file count (from Step 0)
+- [ ] Update stats by category
+- [ ] Update growth percentage
+- [ ] Update "Last Updated" date
+- [ ] Add any new sections if needed
+
+#### 2. `WORKSPACE_STATS.md`
+- [ ] Update file counts by tier
+- [ ] Update category breakdowns
+- [ ] Recalculate growth percentages
+- [ ] Update timestamp
+
+#### 3. `skills/INDEX.md`
+- [ ] Check for new skills added to workspace
+- [ ] Add entries for new skill files
+- [ ] Update categorization if needed
+- [ ] Verify all links work
+
+#### 4. `agents/INDEX.md` (if exists, create if not)
+- [ ] List all agent categories
+- [ ] Add new agents from recent additions
+- [ ] Organize by use case
+- [ ] Add quick search section
+
+#### 5. `workflows/INDEX.md` (if exists, create if not)
+- [ ] List all workflows
+- [ ] Organize by problem type
+- [ ] Add your original workflows + community ones
+- [ ] Add cross-references
+
+#### 6. `community/SOURCES.md`
+- [ ] Ensure all sources are credited
+- [ ] Add license information for new additions
+- [ ] Update changelog
+- [ ] Add usage guidelines
+
+#### 7. AI Update Tracking Files
+- [ ] `claude_update_log.md` - Add new monitoring entries
+- [ ] `claude_updates_knowledge_base.md` - Integrate latest findings
+- [ ] `claude_update_report_*.md` - Create new reports as needed
+- [ ] `AGENTS.md` - Update with latest agent developments
+- [ ] `SKILL_PATH_B_AI_ENGINEERING.md` - Add new AI skills
+
+---
+
+## Step 3: Identify What Needs Updating
 
 **Ask yourself**:
 - [ ] Did I solve a new type of problem? → **New Workflow**
@@ -29,10 +230,11 @@ This workflow helps you maintain:
 - [ ] Did I create/modify UI components? → **Update Design System**
 - [ ] Did I complete a feature? → **Update Requirements**
 - [ ] Did I use a successful prompt? → **Document Prompt**
+- [ ] Did I add community resources? → **Update attribution**
 
 ---
 
-## Step 2: Create New Workflow
+## Step 4: Create New Workflow
 
 ### When to Create
 - Solved a complex problem with multiple steps
@@ -112,7 +314,7 @@ Add entry to `.agent/workflows/README.md`:
 
 ---
 
-## Step 3: Create New Skill
+## Step 5: Create New Skill
 
 ### When to Create
 - Discovered a useful AI prompt pattern
@@ -197,197 +399,6 @@ If it's a completely new topic:
 ```
 
 3. Add to `.claude/skills.md` index under appropriate section
-
----
-
-## Step 3.5: Extract Skills from Walkthrough (Post-Deployment)
-
-### When to Do This
-- After completing a major deployment/feature
-- After creating a walkthrough document
-- When multiple new techniques were learned
-- Before archiving a complex project phase
-
-### Purpose
-Extract individual, reusable skills from walkthrough documentation to create focused skill files that can be easily referenced and reused across projects.
-
-### How to Extract Skills
-
-**1. Review the Walkthrough**
-
-Read through your `walkthrough.md` or final documentation and identify:
-- [ ] New technologies/tools learned (e.g., AKS, Helm, Dapr)
-- [ ] Troubleshooting techniques that can be reused
-- [ ] Configuration patterns that solved problems
-- [ ] Optimization strategies that worked
-- [ ] Debugging approaches that were effective
-
-**2. Create Separate Skill Files**
-
-For each major skill area discovered, create a NEW standalone skill file:
-
-```bash
-# Examples from Phase 5:
-.claude/aks-troubleshooting-skills.md
-.claude/helm-configuration-skills.md  
-.claude/docker-optimization-skills.md
-.claude/kubernetes-resource-management-skills.md
-```
-
-**DO NOT** combine all skills into one file. Each topic gets its own file for:
-- ✅ Better discoverability
-- ✅ Easier maintenance
-- ✅ Clearer organization
-- ✅ Reusability across projects
-
-**3. Use Skill File Template**
-
-```markdown
-# [Topic] Skills
-
-**Purpose**: [One-line description of what these skills solve]  
-**Source**: Extracted from [project/phase name]  
-**Date**: [Month Year]
-
----
-
-## Skill #1: [Specific Skill Name]
-
-### When to Use
-- [Scenario 1]
-- [Scenario 2]
-
-### The Problem
-[Brief description of what problem this solves]
-
-### The Solution
-
-[Step-by-step instructions or command sequence]
-
-```bash
-# Example commands
-command here
-```
-
-### Key Insights
-- ✅ [What worked]
-- ❌ [What didn't work]
-- 💡 [Important tip]
-
-**Related Skills**: [Links to other relevant skills]
-
----
-
-## Skill #2: [Next Skill]
-
-[... repeat pattern ...]
-
----
-
-## Quick Reference
-
-[Cheat sheet of commands/patterns from this file]
-
----
-
-**Total Skills**: X  
-**Last Updated**: [Date]
-```
-
-**4. Populate Each Skill**
-
-Extract specific, actionable knowledge:
-
-- **Commands that worked**: Copy exact command sequences
-- **Configuration snippets**: Include actual YAML/JSON that solved issues  
-- **Troubleshooting steps**: Document the diagnostic process
-- **Error messages**: Include common errors and their fixes
-- **Best practices**: Capture lessons learned
-
-**5. Sync to Dev Knowledge Base**
-
-After creating skill files:
-
-```powershell
-// turbo
-# Step 1: Define paths
-$projectSkills = "d:\Hackathon phase 1 TODO App\todo_hackathon_phase1\.claude"
-$devKB = "d:\Hackathon phase 1 TODO App\todo_hackathon_phase1\my-dev-knowledge-base"
-
-# Step 2: Ensure Dev KB directories exist
-if (-not (Test-Path "$devKB\.claude")) {
-    New-Item -ItemType Directory -Path "$devKB\.claude" -Force
-    Write-Host "✅ Created Dev KB .claude directory" -ForegroundColor Green
-}
-
-# Step 3: Copy all skill files to Dev Knowledge Base
-Copy-Item "$projectSkills\*.md" -Destination "$devKB\.claude\" -Force
-Write-Host "✅ Synced $($(Get-ChildItem "$devKB\.claude\*.md").Count) skill files to Dev KB" -ForegroundColor Cyan
-
-# Step 4: Navigate to Dev Knowledge Base
-cd "$devKB"
-
-# Step 5: Initialize git if needed
-if (-not (Test-Path ".git")) {
-    git init
-    Write-Host "✅ Initialized Git repository in Dev KB" -ForegroundColor Green
-}
-
-# Step 6: Commit to Dev Knowledge Base
-git add .claude/*.md
-git commit -m "docs: sync skills from [project/phase name] - $(Get-Date -Format 'yyyy-MM-dd')"
-Write-Host "✅ Committed to Dev KB (commit: $(git log -1 --format='%h'))" -ForegroundColor Green
-
-# Step 7: Return to project root
-cd "d:\Hackathon phase 1 TODO App\todo_hackathon_phase1"
-```
-
-**6. Update Todo Repo**
-
-```powershell
-// turbo
-# Navigate to project root
-cd "d:\Hackathon phase 1 TODO App\todo_hackathon_phase1"
-
-# Commit the new skill files to main repo
-git add .claude/*.md
-git add my-dev-knowledge-base/.claude/*.md
-git commit -m "docs: add [topic] skills from Phase X + sync to Dev KB"
-git push origin main
-```
-
----
-
-### Example: Phase 5 Skill Extraction
-
-**From Walkthrough Identified**:
-1. AKS deployment troubleshooting (20 iterations)
-2. Helm resource optimization
-3. Docker build optimization for Prisma
-4. Kubernetes secret management
-
-**Created Files**:
-1. `.claude/aks-troubleshooting-skills.md` → 5 skills
-2. `.claude/helm-configuration-skills.md` → 4 skills
-3. `.claude/docker-prisma-skills.md` → 3 skills
-4. `.claude/kubernetes-secrets-skills.md` → 2 skills
-
-**Each file**: Self-contained, focused, immediately reusable
-
----
-
-### Sync Checklist
-
-After creating skills from walkthrough:
-
-- [ ] Each major topic has its own skill file
-- [ ] No mega-files with unrelated skills
-- [ ] All skill files updated in project `.claude/` folder
-- [ ] Copied to local Dev Knowledge Base
-- [ ] Committed to Dev Knowledge Base repo
-- [ ] Committed to Todo project repo
-- [ ] Updated `.claude/skills.md` index with new files
-- [ ] Cross-referenced related skills
 
 ---
 
@@ -588,6 +599,33 @@ Update `.claude/skills.md`:
 ## Step 9: Validation
 
 **Check your updates**:
+
+- [ ] File is in correct location
+- [ ] Uses consistent formatting
+- [ ] Added to appropriate index
+- [ ] Cross-references are correct
+- [ ] Markdown renders properly
+- [ ] Code examples are tested
+- [ ] No typos in commands
+
+---
+
+## Step 10: Commit Changes
+
+// turbo
+```bash
+git add .
+git commit -m "docs: [what you updated]"
+
+# Examples:
+# docs: add API integration workflow
+# docs: add Redis caching skill to database-skills
+# docs: update Button component in design system
+# docs: document successful Docker optimization prompt
+```
+
+---
+
 ## 📝 Quick Reference
 
 ### File Locations

@@ -1,9 +1,9 @@
 # 🚀 Quick Start Guide - Your Dev Knowledge Base
 
-**Your Workspace**: 1,701 files | 7 community sources | Enterprise-grade  
-**Last Updated**: 2026-01-13
+**Your Workspace**: 2,460 files | Complete consolidation | Enterprise-grade  
+**Last Updated**: 2026-01-19
 
-> **🆕 Latest AI Update (Jan 13, 2026)**: New comprehensive report available! See `claude_update_report_2026-01-13.md` for Claude Cowork, healthcare AI, multi-agent orchestration trends, and market projections.
+> **🆕 Latest Update (Jan 19, 2026)**: Complete workspace consolidation! 2,460 files unified from multiple sources. 51 workflows, 933 agent files. See `claude_update_log.md` for details.
 
 ---
 
@@ -201,7 +201,60 @@ Example: `@[agents/workflows/authentication-issues.md]` → Drag this into chat!
 
 ---
 
+## 💼 Job Application Automation
+
+### Quick Apply Commands
+
+```bash
+# Full automation - search jobs, generate CV, cover letter, apply
+/@apply-for-jobs
+
+# Apply to specific company (email)
+python job-application/scripts/apply_job.py --company "AECOM" --role "Project Controls Manager" --email "hr@aecom.com"
+
+# Apply to website (generates form data)
+python job-application/scripts/apply_job.py --company "AECOM" --role "Project Controls Manager" --website
+
+# View application stats
+python job-application/scripts/job_scraper.py --stats
+
+# Check recent job listings with URLs
+Open: job-application/data/recent_jobs.md
+```
+
+**⚠️ URL Verification Required:**
+- Always check the link works before using `--url` parameter
+- Use stable portal links from `job-application/data/job_apply_links.md`
+- Deep job ID links expire quickly; prefer company career homepage URLs
+
+### Files Location
+
+| File | Purpose |
+|------|---------|
+| `job-application/generated/` | All CVs, Cover Letters, Form Data |
+| `job-application/data/recent_jobs.md` | 30+ recent jobs with apply URLs |
+| `job-application/data/applications_log.json` | Track applied jobs (avoid duplicates) |
+| `job-application/data/master_profile.json` | Your profile data |
+
+### Current Stats
+
+- **18 applications ready** (CVs + Cover Letters + Form Data)
+- **30+ job listings** with direct apply links
+- **16 Tier-1 companies** tracked (ADNOC, AECOM, Jacobs, etc.)
+
+---
+
 ## 📋 Workflow Cheat Sheet
+
+**Fresh workspace?**
+```
+"Run /ai-ecosystem-monitoring to find latest AI tools"
+```
+
+**Push failed?**
+```
+"Run /git-push-large-files"
+```
 
 ### Quick Invocation Commands
 
@@ -240,49 +293,50 @@ Example: `@[agents/workflows/authentication-issues.md]` → Drag this into chat!
 ## 📁 File Structure at a Glance
 
 ```
-my-dev-knowledge-base/ (1,702 files)
+my-dev-knowledge-base/ (2,460 files)
 │
 ├── 🎯 START HERE
 │   ├── README.md                    ← Overview & stats
 │   ├── WORKSPACE_STATS.md           ← Detailed breakdown
 │   ├── QUICKSTART_GUIDE.md          ← This file!
+│   ├── DRAG_INTO_CHAT.md            ← Quick file references
 │   └── See all files linked below ↓
 │
-├── 📚 skills/ (648 files)
-│   ├── INDEX.md                     ← [Searchable catalog](skills/INDEX.md) ✅
-│   ├── official_anthropic/          ← 16 official skills (docs, MCP, testing)
-│   ├── alirezarezvani/              ← Business skills (C-level, marketing, eng)
-│   ├── community/                   ← Curated community skills
-│   └── SKILL_PATH_*.md              ← Your learning paths
+├── 📚 .agent/workflows/ (51 files)
+│   ├── workflow-orchestrator.md     ← Master orchestrator
+│   ├── documentation-maintenance.md ← Keep docs updated
+│   ├── authentication-issues.md     ← Fix auth problems
+│   ├── docker-container-problems.md ← Docker troubleshooting
+│   ├── deployment-issues.md         ← Deployment help
+│   └── [46 more workflows...]       ← Complete collection
 │
-├── 🤖 agents/ (925 files)
-│   ├── INDEX.md                     ← [Agent directory](agents/INDEX.md) ✅
-│   ├── wshobson/                    ← 373 files (99 agents, multi-tier)
-│   ├── tresor/                      ← 345 files (133 subagents, 19 commands)
-│   ├── subagents/                   ← 142 categorized subagents
-│   ├── cloudai/                     ← 70 files (universal plugin)
-│   └── workflows/                   ← Your 24 original workflows
+├── 🤖 agents/ (933 files)
+│   ├── wshobson/                    ← Multi-tier agents
+│   ├── tresor/                      ← 133 subagents, 19 commands
+│   ├── subagents/                   ← Categorized subagents
+│   └── [more agent files...]        ← Comprehensive collection
 │
-├── ⚙️ workflows/ (156 files)
-│   ├── INDEX.md                     ← [Workflow directory](workflows/INDEX.md) ✅
-│   ├── shinpr/                      ← 127 production workflows
-│   ├── wshobson/                    ← Documentation
-│   └── monitor-claude-updates.md    ← Claude monitoring
+├── 📚 External Libraries
+│   ├── claude-cookbooks/            ← Official cookbooks
+│   ├── claude-skills-library/       ← Skills library
+│   ├── claude-subagents/            ← Subagent patterns
+│   └── dapr-quickstarts/            ← Dapr examples
 │
-├── 📖 guides/ (44 files)
-│   ├── agent-skills-spec/           ← How to create skills
+├── 📖 guides/
 │   ├── kubernetes/                  ← K8s guides
 │   ├── docker/                      ← Docker guides
-│   ├── authentication/              ← Auth guides (9 files)
-│   └── security/                    ← Security audits
+│   └── [more guides...]             ← Growing collection
+│
+├── � Documentation
+│   ├── docs/                        ← All project docs
+│   ├── deployment/                  ← Deployment guides
+│   ├── development/                 ← Dev processes
+│   └── project-docs/                ← Project documentation
 │
 └── 🌐 community/
-    ├── SOURCES.md                   ← [Full attribution](community/SOURCES.md)
-    ├── CHANGELOG.md                 ← [What was added when](community/CHANGELOG.md)
-    ├── DUPLICATE_FILES_ANALYSIS.md  ← [Duplicate analysis](community/DUPLICATE_FILES_ANALYSIS.md)
-    ├── TIER1_CLONE_SCRIPT.md        ← How Tier 1 was built
-    ├── TIER2_SUMMARY.md             ← How Tier 2 was built
-    └── QUICKSTART_TIER1.md          ← Tier 1 quick reference
+    ├── SOURCES.md                   ← Full attribution
+    ├── CHANGELOG.md                 ← Update history
+    └── [community files...]         ← Community resources
 ```
 
 ---
@@ -295,12 +349,12 @@ my-dev-knowledge-base/ (1,702 files)
 # Instead, open these INDEX.md files:
 ```
 
-**All INDEX files now available** ✅:
-- **[skills/INDEX.md](skills/INDEX.md)** - Search 648+ skills by source, category, and use case
-- **[agents/INDEX.md](agents/INDEX.md)** - Find any of 925+ agents by technology, problem type, or model
-- **[workflows/INDEX.md](workflows/INDEX.md)** - Navigate 156+ workflows by problem, phase, or technology
-- **[community/SOURCES.md](community/SOURCES.md)** - Full attribution for all 7 source repositories
-- **[community/DUPLICATE_FILES_ANALYSIS.md](community/DUPLICATE_FILES_ANALYSIS.md)** - Analysis of duplicate filenames
+**Quick Access Files** ✅:
+- **[README.md](README.md)** - Main overview with current stats (2,460 files)
+- **[WORKSPACE_STATS.md](WORKSPACE_STATS.md)** - Detailed statistics and growth metrics
+- **[.agent/workflows/](. agent/workflows/)** - 51 executable workflows
+- **[claude_update_log.md](claude_update_log.md)** - AI ecosystem monitoring log
+- **[DRAG_INTO_CHAT.md](DRAG_INTO_CHAT.md)** - Quick file references for chat
 
 **Click any link above to open in your editor!**
 
@@ -311,7 +365,7 @@ my-dev-knowledge-base/ (1,702 files)
 "Which agent should I use for [task]?"
 "Show me workflows for [problem]"
 
-# I know all 1,701 files and can point you to the right one instantly
+# I know all 2,460 files and can point you to the right one instantly
 ```
 
 ### Tip 3: Use @ References
@@ -421,6 +475,6 @@ After reading this guide, you should know how to:
 
 ---
 
-**Remember**: You have an **enterprise-grade knowledge base** with **1,701 files** from **7 top repositories**. Don't feel overwhelmed - just ask me what you need, and I'll guide you to exactly the right resource!
+**Remember**: You have an **enterprise-grade knowledge base** with **2,460 files** representing a **2,828% growth** from the original project. Don't feel overwhelmed - just ask me what you need, and I'll guide you to exactly the right resource!
 
 **Key Principle**: *You don't need to know where everything is. Just know what you need, and ask me. That's what I'm here for.* 🚀
