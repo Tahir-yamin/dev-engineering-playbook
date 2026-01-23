@@ -148,7 +148,7 @@ Copy-Item ".mcp\claude_desktop_config_sample.json" "$env:APPDATA\Claude\claude_d
 
 **1. antigravity-awesome-skills** (`external-libs/antigravity-awesome-skills/`)
 - **Files**: 1,872 files
-- **📋 [Complete File Listing](../docs/external-libs/ANTIGRAVITY_SKILLS_INDEX.md)** ← Browse all files by category
+- **📋 [Complete File Listing](docs/external-libs/ANTIGRAVITY_SKILLS_INDEX.md)** ← Browse all files by category
 - **Purpose**: Curated skill collection optimized for Antigravity
 - **Contains**: Advanced coding patterns, debugging techniques, architecture skills
 - **Use with Antigravity**: Reference in prompts for enhanced code generation
@@ -158,14 +158,14 @@ Copy-Item ".mcp\claude_desktop_config_sample.json" "$env:APPDATA\Claude\claude_d
 
 **2. antigravity-kit** (`external-libs/antigravity-kit/`)
 - **Files**: 278 files  
-- **📋 [Complete File Listing](../docs/external-libs/ANTIGRAVITY_KIT_INDEX.md)** ← Browse all toolkit files
+- **📋 [Complete File Listing](docs/external-libs/ANTIGRAVITY_KIT_INDEX.md)** ← Browse all toolkit files
 - **Purpose**: Toolkit and utilities for Antigravity workflows
 - **Contains**: Project templates, automation scripts, configuration helpers
 - **Use**: Bootstrap new projects with proven patterns
 
 **3. gemini-cli** (`external-libs/gemini-cli/`)
 - **Files**: 1,643 files
-- **📋 [Complete File Listing](../docs/external-libs/GEMINI_CLI_INDEX.md)** ← Browse all CLI files
+- **📋 [Complete File Listing](docs/external-libs/GEMINI_CLI_INDEX.md)** ← Browse all CLI files
 - **Purpose**: Gemini CLI integration for Antigravity
 - **Contains**: Command-line tools, API wrappers, documentation
 - **Integration**: CLI tools callable from Antigravity tasks
@@ -177,7 +177,7 @@ Copy-Item ".mcp\claude_desktop_config_sample.json" "$env:APPDATA\Claude\claude_d
 **4. claude-cookbooks** (`claude-cookbooks/`)
 - **Files**: 416 files (20 categories)
 - **Purpose**: Official Anthropic Claude implementation guides
-- **📋 [Complete File Index](../docs/external-libs/README.md#claude-cookbooks)** ← Browse all 416 files
+- **📋 [Complete File Index](docs/external-libs/README.md#claude-cookbooks)** ← Browse all 416 files
 - **Categories**:
   - `capabilities/` - Core Claude features
   - `tool_use/` (29 files) - Tool calling patterns **← KEY for Antigravity**
@@ -194,7 +194,7 @@ Copy-Item ".mcp\claude_desktop_config_sample.json" "$env:APPDATA\Claude\claude_d
 **5. claude-subagents** (`claude-subagents/`)
 - **Files**: 137 specialized agent personas
 - **Categories**: 66 domains (see `categories/`)
-- **📋 [Complete Agent Listing](../docs/external-libs/CLAUDE_SUBAGENTS_INDEX.md)** ← All 137 agents by category
+- **📋 [Complete Agent Listing](docs/external-libs/CLAUDE_SUBAGENTS_INDEX.md)** ← All 137 agents by category
 - **Purpose**: Pre-built expert personas for specific tasks
 - **Antigravity Integration**: 
   ```
