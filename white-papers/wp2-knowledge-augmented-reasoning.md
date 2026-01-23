@@ -73,6 +73,9 @@ The 14B model—not fine-tuned on complex queries, just trained on simpler build
 
 Read that again. A model that's a fraction of the size, with no exposure to the test distribution, beat the frontier systems. Not despite the knowledge graph training—because of it.
 
+![Multi-Hop Reasoning Performance](wp2-images-clean/Smarter_AI_Not_Bigger_Models_page7_img1.png)
+*Figure 3: Knowledge-augmented 14B model outperforming larger frontier models on complex multi-hop reasoning*
+
 ### Why This Works
 
 The researchers call path-derived rewards a "compositional bridge." Here's my interpretation of what's happening:
@@ -85,7 +88,8 @@ This structure enables something pure LLMs struggle with: **systematic generaliz
 
 Language patterns don't compose the same way. Knowing that sentences about A-to-B and B-to-C exist doesn't automatically teach you that A-to-C is valid.
 
-![Traditional LLM vs Knowledge Graph Training](images/wp2-knowledge-graph-paths.png)
+![Knowledge Graph Structure](wp2-images-clean/Beyond_Scale_Structure_Truth_page4_img1.png)
+*Figure 2: Knowledge graph architecture showing how structured relationships enable compositional reasoning*
 
 ---
 
@@ -112,6 +116,9 @@ In benchmarks against OWL2Bench standards and human-robot task learning scenario
 Lazzari, Presutti, and Vergari (2026) take a more radical approach: compile Description Logic ontologies into probabilistic circuits—feed-forward differentiable computational graphs.
 
 The technical details matter less than the results: **runtimes up to three orders of magnitude faster than available reasoners.**
+
+![Neuro-Symbolic Performance](wp2-images-clean/Smarter_AI_Not_Bigger_page5_img1.png)
+*Figure 4: Speed comparison - neuro-symbolic approach achieving 1000x faster reasoning*
 
 This isn't a marginal improvement. It's the difference between "too slow to use in production" and "fast enough for real-time inference."
 
