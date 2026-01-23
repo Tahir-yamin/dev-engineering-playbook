@@ -5,6 +5,11 @@ Last Updated: 2026-01-23 | Total Resources: 2,460 files
 
 ---
 
+## 🆕 **NEW USER? → [Quick Start Guide](docs/quickstart/HOW_TO_USE_COMMAND_CENTER.md)**
+**Learn how to use this command center with practical examples (5 min read)**
+
+---
+
 ## 🚀 Quick Start
 
 ```
