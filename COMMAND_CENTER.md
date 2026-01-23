@@ -483,12 +483,12 @@ Copy-Item "." "d:\backup-kb-$timestamp" -Recurse
 
 ## 🔗 Quick Links
 
-- **Main README**: [README.md](../README.md)
-- **Skill Index**: [skills/](../skills/)
-- **Workflow Index**: [.agent/workflows/](../.agent/workflows/)
-- **AI Updates**: [docs/ai-updates/](../docs/ai-updates/)
-- **Agent Personas**: [docs/AGENT_PERSONAS.md](../docs/AGENT_PERSONAS.md)
-- **Recommended Repos**: [docs/workspace/RECOMMENDED_GITHUB_REPOS.md](../docs/workspace/RECOMMENDED_GITHUB_REPOS.md)
+- **Main README**: [README.md](README.md)
+- **Skill Index**: [skills/](skills/)
+- **Workflow Index**: [.agent/workflows/](.agent/workflows/)
+- **AI Updates**: [docs/ai-updates/](docs/ai-updates/)
+- **Agent Personas**: [docs/AGENT_PERSONAS.md](docs/AGENT_PERSONAS.md)
+- **Recommended Repos**: [docs/workspace/RECOMMENDED_GITHUB_REPOS.md](docs/workspace/RECOMMENDED_GITHUB_REPOS.md)
 
 ---
 
