@@ -68,5 +68,3 @@ if ($results.Count -eq 0) {
     Write-Host "-Type workflow|skill|persona|doc|whitepaper" -ForegroundColor Yellow -NoNewline
     Write-Host " to narrow results"
 }
-
-Write-Host "`n"
