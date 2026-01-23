@@ -2,7 +2,7 @@
 
 **Complete knowledge archive from Todo Hackathon project**
 
-**Last Updated**: 2026-01-19  
+**Last Updated**: 2026-01-23 (Reorganized & cleaned)  
 **Total Files**: 2,460  
 **Growth**: Massive expansion from original project
 
@@ -23,70 +23,73 @@
 ```
 my-dev-knowledge-base/
 │
-├── 📂 .agent/                    # Workflows & automation
-│   └── workflows/                # 25+ executable workflows
+├── 📂 .agent/                    # Maestro workspace
+│   ├── rules/                   # Global agent rules
+│   ├── skills/                  # Agent skill implementations
+│   └── workflows/               # 51+ executable workflows
 │
-├── 📂 .claude/                   # Production skills
-│   ├── mcp-debugging-skills.md
-│   ├── kubernetes-resource-optimization-skills.md
-│   ├── dapr-configuration-skills.md
-│   ├── helm-configuration-skills.md
-│   ├── openrouter-api-skills.md
-│   └── python-async-patterns-skills.md
+├── 📂 .claude/                   # Claude-specific configs
+│   └── rules/                   # Claude project rules (CLAUDE.md)
+│
+├── 📂 .mcp/                      # MCP server configurations
+│   ├── claude_desktop_config_sample.json
+│   └── README.md
 │
 ├── 📂 .github/                   # CI/CD workflows
 │   └── workflows/
-│       └── deploy-aks.yml        # GitHub Actions deployment
-│
-├── 📂 .history/                  # Project history
-├── 📂 .spec-kit/                 # Specification toolkit
-├── 📂 .specify/                  # Specify configurations
-│
-├── 📂 claude-cookbooks/          # Claude cookbooks
-├── 📂 claude-skills-library/     # External skills library
-├── 📂 claude-subagents/          # Subagent patterns
-├── 📂 dapr-quickstarts/          # Dapr examples
+│       └── deploy-aks.yml
 │
 ├── 📂 docs/                      # All documentation
-│   ├── phase1/                   # Phase-specific docs
+│   ├── guides/                  # How-to guides
+│   ├── ai-updates/              # AI ecosystem monitoring
+│   │   ├── claude_updates_knowledge_base.md
+│   │   ├── claude_update_log.md
+│   │   └── claude_update_report_*.md
+│   ├── quickstart/              # Getting started guides
+│   │   ├── QUICKSTART_GUIDE.md
+│   │   └── DRAG_INTO_CHAT.md
+│   ├── workspace/               # Workspace metadata
+│   │   ├── WORKSPACE_STATS.md
+│   │   └── RECOMMENDED_GITHUB_REPOS.md
+│   ├── phase1/                  # Phase-specific docs
 │   ├── phase2/
 │   ├── phase3/
 │   ├── phase4/
 │   ├── phase5/
-│   ├── demo/                     # Demo resources
-│   ├── deployment/               # Deployment guides
-│   ├── CLAUDE.md
-│   └── constitution.md
+│   └── deployment/
+│
+├── 📂 skills/                    # Reusable skill library
+│   ├── multi-agent-patterns-google-adk.md
+│   ├── constitutional-ai-anthropic.md
+│   ├── mcp-debugging-skills.md
+│   └── (30+ production skills)
+│
+├── 📂 agents/                    # Agent configurations
+│   ├── skills.json
+│   └── docker-skills.json
+│
+├── 📂 workflows/                 # Workflow templates
+│
+├── 📂 white-papers/              # Research white papers
+│   └── (6 technical white papers)
 │
 ├── 📂 kubernetes/                # K8s guides
-│   ├── deployment-guide.md
-│   ├── manual-operations.md
-│   ├── kubectl-cheatsheet.md
-│   └── helm-troubleshooting.md
-│
 ├── 📂 deployment/                # Cloud deployment
-│   ├── aks-production-deployment.md
-│   └── cloud-deployment-summary.md
-│
 ├── 📂 ai-chatbot/                # AI integration
-│   └── ai-integration-guide.md
-│
 ├── 📂 testing/                   # QA & testing
-│   └── comprehensive-qa-testing.md
-│
 ├── 📂 demo-scripts/              # Demo commands
-│   ├── powershell-demo-commands.md
-│   └── quick-reference.md
-│
-├── 📂 development/               # Process & principles
-│   ├── spec-driven-process.md
-│   └── project-principles.md
-│
 ├── 📂 troubleshooting/           # Issue resolution
-│   └── browser-agent-issues.md
-│
 ├── 📂 walkthroughs/              # Complete walkthroughs
-│   └── phase5_complete_walkthrough.md
+│
+├── 📂 community/                 # Community resources
+│   ├── SOURCES.md
+│   └── CHANGELOG.md
+│
+├── 📂 External Libraries/        # Cloned repos
+│   ├── claude-cookbooks/
+│   ├── claude-skills-library/
+│   ├── claude-subagents/
+│   └── dapr-quickstarts/
 │
 └── 📄 README.md                  # This file
 ```
@@ -95,21 +98,25 @@ my-dev-knowledge-base/
 
 ## 🎯 Quick Access
 
-### By Topic
-- **Kubernetes**: `kubernetes/`
+### Documentation
+- **Quickstart**: `docs/quickstart/`
+- **Workspace Stats**: `docs/workspace/`
+- **AI Updates**: `docs/ai-updates/`
 - **Deployment**: `deployment/`
-- **AI/Chatbot**: `ai-chatbot/`
 - **Testing**: `testing/`
-- **Demo**: `demo-scripts/`
 
-### By Type
-- **Skills**: `.claude/` (production-tested skills)
-- **Workflows**: `.agent/workflows/` (51 executable workflows)
-- **Agents**: `agents/` (933 agent files)
+### Configuration
+- **MCP Configs**: `.mcp/`
+- **Agent Rules**: `.agent/rules/` & `.claude/rules/`
 - **CI/CD**: `.github/workflows/`
-- **Documentation**: `docs/`
 
-### Reference Libraries
+### Resources
+- **Skills**: `skills/` (30+ production skills)
+- **Workflows**: `.agent/workflows/` (51+ workflows)
+- **Agents**: `agents/` (933 configurations)
+- **White Papers**: `white-papers/` (6 research papers)
+
+### External Libraries
 - **Claude Cookbooks**: `claude-cookbooks/`
 - **Skills Library**: `claude-skills-library/`
 - **Dapr Examples**: `dapr-quickstarts/`
