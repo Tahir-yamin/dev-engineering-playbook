@@ -30,7 +30,7 @@ This white paper synthesizes findings from six cutting-edge research papers to a
 - Expert knowledge codification produces 206% improvement in output quality for domain-specific agents
 - Structured knowledge enables generalization—short-hop training transfers to long-hop evaluation
 
-![Knowledge Augmentation Performance Gains](wp2-images/Smarter_AI_Not_Bigger_Models_page3_img1.png)
+![Knowledge Augmentation Performance Gains](wp2-images-professional/Smarter_AI_Not_Bigger_Models_page3_img1.png)
 *Figure 1: Performance comparison showing knowledge-augmented models outperforming pure LLMs on complex reasoning tasks*
 
 ---
@@ -73,7 +73,7 @@ The 14B model—not fine-tuned on complex queries, just trained on simpler build
 
 Read that again. A model that's a fraction of the size, with no exposure to the test distribution, beat the frontier systems. Not despite the knowledge graph training—because of it.
 
-![Multi-Hop Reasoning Performance](wp2-images/Smarter_AI_Not_Bigger_Models_page7_img1.png)
+![Multi-Hop Reasoning Performance](wp2-images-professional/Smarter_AI_Not_Bigger_Models_page7_img1.png)
 *Figure 3: Knowledge-augmented 14B model outperforming larger frontier models on complex multi-hop reasoning*
 
 ### Why This Works
@@ -88,7 +88,7 @@ This structure enables something pure LLMs struggle with: **systematic generaliz
 
 Language patterns don't compose the same way. Knowing that sentences about A-to-B and B-to-C exist doesn't automatically teach you that A-to-C is valid.
 
-![Knowledge Graph Structure](wp2-images/Beyond_Scale_Structure_Truth_page4_img1.png)
+![Knowledge Graph Structure](wp2-images-professional/Beyond_Scale_Structure_Truth_page4_img1.png)
 *Figure 2: Knowledge graph architecture showing how structured relationships enable compositional reasoning*
 
 ---
@@ -117,7 +117,7 @@ Lazzari, Presutti, and Vergari (2026) take a more radical approach: compile Desc
 
 The technical details matter less than the results: **runtimes up to three orders of magnitude faster than available reasoners.**
 
-![Neuro-Symbolic Performance](wp2-images/Smarter_AI_Not_Bigger_page5_img1.png)
+![Neuro-Symbolic Performance](wp2-images-professional/Smarter_AI_Not_Bigger_page5_img1.png)
 *Figure 4: Speed comparison - neuro-symbolic approach achieving 1000x faster reasoning*
 
 This isn't a marginal improvement. It's the difference between "too slow to use in production" and "fast enough for real-time inference."
