@@ -3,18 +3,26 @@
 **Complete knowledge archive from Todo Hackathon project**
 
 **Last Updated**: 2026-01-23 (Reorganized & cleaned)  
-**Total Files**: 2,460  
+**Total Files**: 25,329 files | **Size**: 1.3 GB  
 **Growth**: Massive expansion from original project
+
+---
+
+## 🎯 **[→ GO TO COMMAND CENTER ←](COMMAND_CENTER.md)**
+**Your centralized hub for all resources, workflows, skills & quick access**
 
 ---
 
 ## 📊 Current Stats
 
-- **Total Files**: 2,460
-- **Workflows**: 51 executable workflows
-- **Agents**: 933 agent files and subagents
-- **Skills**: Growing library
+- **Total Files**: 25,329
+- **Total Size**: 1.3 GB
+- **Workflows**: 61 executable workflows
+- **Skills**: 37 production skills
+- **Personas**: 3 agent roles
+- **White Papers**: 7 research papers
 - **External Libraries**: Claude Cookbooks, Skills Library, Dapr Quickstarts
+- **MCP Configs**: 2 server configurations
 
 ---
 
