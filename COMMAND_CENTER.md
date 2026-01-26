@@ -1,7 +1,7 @@
 # 🎯 COMMAND CENTER
 **Dev Knowledge Base - Your Centralized Resource Hub**
 
-Last Updated: 2026-01-25 | Total Resources: 3,060+ files (was 2,460)
+Last Updated: 2026-01-26 | Total Resources: 3,063+ files (was 3,060)
 
 ---
 
@@ -58,9 +58,10 @@ Help me build a React component
 
 ### 💡 Skills Library
 **Location**: `skills/`  
-**Count**: 100+ production-tested skills (was 37) ⭐ **NEW: +63 GitHub Copilot skills integrated!**
+**Count**: 101+ production-tested skills (was 100) ⭐ **NEW: +1 Python code quality skills!**
 
 **Top Skills**:
+- [python-ruff-linting-skills.md](skills/python-ruff-linting-skills.md) - Python code quality with Ruff (6 skills) ⭐ NEW
 - [multi-agent-patterns-google-adk.md](skills/multi-agent-patterns-google-adk.md) - 8 multi-agent architectures
 - [constitutional-ai-anthropic.md](skills/constitutional-ai-anthropic.md) - AI ethics framework
 - [agentic-rag-mastery.md](skills/agentic-rag-mastery.md) - Deep Dive: CRAG & Self-RAG Implementation ⭐
@@ -81,13 +82,13 @@ Help me build a React component
 
 ### ⚙️ Workflows
 **Location**: `.agent/workflows/`  
-**Count**: 195+ executable workflows (was 61) ⭐ **NEW: +134 GitHub Copilot prompts integrated!**
+**Count**: 196+ executable workflows (was 195) ⭐ **NEW: +1 Python CI/CD workflow added!**
 
 **Original Categories**:
 
 | Category | Count | Examples |
 |----------|-------|----------|
-| **Troubleshooting** | 20+ | cors-errors, deployment-issues, database-connection-issues |
+| **Troubleshooting** | 21+ | cors-errors, deployment-issues, **fixing-python-lint-ci-failures** ⭐ NEW |
 | Development | 15+ | adding-new-feature, code-review-testing, create-project-schedule |
 | **DevOps** | 10+ | deploying-to-aks, continuous-deployment-monitoring |
 | **Methodology** | 2 | compound-engineering, superpowers-framework |
