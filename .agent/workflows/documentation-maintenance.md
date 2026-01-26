@@ -987,6 +987,62 @@ cd ..
 cd claude-cookbooks
 git pull origin main
 cd ..
+
+# NEW: GitHub Copilot Resources
+cd github-awesome-copilot
+git pull origin main
+cd ..
+
+cd WriteHERE
+git pull origin main
+cd ..
+```
+
+---
+
+## 🧠 Step 15: Antigravity Brain Sync (AUTO)
+
+**Purpose**: Automatically move new resources into the active Antigravity brain folders.
+
+### Sync Logic
+
+| File Type | Source Pattern | Destination |
+|-----------|----------------|-------------|
+| **Agents** | `*.agent.md` | `.agent/rules/` |
+| **Workflows** | `*.workflow.md` | `.agent/workflows/` |
+| **Prompts** | `*.prompt.md` | `.agent/workflows/` |
+| **Skills** | `skills/*/` | `skills/` |
+
+### Execution Command
+
+// turbo
+```powershell
+# 1. Sync Agents (Personas)
+Get-ChildItem -Path "external-libs" -Recurse -Filter "*.agent.md" | 
+    ForEach-Object {
+        $dest = Join-Path ".agent\rules" $_.Name
+        if (-not (Test-Path $dest) -or (Get-Item $_.FullName).LastWriteTime -gt (Get-Item $dest).LastWriteTime) {
+            Copy-Item $_.FullName -Destination ".agent\rules" -Force
+            Write-Host "Synced Agent: $($_.Name)"
+        }
+    }
+
+# 2. Sync Workflows & Prompts
+Get-ChildItem -Path "external-libs" -Recurse -Include "*.prompt.md", "*.workflow.md" | 
+    ForEach-Object {
+        $dest = Join-Path ".agent\workflows" $_.Name
+        if (-not (Test-Path $dest) -or (Get-Item $_.FullName).LastWriteTime -gt (Get-Item $dest).LastWriteTime) {
+            Copy-Item $_.FullName -Destination ".agent\workflows" -Force
+            Write-Host "Synced Workflow: $($_.Name)"
+        }
+    }
+
+# 3. Sync Skills
+$copilotSkills = "external-libs\github-awesome-copilot\skills"
+if (Test-Path $copilotSkills) {
+    Copy-Item "$copilotSkills\*" -Destination "skills\" -Recurse -Force
+    Write-Host "Synced GitHub Copilot Skills"
+}
 ```
 
 ---
@@ -996,6 +1052,9 @@ cd ..
 When running `/documentation-maintenance`, follow these additional steps:
 
 ### Checklist
+- [ ] **Run Step 15 (Brain Sync)** to update native folders
+- [ ] Run `/@workflow-orchestrator copilot-monitoring`
+- [ ] Verify `COMMAND_CENTER.md` counts match `WORKSPACE_STATS.md`
 
 - [ ] **Step 11**: Sync files to `my-dev-knowledge-base/`
 - [ ] **Step 12**: Update Phase 5 skills with credits

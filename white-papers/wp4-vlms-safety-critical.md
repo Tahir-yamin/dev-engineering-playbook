@@ -66,7 +66,8 @@ The researchers propose two mitigation strategies:
 
 These approaches reduce severe abstraction errors to below 2% while maintaining competitive performance. But they require explicit domain knowledge integration—not something that emerges from standard pretraining.
 
-![Medical AI Error Types](images/wp4-medical-error-types.png)
+![Medical AI Error Types](wp4-images-final/wp4-medical-error-types.jpg)
+*Figure 1: Taxonomy of Medical AI Errors from Schaper et al. (2026). The diagram illustrates "Catastrophic Abstraction Errors" where the model confuses conditions across distinct clinical branches (e.g., Pneumonia vs. Lung Mass), distinguishing them from minor within-branch errors.*
 
 ---
 
@@ -133,6 +134,9 @@ The researchers developed BREPS—a method for generating adversarial bounding b
 
 Across 10 datasets spanning everyday scenes to medical imaging, state-of-the-art models showed significant vulnerability to these natural adversarial inputs.
 
+![Natural Input Vulnerability](wp4-images-final/wp4-robustness-failure.jpg)
+*Figure 2: Vulnerability to Natural Input Variation. Data from Moskalenko et al. (2026) showing how semantically equivalent user prompts (bounding boxes) can lead to drastically different segmentation outputs, undermining reproducibility in safety-critical tasks.*
+
 ### Implications for Medical Imaging
 
 Medical imaging often uses promptable segmentation for tumor delineation, organ segmentation, and similar tasks. If model outputs vary significantly based on how practitioners draw bounding boxes, reproducibility becomes problematic.
@@ -194,7 +198,8 @@ Current research shows:
 - Robustness degrades under natural input variation (user studies)
 - Evaluation itself requires domain-specific scaffolding (automated rubrics)
 
-![VLM Capability Stack for Safety-Critical Applications](images/wp4-capability-stack.png)
+![VLM Capability Stack for Safety-Critical Applications](wp4-images-final/wp4-capability-stack.jpg)
+*Figure 3: The Failure of the Capability Stack. Visualization adapted from Tang et al. (2026) demonstrating that high performance in the "Perception" layer does not propagate to the "Decision" layer. The bottleneck lies in the inferential reasoning gap between seeing and understanding risk.*
 
 ### The Path Forward
 

@@ -218,3 +218,32 @@ gh repo fork aio-libs/aiokafka --clone
 ```
 
 Or use the GitHub web interface at each repo URL → "Fork" button.
+
+---
+
+## 🆕 New Additions (2026-01-24)
+
+### 21. **obra/superpowers** ⭐
+**Type**: Framework | **Stars**: High | **Updated**: Jan 2026
+`https://github.com/obra/superpowers`
+An agentic skills framework emphasizing "Brainstorming First" and "Subagent Driven Development". Great for establishing a disciplined workflow (TDD, YAGNI).
+
+### 22. **EveryInc/compound-engineering-plugin** ⭐
+**Type**: Methodology | **Stars**: High | **Updated**: Jan 2026
+`https://github.com/EveryInc/compound-engineering-plugin`
+Introduces the "Compound Engineering" philosophy: Plan → Work → Review → Compound. Focuses on preventing technical debt.
+
+### 23. **anomalyco/opencode** ⭐
+**Type**: Tool/Agent | **Stars**: High | **Updated**: Jan 2026
+`https://github.com/anomalyco/opencode`
+Open source alternative to Claude Code. Features a TUI, client/server architecture, and independent `build`/`plan` agents.
+
+### 24. **Shubhamsaboo/awesome-llm-apps** ⭐
+**Type**: Collection | **Stars**: High | **Updated**: Jan 2026
+`https://github.com/Shubhamsaboo/awesome-llm-apps`
+Huge collection of starter agents, RAG tutorials (Graph, Vision, Hybrid), and multi-agent examples.
+
+### 25. **ComposioHQ/awesome-claude-skills** ⭐
+**Type**: Skill Library | **Stars**: High | **Updated**: Jan 2026
+`https://github.com/ComposioHQ/awesome-claude-skills`
+Curated list of specific skills for Claude, including document processing (`docx`, `pdf`), AWS skills, and visualization tools.

@@ -68,7 +68,8 @@ The model isn't learning planning. It's learning *patterns that happen to correl
 
 This matters because planning is exactly the kind of task where we want general capabilities. A planning agent that only works in domains it's seen isn't a planning agent. It's a lookup table with extra steps.
 
-![Cross-Domain Generalization Collapse](images/wp3-generalization-collapse.png)
+![Cross-Domain Generalization Collapse](wp3-images-final/wp3-generalization-collapse.jpg)
+*Figure 1: Cross-Domain Generalization Collapse using data from Belcamino et al. (2026). The chart illustrates the dramatic drop in plan validity (from ~82% to 0%) when a model trained on specific IPC domains is tested on unseen domains. This highlights the failure of pure LLMs to learn abstract planning principles that transfer across contexts.*
 
 ---
 
@@ -100,7 +101,8 @@ Their method, JustGRPO, achieves 89.1% accuracy on GSM8K while fully retaining p
 
 By **intentionally forgoing** arbitrary order flexibility, they got better reasoning performance. The constraint that looks like a limitation turns out to be a feature.
 
-![The Flexibility Trap - Paradox of Arbitrary Order](images/wp3-flexibility-trap.png)
+![The Flexibility Trap - Paradox of Arbitrary Order](wp3-images-final/wp3-flexibility-trap.jpg)
+*Figure 2: The Flexibility Trap demonstrated by Ni et al. (2026). The diagram contrasts standard autoregressive decoding with arbitrary-order diffusion decoding. While theoretically more flexible, the arbitrary order allows the model to "hedge" by generating easy tokens first, collapsing the solution space prematurely and failing on hard reasoning steps.*
 
 ---
 
@@ -133,6 +135,9 @@ Most training data curation focuses on getting challenging, diverse examples. Th
 But this research suggests something stronger: **easy examples aren't just pedagogically useful—they're mathematically necessary.** Without sufficient simple examples, the gradient signal never points toward generalizable solutions.
 
 The intuition is that simple examples provide "stepping stones"—patterns that connect observable training signal (correct final answers) to underlying reasoning strategies. Complex examples don't provide these stepping stones because the gap between signal and strategy is too large.
+
+![The "Right Data" Problem](wp3-images-final/wp3-right-data.jpg)
+*Figure 3: Gradient flow analysis from Ran-Milo et al. (2026) showing the necessity of simple examples. The visualization depicts how training on a distribution rich in easy, short-hop instances enables the gradient to "discover" the generalizable iterative algorithm, whereas complex-only data leads to failure.*
 
 ---
 
@@ -180,7 +185,8 @@ Key criteria:
 
 The framework emphasizes that true digital literacy includes knowing *when not to use* generative AI—not just how to use it.
 
-![The Plausibility Trap - When to Avoid LLMs](images/wp3-plausibility-trap.png)
+![The Plausibility Trap - When to Avoid LLMs](wp3-images-final/wp3-plausibility-trap.jpg)
+*Figure 4: The Plausibility Trap Decision Matrix by Carrera and Maldonado-Ruiz (2026). This framework guides developers in choosing between probabilistic LLMs and deterministic engines, highlighting the massive efficiency penalties (6.5x latency) incurred when using LLMs for tasks like simple verification or OCR.*
 
 ---
 
@@ -218,6 +224,9 @@ The modality gap reveals something fundamental about how these models work.
 They don't learn abstract mathematical concepts that transfer across representations. They learn patterns specific to how information is presented. Change the presentation, break the pattern.
 
 For applications requiring robust reasoning—where inputs come in varied formats from varied sources—this matters. Models may succeed on benchmarks but fail on deployment data that differs in surface presentation.
+
+![The Modality Gap in Visual Reasoning](wp3-images-final/wp3-modality-gap.jpg)
+*Figure 5: The Modality Gap illustrated by Khaki et al. (2026). The comparison shows identical mathematical problems presented as text versus images. The significant performance drop in the visual modality indicates that current models struggle to transfer reasoning capabilities across data formats, necessitating structured decomposition tools like VisTIRA.*
 
 ---
 

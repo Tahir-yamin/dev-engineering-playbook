@@ -64,19 +64,20 @@ description: Master workflow orchestrator - Run single or combined workflows wit
 
 ---
 
-### 3. Skill Upgrade (`skill-upgrade`)
+### 4. GitHub Copilot Monitoring (`copilot-monitoring`)
 
-**What it does**: Guides through systematic skill upgrading  
-**Duration**: Variable (learning-based)  
-**Output**: Learning notes, implemented features
+**What it does**: Checks for updates to GitHub's awesome-copilot repository
+**Duration**: ~5 minutes
+**Output**: Updated local resources
 
 **Runs**:
-- Path selection (Core Stack, DevOps, AI, Architecture)
-- Study recommended repos
-- Implement learning project
-- Document learnings
+- Pull latest changes from `external-libs/github-awesome-copilot`
+- Sync new agents to `.agent/rules/`
+- Sync new prompts to `.agent/workflows/`
+- Sync new skills to `skills/`
+- Update categorized indexes
 
-**Invoke**: `/@workflow-orchestrator skill-upgrade`
+**Invoke**: `/@workflow-orchestrator copilot-monitoring`
 
 ---
 
@@ -86,19 +87,18 @@ description: Master workflow orchestrator - Run single or combined workflows wit
 
 #### **Full Knowledge Update** (Most Common)
 ```
-/@workflow-orchestrator claude-monitoring + documentation-maintenance
+/@workflow-orchestrator claude-monitoring + copilot-monitoring + documentation-maintenance
 ```
 
 **What happens**:
 1. ✅ Monitor Claude ecosystem for updates
-2. ✅ Extract new skills, subagents, workflows
-3. ✅ Document findings in knowledge base
-4. ✅ Create skill files for reusable patterns
-5. ✅ Update workflow files
-6. ✅ Commit everything to git
+2. ✅ Monitor GitHub Copilot ecosystem for updates
+3. ✅ Sync all new agents, skills, and prompts (BRAIN SYNC)
+4. ✅ Update documentation and indexes
+5. ✅ Commit everything to git
 
-**Duration**: ~30 minutes  
-**Frequency**: Every 48 hours
+**Duration**: ~35 minutes  
+**Frequency**: Weekly
 
 ---
 
@@ -213,6 +213,31 @@ description: Master workflow orchestrator - Run single or combined workflows wit
 - @agents/workflows/documentation-maintenance.md
 ```
 
+### Template D: Structured Development (AI-DLC)
+
+```markdown
+**WORKFLOW**: AI-DLC Feature Implementation
+
+**PHASE 1: INCEPTION (Planning)**
+1. Invoke: `/specsmd-inception-agent --intent="feature-name"`
+2. Answer clarifying questions
+3. Review generated requirements and user stories
+4. Approve "Bolt Plan" (breakdown of work)
+
+**PHASE 2: CONSTRUCTION (Building)**
+1. Invoke: `/specsmd-construction-agent`
+2. Select the first Bolt from the list
+3. Follow DDD stages: Domain -> Logical -> Code -> Test
+4. Repeat for all Bolts in the plan
+
+**PHASE 3: OPERATIONS (Deploying)**
+1. Invoke: `/specsmd-operations-agent`
+2. Build and deploy the unit
+
+**REFERENCES**:
+- .specsmd/aidlc/quick-start.md
+```
+
 ---
 
 ## 🎯 How to Use
@@ -223,6 +248,7 @@ Decide what you need:
 - **Just monitoring?** → Use Template A
 - **Monitoring + document findings?** → Use Template B (Recommended)
 - **Learning new skills?** → Use Template C
+- **Building a complex feature?** → Use Template D (AI-DLC)
 
 ### Step 2: Invoke the Workflow
 

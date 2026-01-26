@@ -1,7 +1,7 @@
 # 🎯 COMMAND CENTER
 **Dev Knowledge Base - Your Centralized Resource Hub**
 
-Last Updated: 2026-01-23 | Total Resources: 2,460 files
+Last Updated: 2026-01-25 | Total Resources: 3,060+ files (was 2,460)
 
 ---
 
@@ -24,32 +24,56 @@ VIEW STATS? → docs/workspace/WORKSPACE_STATS.md
 
 ### 🎭 AI Personas & Rules
 **Location**: `.agent/rules/`  
-**Count**: 3 personas
+**Count**: 143 personas (was 3) ⭐ **NEW: +140 GitHub Copilot agents integrated!**
 
+**Original Personas**:
 | Persona | Use For |
 |---------|---------|
 | [workflow-orchestrator](.agent/rules/workflow-orchestrator-persona.md) | Complex workflows, state machines, process automation |
 | [devops-engineer](.agent/rules/devops-persona.md) | Infrastructure, deployments, CI/CD |
 | [rules.md](.agent/rules/rules.md) | DevOps agent guidelines |
 
+**🆕 GitHub Copilot Agents** (140 total):
+- **📋 [Complete Catalog](docs/external-libs/GITHUB_COPILOT_AGENTS_INDEX.md)** ← Browse all 140 agents by category
+- **Quick Access**: All agents are now in `.agent/rules/*.agent.md`
+- **Categories**: Planning (12), Development (30+), Testing (8), DevOps (18), Cloud (15), AI/ML (8), Database (8), Security (6), and more
+
+**Top Integrated Agents**:
+- `plan.agent.md` - Implementation planning
+- `expert-react-frontend-engineer.agent.md` - React expertise
+- `CSharpExpert.agent.md` - C# development
+- `terraform.agent.md` - Infrastructure as Code
+- `github-actions-expert.agent.md` - CI/CD workflows
+
 **Quick Use**:
 ```
-@[.agent/rules/workflow-orchestrator-persona.md]
-Design a multi-step approval workflow
+@[.agent/rules/plan.agent.md]
+Create an implementation plan for my feature
+
+@[.agent/rules/expert-react-frontend-engineer.agent.md]
+Help me build a React component
 ```
 
 ---
 
 ### 💡 Skills Library
 **Location**: `skills/`  
-**Count**: 37 production-tested skills
+**Count**: 100+ production-tested skills (was 37) ⭐ **NEW: +63 GitHub Copilot skills integrated!**
 
 **Top Skills**:
 - [multi-agent-patterns-google-adk.md](skills/multi-agent-patterns-google-adk.md) - 8 multi-agent architectures
 - [constitutional-ai-anthropic.md](skills/constitutional-ai-anthropic.md) - AI ethics framework
+- [agentic-rag-mastery.md](skills/agentic-rag-mastery.md) - Deep Dive: CRAG & Self-RAG Implementation ⭐
+- [subagent-architecture.md](skills/subagent-architecture.md) - Subagent Dispatcher & Handoff patterns ⭐
+- [compound-engineering.md](skills/compound-engineering.md) - "Plan-Work-Review" Cycle Methodology ⭐
 - [mcp-debugging-skills.md](skills/mcp-debugging-skills.md) - MCP troubleshooting
 - [kubernetes-resource-optimization-skills.md](skills/kubernetes-resource-optimization-skills.md) - K8s optimization
 - [dapr-configuration-skills.md](skills/dapr-configuration-skills.md) - Dapr setup
+
+**🆕 GitHub Copilot Skills** (63 folders):
+- Self-contained skill folders with `SKILL.md` + bundled resources
+- All integrated into `skills/` directory
+- Based on [Agent Skills specification](https://agentskills.io/specification)
 
 **Browse All**: [skills/](skills/)
 
@@ -57,25 +81,40 @@ Design a multi-step approval workflow
 
 ### ⚙️ Workflows
 **Location**: `.agent/workflows/`  
-**Count**: 61 executable workflows
+**Count**: 195+ executable workflows (was 61) ⭐ **NEW: +134 GitHub Copilot prompts integrated!**
 
-**Categories**:
+**Original Categories**:
 
 | Category | Count | Examples |
 |----------|-------|----------|
 | **Troubleshooting** | 20+ | cors-errors, deployment-issues, database-connection-issues |
 | Development | 15+ | adding-new-feature, code-review-testing, create-project-schedule |
 | **DevOps** | 10+ | deploying-to-aks, continuous-deployment-monitoring |
+| **Methodology** | 2 | compound-engineering, superpowers-framework |
 | **AI/Automation** | 5+ | apply-for-jobs, chat-testing, crewai-integration |
 | **Documentation** | 5+ | documentation-maintenance, skill-upgrade |
+
+**🆕 GitHub Copilot Prompts** (134 total):
+- **📋 [Complete Catalog](docs/external-libs/GITHUB_COPILOT_PROMPTS_INDEX.md)** ← Browse all 134 prompts by category
+- **Quick Access**: All prompts in `.agent/workflows/*.prompt.md`
+- **Categories**: Planning (18), Code Gen (15), Testing (11), Infrastructure (12), Cloud (10), Database (6), AI/MCP (15), and more
+
+**Top Integrated Prompts**:
+- `create-implementation-plan.prompt.md` - Feature planning
+- `breakdown-plan.prompt.md` - Task decomposition
+- `openapi-to-application-code.prompt.md` - API implementation
+- `terraform-azure-implement.prompt.md` - Azure provisioning
+- MCP server generators for 9 languages
 
 **Slash Commands**:
 ```
 /create      - Create new application
 /debug       - Debug issues  
 /deploy      - Deploy to production
-/plan        - Create project plan
-/test        - Run tests
+/plan        - Create project plan (Compound Cycle)
+/compound    - Run Compound Engineering cycle
+/rag-build   - Implement Agentic RAG
+/run-tests   - Run tests
 /orchestrate - Multi-agent coordination
 ```
 
@@ -139,7 +178,7 @@ Copy-Item ".mcp\claude_desktop_config_sample.json" "$env:APPDATA\Claude\claude_d
 ### 📦 External Libraries (DETAILED)
 
 **Location**: Multiple directories  
-**Total**: 16 major libraries | ~6,000+ files  
+**Total**: 18 major libraries | ~6,700+ files (was ~6,000)  
 **Purpose**: Extended capabilities for Google Antigravity AI coding assistant
 
 ---
@@ -217,6 +256,134 @@ Copy-Item ".mcp\claude_desktop_config_sample.json" "$env:APPDATA\Claude\claude_d
 - **Files**: 200 quickstart examples
 - **Purpose**: Official Anthropic getting-started guides
 - **Contains**: API usage, best practices, integration patterns
+
+---
+
+### 🏗️ Structured Development Mode (AI-DLC) ⭐ NEW
+
+**Methodology**: AI-Driven Development Lifecycle (from `specs.md`)
+**Status**: ✅ Installed & Native
+
+**Features**:
+- **Persistent Memory Bank**: Project context stored in `.specsmd/aidlc/memory-bank.yaml`
+- **Specialized Roles**: Distinct personas for Planning, Building, and Operations
+- **Bolt Methodology**: Time-boxed execution units
+
+**Commands**:
+```
+/specsmd-master-agent        → Start Orchestrator (Router)
+/specsmd-inception-agent     → Plan Features (Requirements, Stories)
+/specsmd-construction-agent  → Build Features (DDD, Tests, Code)
+/specsmd-operations-agent    → Deploy Features (Build, Verify)
+```
+
+**Workflow**:
+1. **Inception**: Gather requirements -> Create User Stories -> Plan Bolts
+2. **Construction**: Select Bolt -> Domain Design -> Code -> Test
+3. **Operations**: Build Artifacts -> Deploy -> Monitor
+
+**Documentation**:
+- [Quick Start](.specsmd/aidlc/quick-start.md)
+- [Flow README](.specsmd/aidlc/README.md)
+
+---
+
+#### 🤖 GitHub Copilot Resources (NEW)
+
+**Official GitHub Collection** - Community-contributed agents, prompts, skills, and instructions
+
+**8. github-awesome-copilot** (`external-libs/github-awesome-copilot/`)
+- **Files**: 550+ files
+- **Repository**: [github/awesome-copilot](https://github.com/github/awesome-copilot)
+- **License**: MIT
+- **Purpose**: Enterprise-grade GitHub Copilot customizations
+
+**📋 Complete Indexes**:
+- **[Agents Index](docs/external-libs/GITHUB_COPILOT_AGENTS_INDEX.md)** ← 140 agents in 10 categories
+- **[Prompts Index](docs/external-libs/GITHUB_COPILOT_PROMPTS_INDEX.md)** ← 134 prompts in 10 categories
+- **[Instructions Index](docs/external-libs/GITHUB_COPILOT_INSTRUCTIONS_INDEX.md)** ← 163 instructions in 6 categories
+
+**Contents**:
+
+| Type | Count | Categories | Best For |
+|------|-------|------------|----------|
+| **🤖 Custom Agents** | 140 | Planning, Development, Testing, DevOps, Cloud, AI/ML | Specialized Copilot configurations |
+| **🎯 Reusable Prompts** | 134 | Planning, Code Gen, Testing, Infrastructure, Database | Ready-to-use templates |
+| **🎯 Agent Skills** | 63 | Various domains | Self-contained skill folders |
+| **📋 Custom Instructions** | 163 | Language, Frameworks, Cloud, Data, Best Practices | Behavior customization |
+| **📦 Collections** | 83 | Frontend, Partners, etc. | Curated resource sets |
+
+**Quick Access by Category**:
+
+**Planning & Architecture** (12 agents):
+- `plan.agent.md` - Implementation planning
+- `task-planner.agent.md` - Task breakdown
+- `api-architect.agent.md` - API design
+- `specification.agent.md` - Spec writing
+
+**Development** (30+ agents):
+- `expert-react-frontend-engineer.agent.md` - React expertise
+- `expert-nextjs-developer.agent.md` - Next.js specialist
+- `CSharpExpert.agent.md` - C# development
+- `expert-dotnet-software-engineer.agent.md` - .NET expertise
+- `rust-gpt-4.1-beast-mode.agent.md` - Rust expert
+
+**DevOps & Infrastructure** (18 agents):
+- `github-actions-expert.agent.md` - CI/CD workflows
+- `terraform.agent.md` - Infrastructure as Code
+- `platform-sre-kubernetes.agent.md` - K8s SRE
+
+**Cloud Platforms** (15 agents):
+- `azure-principal-architect.agent.md` - Azure architecture
+- `bicep-plan.agent.md` - Bicep planning
+- `terraform-azure-implement.agent.md` - Azure provisioning
+
+**Testing & Quality** (8 agents):
+- `tdd-red.agent.md`, `tdd-green.agent.md`, `tdd-refactor.agent.md` - TDD cycle
+- `playwright-tester.agent.md` - E2E testing
+
+**Usage Examples**:
+```
+# Reference an agent
+@[external-libs/github-awesome-copilot/agents/plan.agent.md]
+Create an implementation plan for my new feature
+
+# Reference a prompt
+@[external-libs/github-awesome-copilot/prompts/create-implementation-plan.prompt.md]
+Generate a detailed implementation plan
+
+# Copy to your workflows
+Copy-Item "external-libs\github-awesome-copilot\agents\*.agent.md" ".agent\rules\"
+```
+
+**Integration**: Compatible with all AI coding assistants (GitHub Copilot, Claude, Gemini)
+
+---
+
+#### ✍️ AI Writing Framework (NEW)
+
+**9. WriteHERE** (`external-libs/WriteHERE/`)
+- **Files**: 50+ files
+- **Repository**: [principia-ai/WriteHERE](https://github.com/principia-ai/WriteHERE)
+- **License**: MIT (Open Source)
+- **Status**: EMNLP 2025 Accepted (Oral Presentation)
+- **Purpose**: Research-grade AI writing framework
+
+**Key Features**:
+- 🔄 **Recursive Task Decomposition**: Interleaves planning and execution
+- 🎯 **Heterogeneous Tasks**: Integrates different task types
+- 🧠 **Dynamic Adaptation**: Mimics human writing behavior
+- 📈 **State-of-the-Art**: Outperforms traditional approaches
+
+**Use Cases**:
+- Fiction writing
+- Technical report generation
+- Long-form content creation
+- Research paper drafting
+- White papers and documentation
+
+**Why It's Special**:
+Unlike traditional AI writing tools, WriteHERE eliminates rigid workflows by allowing the AI to dynamically adjust its approach during the writing process—just like humans do.
 
 ---
 
@@ -330,11 +497,13 @@ Reference:
 |--------------|-------|-------------|-------------------|
 | Antigravity-specific | 3 | ~3,800 | ✅ Native |
 | Claude/Anthropic | 4 | ~800 | ✅ Compatible |
+| **GitHub Copilot** | **1** | **~550** | **✅ Compatible** |
+| **AI Writing** | **1** | **~50** | **✅ Research** |
 | MCP Servers | 7 | ~330 | ✅ Via .mcp config |
 | AI Frameworks | 2 | ~550 | ✅ Reference patterns |
 
-**Total External Resources**: ~6,000+ files  
-**Total Knowledge**: Claude best practices + MCP tools + AI frameworks
+**Total External Resources**: ~6,700+ files (was ~6,000)  
+**Total Knowledge**: Claude + GitHub Copilot + MCP + AI frameworks + Writing tools
 
 ---
 
@@ -408,6 +577,13 @@ Help me implement advanced debugging with tool chaining for my app
 ```
 1. Read: skills/constitutional-ai-anthropic.md
 2. Reference: white-papers/wp1-agent-accountability-crisis.md
+
+### Task: Prepare White Paper Images
+```
+1. Run: python scripts/extract_pdf_images.py
+2. Workflow: .agent/workflows/white-paper-image-prep.md
+3. Guide: white-papers/WATERMARK_REMOVAL_GUIDE.md
+```
 ```
 
 ---

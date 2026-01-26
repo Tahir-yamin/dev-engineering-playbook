@@ -77,7 +77,8 @@ The quantitative patterns tell part of the story. Qualitative analysis of 600 re
 
 These aren't purely technical failures. They're socio-technical failures at the intersection of agent capability and human process.
 
-![AI Agent PR Success Rates by Task Type](images/wp5-agent-pr-success.png)
+![AI Agent PR Success Rates by Task Type](wp5-images-final/wp5-agent-pr-success.jpg)
+*Figure 1: PR Success Rates by Task Type. Analysis from Ehsani et al. (2026) showing the sharp divergence between well-defined tasks (Documentation, Build) which see >80% merge rates, and complex reasoning tasks (Performance, Bug Fixes) which drop below 30%.*
 
 ---
 
@@ -112,6 +113,9 @@ Beyond accuracy, execution efficiency improves substantially. Agents accomplish 
 ### The Implication
 
 The takeaway isn't just about web automation. It's about interface philosophy.
+
+![CI4A Semantic Interface Architecture](wp5-images-final/wp5-ci4a-architecture.jpg)
+*Figure 3: The CI4A Architecture from Qiu et al. (2026). The diagram shows the transformation of raw HTML DOM elements into semantic "Agent Primitives." This abstraction layer allows agents to interact with logical components (Buttons, Cards, Forms) rather than fragile CSS selectors.*
 
 When we design systems for AI agents, we have a choice: force agents to adapt to human interfaces, or build interfaces optimized for agent interaction.
 
@@ -160,7 +164,8 @@ The ABAP study generalizes. Any domain with:
 
 This suggests an architecture: initial generation, automated validation, iterative refinement, human review of validated output. Agents handle the try-fix cycle; humans evaluate the result.
 
-![Iterative Refinement Performance](images/wp5-iterative-refinement.png)
+![Iterative Refinement Performance](wp5-images-final/wp5-iterative-refinement.jpg)
+*Figure 2: Impact of Compiler Feedback on ABAP Generation. Data from Wallraven et al. (2026) illustrates the "Iterative Refinement Gap"—the dramatic performance jump (from <20% to ~75%) when agents are allowed to loop against a deterministic compiler before human review.*
 
 ---
 
@@ -189,6 +194,9 @@ This enables:
 - **Backtracking**: When a line of development fails, return to earlier successful variants
 - **Cross-lineage transfer**: Combine insights from different optimization branches
 - **Reproducibility**: Every variant's ancestry is tracked
+
+![PhyloEvolve Optimization Tree](wp5-images-final/wp5-phyloevolve-tree.jpg)
+*Figure 4: The PhyloEvolve Optimization Process. Visualizing the "Phylogenetic Tree" of code variants. The system branches new optimization attempts from successful parents, backtracking when performance degrades, mirroring biological evolution to navigate the complex landscape of GPU kernel optimization.*
 
 ### Results
 
@@ -229,6 +237,9 @@ Key principles:
 - **Deterministic validation gates**: Let agents iterate against compilers and tests before human review
 - **Interface optimization**: Build agent-friendly abstractions for agent tasks
 - **Human judgment for ambiguity**: Keep requirements interpretation and design decisions with humans
+
+![Human-Agent Integration Model](wp5-images-final/wp5-integration-model.jpg)
+*Figure 5: The Integrated Success Pattern. Synthesized from Ehsani et al.’s findings, this model illustrates the "Goldilocks Zone" for coding agents: tasks with medium conceptual complexity but high validation determinism, mediated by agent-aware interfaces.*
 
 ---
 

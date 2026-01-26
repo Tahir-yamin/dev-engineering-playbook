@@ -65,6 +65,23 @@
     - Workflow scripts
     - Integration patterns
 
+### Software Engineering Methodology
+12. **[compound-engineering.md](compound-engineering.md)** - Compound Engineering & Superpowers ⭐ NEW
+    - "Plan -> Work -> Review -> Compound" cycle
+    - Agentic TDD & Planning frameworks
+    - Preventing technical debt
+
+### AI & Advanced Architectures
+13. **[agentic-rag-mastery.md](agentic-rag-mastery.md)** - Agentic RAG Systems (CRAG/Self-RAG) ⭐ NEW
+    - LangGraph implementation patterns
+    - Web search fallback strategies
+    - Relevance grading logic
+
+14. **[subagent-architecture.md](subagent-architecture.md)** - Subagent Dispatcher Patterns ⭐ NEW
+    - "Plan vs Build" agent separation
+    - Handoff protocols
+    - Dispatcher architectures
+
 ### Project Management
 12. **[project-management/](project-management/)** - PM skills (4 files)
     - Primavera P6 integration
@@ -97,14 +114,22 @@
 ### 🔧 Automation & Tools
 - windows-desktop-automation-skills.md
 
+### 🐍 Python Development ⭐ NEW
+- python-ruff-linting-skills.md - Code quality and linting (6 skills)
+
 ---
 
 ## Quick Reference
 
-**Total Skills**: 15 skill files  
-**Categories**: 6 main categories  
-**New Additions** (2026-01-22):
-- **[ui-ux-pro-max/](ui-ux-pro-max/)** - Design system generator (100 industry rules) ⭐ NEW
+**Total Skills**: 18 skill files (was 17) ⭐ **+1 Python code quality skill added!**  
+**Categories**: 9 main categories (added Python Development)  
+**New Additions** (2026-01-26):
+- **[python-ruff-linting-skills.md](python-ruff-linting-skills.md)** - Python Code Quality with Ruff (6 skills) ⭐ NEW
+
+**Previous Additions** (2026-01-24):
+- **[agentic-rag-mastery.md](agentic-rag-mastery.md)** - Deep RAG Implementation ⭐ NEW
+- **[subagent-architecture.md](subagent-architecture.md)** - Subagent Patterns ⭐ NEW
+- **[compound-engineering.md](compound-engineering.md)** - Compound Engineering Methodology ⭐ NEW
 - **[skill-seekers/](skill-seekers/)** - Doc-to-skill converter (MCP integrated) ⭐ NEW
 - **[agent-commands/](agent-commands/)** - Session handoff/pickup commands (mitsuhiko) ⭐ NEW
 - White Paper Writing Skills (anti-AI detection, plagiarism-free)
@@ -138,4 +163,58 @@
 
 ---
 
-**Last Updated**: 2026-01-22
+## 🤖 GitHub Copilot Skills (NEW - 2026-01-25) ⭐
+
+**63 self-contained skill folders** from [github/awesome-copilot](https://github.com/github/awesome-copilot)
+
+### Key Features
+- Each skill is a **self-contained folder** with `SKILL.md` + bundled resources
+- Based on [Agent Skills specification](https://agentskills.io/specification)
+- Supports bundled assets (scripts, code samples, reference data)
+- Agents load on-demand for specialized tasks
+
+### Skill Categories
+Skills cover diverse domains including:
+- Development tools and frameworks
+- Testing and quality assurance
+- Infrastructure and DevOps
+- Cloud platforms (Azure, AWS, GCP)
+- Database management
+- Security and compliance
+- AI and machine learning
+- And many more...
+
+### Usage
+```
+# Reference a GitHub Copilot skill
+@[skills/[skill-folder-name]/SKILL.md]
+```
+
+**📋 Complete listing available in**: `external-libs/github-awesome-copilot/skills/`
+
+---
+
+## Quick Reference
+
+**Total Skills**: 100+ skill files/folders (was 17) ⭐ **+63 GitHub Copilot skills integrated!**  
+**Categories**: 10+ main categories  
+**New Additions** (2026-01-25):
+- **63 GitHub Copilot Skills** - Self-contained skill folders with bundled resources ⭐ NEW
+- Full native integration into `skills/` directory
+
+**Previous Additions** (2026-01-24):
+- **[agentic-rag-mastery.md](agentic-rag-mastery.md)** - Deep RAG Implementation ⭐
+- **[subagent-architecture.md](subagent-architecture.md)** - Subagent Patterns ⭐
+- **[compound-engineering.md](compound-engineering.md)** - Compound Engineering Methodology ⭐
+- **[skill-seekers/](skill-seekers/)** - Doc-to-skill converter (MCP integrated) ⭐
+- **[agent-commands/](agent-commands/)** - Session handoff/pickup commands (mitsuhiko) ⭐
+- White Paper Writing Skills (anti-AI detection, plagiarism-free)
+
+**Previous Additions** (2026-01-21):
+- CrewAI Framework Integration
+- Multi-agent orchestration patterns
+- Job application research automation
+
+---
+
+**Last Updated**: 2026-01-25

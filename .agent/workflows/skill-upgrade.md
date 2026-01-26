@@ -24,6 +24,7 @@ Decide which area you want to tackle first. **Do not try to do all at once.**
 - **Path A: Advanced DevOps** (GitOps, Observability)
 - **Path B: AI Engineering** (RAG, Agents)
 - **Path C: Enterprise Architecture** (Event-Driven, Dapr)
+- **Path D: Native Skill Integration** (GitHub Copilot Skills) - *New*
 
 ## Step 2: Study the "Deep Dive" Repos
 
@@ -57,12 +58,22 @@ Apply what you've learned to the current Todo App (or a new project).
 - Refactor the backend to use Dapr for **State Management**.
 - Implement a simple **Pub/Sub** event (e.g., "TaskCompleted").
 
+### If Path D (Native Skills):
+- Browse `docs/external-libs/GITHUB_COPILOT_AGENTS_INDEX.md`.
+- Choose a domain (e.g., Testing, Cloud).
+- Copy a skill folder from `external-libs/github-awesome-copilot/skills/` to `skills/`.
+- Create a demo script using that skill via `@[skills/<skill-name>/SKILL.md]`.
+
 ## Step 4: Document Your Learning
 
 1. Create a new file: `docs/learning/<path-name>-notes.md`.
 2. Document what you built.
 3. Note down any "gotchas" or challenges.
-4. (Optional) Create a PR to the main repo with your improvements.
+4. **Auto-Route Artifacts**:
+   - If you created a new skill -> Move to `skills/`
+   - If you created a new agent -> Move to `.agent/rules/`
+   - If you created a workflow -> Move to `.agent/workflows/`
+5. (Optional) Create a PR to the main repo with your improvements.
 
 ## Troubleshooting
 
