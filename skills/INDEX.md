@@ -14,12 +14,21 @@
    - Gemini 3 Flash integration
    - Structured JSON output
 
-3. **[gemini-agent-skills.md](gemini-agent-skills.md)** - Gemini AI agent capabilities
-   - Agent configuration
-   - Tool integration
-   - Advanced patterns
+4. **[gemini-resilience.md](gemini-resilience.md)** - Gemini API Resilience & Quota ⭐ NEW
+   - Overcoming 429 quota exhaustion
+   - Dual-key architecture isolation
+   - 5-tier smart retry logic
 
-4. **[openai-agentkit-skills.md](openai-agentkit-skills.md)** - OpenAI agent toolkit
+5. **[notebooklm-mastery.md](notebooklm-mastery.md)** - Advanced NotebookLM mastery
+   - Deep Research & Search
+   - Studio Content Generation
+   - Multi-source Querying
+
+6. **[claude-code-slash-commands.md](claude-code-slash-commands.md)** - Claude Code Slash Commands ⭐ NEW
+   - Surgical VC/Git, Testing, and PM commands
+   - 20+ community-contributed tools
+
+5. **[openai-agentkit-skills.md](openai-agentkit-skills.md)** - OpenAI agent toolkit
    - Agent development
    - Tool creation
    - Workflow orchestration
@@ -41,11 +50,16 @@
    - Assessment creation
    - Engagement patterns
 
-8. **[white-paper-writing-skills.md](white-paper-writing-skills.md)** - Professional white paper creation ⭐ NEW
+8. **[white-paper-writing-skills.md](white-paper-writing-skills.md)** - Professional white paper creation
    - Anti-AI detection techniques (perplexity/burstiness)
    - Plagiarism-free writing (FRESH method)
    - 4 white paper templates
    - Quality metrics & verification
+
+9. **[industrial-hud-design.md](industrial-hud-design.md)** - High-Fidelity Industrial HUDs ⭐ NEW
+   - Tactical modular borders (clip-path)
+   - Atmospheric depth (Noise/Vignette)
+   - Kinetic scanlines & RGB-glitch
 
 ### Domain-Specific
 9. **[claude-healthcare-skills.md](claude-healthcare-skills.md)** - Healthcare AI applications
@@ -95,6 +109,7 @@
 ### 🤖 AI & Multi-Agent Systems
 - crewai-framework-skills.md
 - gemini-agent-skills.md
+- notebooklm-mastery.md ⭐
 - openai-agentkit-skills.md
 - enterprise-meta-orchestration-guide.md
 
@@ -121,10 +136,11 @@
 
 ## Quick Reference
 
-**Total Skills**: 18 skill files (was 17) ⭐ **+1 Python code quality skill added!**  
+**Total Skills**: 114 production skills (was 17) ⭐ **Massive expansion!**  
 **Categories**: 9 main categories (added Python Development)  
-**New Additions** (2026-01-26):
-- **[python-ruff-linting-skills.md](python-ruff-linting-skills.md)** - Python Code Quality with Ruff (6 skills) ⭐ NEW
+- **[python-ruff-linting-skills.md](python-ruff-linting-skills.md)** - Python Code Quality with Ruff (8 skills) ⭐ UPDATED
+  - Added specialized strategies for E741 (Ambiguous names) and E501 (Complex mocks)
+  - Added "Ruff Format vs Check" multi-step sanitization
 
 **Previous Additions** (2026-01-24):
 - **[agentic-rag-mastery.md](agentic-rag-mastery.md)** - Deep RAG Implementation ⭐ NEW
@@ -217,4 +233,9 @@ Skills cover diverse domains including:
 
 ---
 
-**Last Updated**: 2026-01-25
+**Latest Additions** (2026-01-31):
+- **[claude-code-slash-commands.md](claude-code-slash-commands.md)** - Claude Code Slash Commands ⭐ NEW
+- 1,445% increase in multi-agent orchestration inquiries (Gartner)
+- Claude Code V4: Custom Agents, Session Teleportation, MCP Search
+
+**Last Updated**: 2026-01-31 (Claude Code V4 & Gemini 3 Updates)

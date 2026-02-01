@@ -1,9 +1,9 @@
 # Claude Skills - Complete Index
 
 **Project**: TODO Hackathon - All Phases
-**Version**: 2.1
-**Last Updated**: December 28, 2025
-**Total Skills**: 60+ across 12 files
+**Version**: 2.2
+**Last Updated**: 2026-01-31
+**Total Skills**: 65+ across 13 files
 
 ---
 
@@ -202,6 +202,18 @@ Ask: "Show me skills for [Docker/Database/Auth/etc] issues"
 | 4 | Build Failure Diagnosis | Build won't complete |
 | 5 | Runtime Error Tracing | App crashes at runtime |
 | 6 | Performance Profiling | Slow pages, laggy UI |
+
+### 🛠️ Claude Code & Agentic Tools
+**File**: [claude-code-slash-commands.md](../skills/claude-code-slash-commands.md)  
+**Skills**: 20+ | **Coverage**: Slash commands, custom agents, V4 features
+
+| # | Skill | Key Use Case |
+|---|-------|--------------|
+| 1 | VC & Git Commands | /analyze-issue, /commit-fast, /create-pr |
+| 2 | Analysis & Testing | /check, /optimize, /tdd |
+| 3 | Project Management | /prd-generator, /todo, /mermaid |
+
+**Quick Access**: `@skills/claude-code-slash-commands.md`
 
 **Quick Access**: `@.claude/debug-skills.md`
 

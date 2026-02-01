@@ -61,6 +61,7 @@ Help me build a React component
 **Count**: 101+ production-tested skills (was 100) ⭐ **NEW: +1 Python code quality skills!**
 
 **Top Skills**:
+- [notebooklm-mastery.md](skills/notebooklm-mastery.md) - Advanced Research & Studio ⭐ NEW
 - [python-ruff-linting-skills.md](skills/python-ruff-linting-skills.md) - Python code quality with Ruff (6 skills) ⭐ NEW
 - [multi-agent-patterns-google-adk.md](skills/multi-agent-patterns-google-adk.md) - 8 multi-agent architectures
 - [constitutional-ai-anthropic.md](skills/constitutional-ai-anthropic.md) - AI ethics framework
@@ -92,7 +93,7 @@ Help me build a React component
 | Development | 15+ | adding-new-feature, code-review-testing, create-project-schedule |
 | **DevOps** | 10+ | deploying-to-aks, continuous-deployment-monitoring |
 | **Methodology** | 2 | compound-engineering, superpowers-framework |
-| **AI/Automation** | 5+ | apply-for-jobs, chat-testing, crewai-integration |
+| **AI/Automation** | 6+ | notebooklm-orchestrator, apply-for-jobs, chat-testing, crewai-integration |
 | **Documentation** | 5+ | documentation-maintenance, skill-upgrade |
 
 **🆕 GitHub Copilot Prompts** (134 total):
@@ -119,7 +120,7 @@ Help me build a React component
 /orchestrate - Multi-agent coordination
 ```
 
-**Browse All**: [.agent/workflows/](.agent/workflows/)
+**Browse All**: [workflows/](workflows/)
 
 ---
 
@@ -662,7 +663,7 @@ Copy-Item "." "d:\backup-kb-$timestamp" -Recurse
 
 - **Main README**: [README.md](README.md)
 - **Skill Index**: [skills/](skills/)
-- **Workflow Index**: [.agent/workflows/](.agent/workflows/)
+- **Workflow Index**: [workflows/](workflows/)
 - **AI Updates**: [docs/ai-updates/](docs/ai-updates/)
 - **Agent Personas**: [docs/AGENT_PERSONAS.md](docs/AGENT_PERSONAS.md)
 - **Recommended Repos**: [docs/workspace/RECOMMENDED_GITHUB_REPOS.md](docs/workspace/RECOMMENDED_GITHUB_REPOS.md)

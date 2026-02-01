@@ -341,10 +341,71 @@ ignore = ["E501"]  # Allow long lines during migration
 ```
 
 ### Lessons Learned
-- ✅ Start strict for new projects
-- ✅ Gradually tighten rules for legacy code
-- ✅ Use per-file ignores for special cases
 - ❌ Don't disable all E501 - fix the code instead
+
+---
+
+## Skill #7: Fix Ambiguous Variable Names (E741)
+
+### When to Use
+- CI fails with E741 errors
+- Variables named `l`, `I`, or `O` are flagged
+- Improving code readability and preventing "look-alike" bugs
+
+### Pattern
+
+**Problem:**
+```python
+for i in range(5):
+    l = await storage.get_lock(key)  # 'l' is ambiguous (looks like 1 or I)
+    locks.append(l)
+```
+
+**Solution:**
+```python
+for i in range(5):
+    lock = await storage.get_lock(key)  # Descriptive and compliant
+    locks.append(lock)
+```
+
+### Lessons Learned
+- ✅ lowercase 'L' (`l`) is the most common offender
+- ✅ Always use descriptive names like `lock`, `line`, or `list_item`
+- ✅ Prevents bugs where `l` is confused with the digit `1`
+
+---
+
+## Skill #8: Ruff Format vs. Ruff Check
+
+### When to Use
+- "Checks passed" but CI still fails on linting
+- "Would reformat" errors in GitHub Actions
+- Ensuring pixel-perfect PEP 8 compliance
+
+### The Distinction
+
+| Command | Purpose | Fixes |
+|---------|---------|-------|
+| `ruff check` | Linting (Logic/Pats) | Unused imports, long lines, naming |
+| `ruff format` | Formatting (Style) | Indentation, spacing, quotes |
+
+### Multi-Step Sanitization
+```bash
+# 1. Fix logic and patterns
+ruff check . --fix
+
+# 2. Apply styling
+ruff format .
+
+# 3. Final verification
+ruff check .
+ruff format --check .
+```
+
+### Lessons Learned
+- ✅ `ruff check --fix` does NOT format your code
+- ✅ CI often ignores `ruff format` if it only runs `ruff check`
+- ✅ Always check both locally before pushing
 
 ---
 
@@ -399,18 +460,18 @@ ruff check --unsafe-fixes --fix
 
 ---
 
-**Real-World Success: PR #526**
+**Real-World Success: PR #1617**
 
-Fixed 118 lint errors in ~2 hours using these skills:
-- Skill #1: Auto-fix → 42 errors resolved
-- Skill #2: Exception chaining → 4 errors resolved
-- Skill #3: Line breaking → 50 errors resolved
-- Skill #4: Strategic noqa → 49 errors resolved
-- Skill #5: Debugging → Resolved cache/edit issues
+Resolved 12+ persistent linting and formatting errors to reach 100% Green CI:
+- **E501**: Broken down complex `patch` strings in `test_file_system_toolkits.py`.
+- **E741**: Renamed ambiguous `l` variables to `lock` in `test_concurrent_storage_verification.py`.
+- **I001**: Harmonized imports using `ruff check --fix`.
+- **W293**: Removed whitespace from blank lines.
+- **Style**: Synchronized local environment with CI by running `ruff format --check .`.
 
-**Result:** CI unblocked, PR merged ✅
+**Result:** CI unblocked, PR fully green ✅
 
 ---
 
-**Last Updated:** 2026-01-26  
+**Last Updated:** 2026-01-28  
 **Maintainer:** @tahir-yamin

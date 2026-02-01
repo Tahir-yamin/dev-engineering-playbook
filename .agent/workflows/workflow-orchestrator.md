@@ -64,6 +64,22 @@ description: Master workflow orchestrator - Run single or combined workflows wit
 
 ---
 
+### 3. Project Wrap-up (`project-wrap-up`)
+
+**What it does**: Finalizes project artifacts, extracts new skills, and updates the knowledge base.
+**Duration**: ~10-15 minutes
+**Output**: Finalized walkthrough, new skill files, updated indexes.
+
+**Runs**:
+- Verify task completion
+- Finalize documentation
+- Harvest new skills
+- Sync knowledge base
+
+**Invoke**: `/@workflow-orchestrator project-wrap-up`
+
+---
+
 ### 4. GitHub Copilot Monitoring (`copilot-monitoring`)
 
 **What it does**: Checks for updates to GitHub's awesome-copilot repository

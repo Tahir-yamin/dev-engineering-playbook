@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Slides: Neon Cyber Demo</title>
+
+    <!-- Fonts -->
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===========================================
+           NEON CYBER THEME
+           =========================================== */
+        :root {
+            /* Palette */
+            --bg-primary: #0a0f1c;
+            --bg-secondary: #0f172a;
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --accent: #00ffcc;
+            --accent-secondary: #ff00aa;
+            --accent-tertiary: #7000ff;
+            --glow: rgba(0, 255, 204, 0.4);
+            
+            /* Typography */
+            --font-display: 'Clash Display', sans-serif;
+            --font-body: 'Satoshi', sans-serif;
+
+            /* Spacing */
+            --slide-padding: clamp(2rem, 5vw, 6rem);
+            
+            /* Animation */
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --duration-normal: 0.8s;
+            --duration-fast: 0.5s;
+        }
+
+        /* ===========================================
+           BASE STYLES
+           =========================================== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-snap-type: y mandatory;
+            background-color: var(--bg-primary);
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Canvas Background */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        /* Custom Cursor */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: transform 0.1s ease, width 0.3s, height 0.3s, background-color 0.3s;
+            mix-blend-mode: difference;
+        }
+        
+        .cursor-dot {
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor.hovered {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0, 255, 204, 0.1);
+            border-color: transparent;
+            backdrop-filter: blur(2px);
+        }
+
+        /* ===========================================
+           SLIDE CONTAINER
+           =========================================== */
+        .slide {
+            min-height: 100vh;
+            padding: var(--slide-padding);
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            z-index: 2;
+        }
+
+        /* Grid Overlay */
+        .grid-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 1;
+            mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+            pointer-events: none;
+        }
+
+        /* ===========================================
+           TYPOGRAPHY
+           =========================================== */
+        h1, h2, h3 {
+            font-family: var(--font-display);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: clamp(3.5rem, 8vw, 8rem);
+            background: linear-gradient(135deg, #fff 0%, #b8b8b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 40px rgba(255,255,255,0.1);
+        }
+
+        h2 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            color: var(--accent);
+        }
+
+        p {
+            font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+            color: var(--text-secondary);
+            max-width: 65ch;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 2vw, 1.8rem);
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 1rem;
+            display: inline-block;
+            border: 1px solid var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 999px;
+            background: rgba(0, 255, 204, 0.05);
+            box-shadow: 0 0 20px var(--glow);
+        }
+
+        /* Glitch Effect */
+        .glitch {
+            position: relative;
+        }
+        
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.8;
+            pointer-events: none;
+        }
+        
+        .glitch::before {
+            color: var(--accent-secondary);
+            clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+            transform: translate(-0.025em, -0.0125em);
+            animation: glitch-anim-1 2.5s infinite linear alternate-reverse;
+        }
+        
+        .glitch::after {
+            color: var(--accent-tertiary);
+            clip-path: polygon(0 80%, 100% 20%, 100% 100%, 0 100%);
+            transform: translate(0.025em, 0.0125em);
+            animation: glitch-anim-2 2.5s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim-1 {
+            0% { clip-path: inset(20% 0 80% 0); }
+            20% { clip-path: inset(60% 0 10% 0); }
+            40% { clip-path: inset(40% 0 50% 0); }
+            60% { clip-path: inset(80% 0 5% 0); }
+            80% { clip-path: inset(10% 0 70% 0); }
+            100% { clip-path: inset(30% 0 20% 0); }
+        }
+
+        @keyframes glitch-anim-2 {
+            0% { clip-path: inset(10% 0 60% 0); }
+            20% { clip-path: inset(30% 0 10% 0); }
+            40% { clip-path: inset(50% 0 30% 0); }
+            60% { clip-path: inset(10% 0 80% 0); }
+            80% { clip-path: inset(70% 0 20% 0); }
+            100% { clip-path: inset(20% 0 40% 0); }
+        }
+
+        /* ===========================================
+           COMPONENTS
+           =========================================== */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 1rem;
+            transition: all 0.4s var(--ease-out-expo);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.03), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px -10px rgba(0, 255, 204, 0.2);
+        }
+
+        .feature-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        /* Code Block */
+        .code-block {
+            background: #0d1117;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            margin-top: 2rem;
+        }
+        
+        .code-block::before {
+            content: 'CSS';
+            position: absolute;
+            top: 0;
+            right: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            background: #1f2937;
+            padding: 0.2rem 0.5rem;
+            border-radius: 0 0 0.5rem 0.5rem;
+        }
+
+        code { color: #ff79c6; }
+        .prop { color: #8be9fd; }
+        .val { color: #f1fa8c; }
+
+        /* ===========================================
+           ANIMATIONS
+           =========================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity var(--duration-normal) var(--ease-out-expo),
+                        transform var(--duration-normal) var(--ease-out-expo);
+        }
+
+        .slide.visible .reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stagger delays */
+        .reveal:nth-child(1) { transition-delay: 0.1s; }
+        .reveal:nth-child(2) { transition-delay: 0.2s; }
+        .reveal:nth-child(3) { transition-delay: 0.3s; }
+        .reveal:nth-child(4) { transition-delay: 0.4s; }
+        .feature-card:nth-child(1) { transition-delay: 0.4s; }
+        .feature-card:nth-child(2) { transition-delay: 0.5s; }
+        .feature-card:nth-child(3) { transition-delay: 0.6s; }
+
+        /* Navigation */
+        .nav-dots {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 100;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .nav-dot.active {
+            background: var(--accent);
+            box-shadow: 0 0 10px var(--glow);
+            transform: scale(1.2);
+        }
+        
+        .progress-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+            z-index: 100;
+            width: 0%;
+            transition: width 0.3s ease-out;
+        }
+
+        .keyboard-hint {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            opacity: 0.5;
+            z-index: 99;
+        }
+
+        @media (max-width: 768px) {
+            .nav-dots, .cursor, .cursor-dot { display: none; }
+            :root { --slide-padding: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-dot"></div>
+    <canvas id="bg-canvas"></canvas>
+    
+    <div class="progress-bar"></div>
+    <nav class="nav-dots"></nav>
+    <div class="keyboard-hint">Use ⌨️ Arrow Keys to Navigate</div>
+
+    <!-- SLIDE 1: INTRO -->
+    <section class="slide" id="intro">
+        <div class="grid-overlay"></div>
+        <div class="slide-content">
+            <span class="reveal hero-subtitle">Frontend Slides</span>
+            <h1 class="reveal glitch" data-text="Animation Rich.">Animation Rich.</h1>
+            <h1 class="reveal glitch" data-text="Zero Dependencies.">Zero Dependencies.</h1>
+            <p class="reveal">
+                Stop fighting with PowerPoint. Start building immersive web presentations 
+                that live in the browser and wow your audience.
+            </p>
+        </div>
+    </section>
+
+    <!-- SLIDE 2: FEATURES -->
+    <section class="slide" id="features">
+        <div class="grid-overlay"></div>
+        <div class="slide-content">
+            <h2 class="reveal">Built for Impact</h2>
+            <p class="reveal">Everything you need to tell a compelling story, without the bloat.</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card reveal hover-trigger">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Fast Performance</h3>
+                    <p>60fps animations powered by CSS hardware acceleration. No heavy frameworks.</p>
+                </div>
+                <div class="feature-card reveal hover-trigger">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Distinctive Style</h3>
+                    <p>"Neon Cyber", "Midnight Executive", and more. Break free from generic templates.</p>
+                </div>
+                <div class="feature-card reveal hover-trigger">
+                    <div class="feature-icon">📱</div>
+                    <h3>Responsive</h3>
+                    <p>Looks great on massive projectors, laptops, and mobile phones automatically.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 3: CODE -->
+    <section class="slide" id="code">
+        <div class="grid-overlay"></div>
+        <div class="slide-content">
+            <h2 class="reveal">Code is Design</h2>
+            <p class="reveal">Declarative styles make customization trivial.</p>
+            
+            <div class="code-block reveal">
+<pre>:root {
+    <span class="prop">--bg-primary</span>: <span class="val">#0a0f1c</span>;
+    <span class="prop">--accent</span>: <span class="val">#00ffcc</span>;
+    <span class="prop">--font-display</span>: <span class="val">'Clash Display'</span>;
+    
+    <span class="prop">--animation-speed</span>: <span class="val">0.6s</span>;
+    <span class="prop">--easing</span>: <span class="val">cubic-bezier(0.16, 1, 0.3, 1)</span>;
+}</pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 4: END -->
+    <section class="slide" id="end">
+        <div class="grid-overlay"></div>
+        <div class="slide-content" style="text-align: center;">
+            <h1 class="reveal glitch" data-text="Ready?">Ready?</h1>
+            <p class="reveal">Create your first deck with one command.</p>
+            <br>
+            <h2 class="reveal" style="color: var(--accent);">/create-slides</h2>
+        </div>
+    </section>
+
+    <script>
+        /* ===========================================
+           LOGIC
+           =========================================== */
+        
+        // 1. Particle System
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        const particles = [];
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.size = Math.random() * 2;
+                this.color = Math.random() > 0.5 ? '#00ffcc' : '#ff00aa';
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x < 0) this.x = width;
+                if (this.x > width) this.x = 0;
+                if (this.y < 0) this.y = height;
+                if (this.y > height) this.y = 0;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.globalAlpha = 0.5;
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < 50; i++) particles.push(new Particle());
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, width, height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+        animateParticles();
+
+        // 2. Slide Observer & Navigation
+        const slides = document.querySelectorAll('.slide');
+        const dotsContainer = document.querySelector('.nav-dots');
+        const progressBar = document.querySelector('.progress-bar');
+        let currentSlide = 0;
+
+        // Create dots
+        slides.forEach((_, idx) => {
+            const dot = document.createElement('div');
+            dot.className = 'nav-dot';
+            dot.onclick = () => {
+                slides[idx].scrollIntoView({ behavior: 'smooth' });
+            };
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.nav-dot');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Update active state
+                    const index = Array.from(slides).indexOf(entry.target);
+                    currentSlide = index;
+                    
+                    dots.forEach(d => d.classList.remove('active'));
+                    dots[index].classList.add('active');
+                    
+                    // Update progress
+                    const progress = ((index + 1) / slides.length) * 100;
+                    progressBar.style.width = `${progress}%`;
+                }
+            });
+        }, { threshold: 0.5 });
+
+        slides.forEach(slide => observer.observe(slide));
+
+        // 3. Custom Cursor
+        const cursor = document.querySelector('.cursor');
+        const cursorDot = document.querySelector('.cursor-dot');
+        const hoverTriggers = document.querySelectorAll('.hover-trigger, h1, h2, a, button');
+
+        document.addEventListener('mousemove', (e) => {
+            cursorDot.style.left = e.clientX + 'px';
+            cursorDot.style.top = e.clientY + 'px';
+            
+            // Laggy follow for outer ring
+            setTimeout(() => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            }, 50);
+        });
+
+        hoverTriggers.forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+        });
+
+        // 4. Keyboard Navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                if (currentSlide < slides.length - 1) {
+                    slides[currentSlide + 1].scrollIntoView({ behavior: 'smooth' });
+                }
+            } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                e.preventDefault();
+                if (currentSlide > 0) {
+                    slides[currentSlide - 1].scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    </script>
+</body>
+</html>

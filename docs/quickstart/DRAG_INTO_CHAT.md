@@ -97,6 +97,7 @@ python job-application/scripts/job_scraper.py --stats
 @[.agent/workflows/github-best-practices.md]
 @[.agent/workflows/workflow-orchestrator.md]
 @[.agent/workflows/continuous-deployment-monitoring.md]
+@[.agent/workflows/manuscript-writing-flow.md]
 ```
 
 ### AI Update Reports (NEW!)

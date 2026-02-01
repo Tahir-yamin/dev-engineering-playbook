@@ -4,9 +4,9 @@ description: Index of all available workflows for troubleshooting and developmen
 
 # Workflows Index
 
-**Total Workflows**: 24  
+**Total Workflows**: 206  
 **Location**: `.agent/workflows/`  
-**Last Updated**: January 5, 2026
+**Last Updated**: 2026-01-31
 
 ---
 
@@ -79,6 +79,10 @@ description: Index of all available workflows for troubleshooting and developmen
 **Use when**: Adding tables, modifying columns, migrations  
 **Includes**: Safe migration process, rollback plan, monitoring
 
+### 15. [Detailed Project Inception](./detailed-project-inception.md) ⭐ NEW
+**Use when**: Analyzing new project requirements and mapping to Knowledge Base resources.  
+**Includes**: Socratic Discovery, Requirement Analysis, Resource Mapping (Skills/Workflows/Docs).
+
 ### 20. [Skill Upgrade](./skill-upgrade.md) 🚀
 **Use when**: Planning your 2025 learning journey  
 **Includes**: Roadmap execution, deep dive steps, learning projects  
@@ -97,12 +101,25 @@ description: Index of all available workflows for troubleshooting and developmen
 **Use when**: Setting up new repos, auditing security, configuring CI/CD
 **Special**: Fully autonomous workflow with auto-approval for fixes
 
-### 17. [Security Remediation](./security-remediation.md) 🛡️
+### 17. [Gemini CLI GitHub Integration](./gemini-cli-github-integration.md)
+**Use when**: Integrating Gemini CLI into GitHub workflows
+**Includes**: Setup, configuration, example usage
+
+### 18. [Gemini Quota Recovery](./gemini-quota-recovery.md)
+**Use when**: Experiencing Gemini 429 errors or quota limits
+**Fixes**: Systematic recovery protocol for Gemini 429 errors
+**Includes**: Rate limit handling, retry mechanisms, quota monitoring
+
+### 19. [Git Flow Branch Creator](./git-flow-branch-creator.prompt.md)
+**Use when**: Creating appropriate branches following Git Flow
+**Includes**: Branch naming conventions, automated branch creation
+
+### 20. [Security Remediation](./security-remediation.md) 🛡️
 **Use when**: GitHub security alerts, Dependabot alerts, code scanning issues
 **Fixes**: Exposed secrets, vulnerability patches, dependency updates
 **Includes**: Automated remediation steps, alert management
 
-### 18. [Complete Application QA](./complete-application-qa.md) ✅
+### 21. [Complete Application QA](./complete-application-qa.md) ✅
 **Use when**: End-to-end testing, pre-submission QA, comprehensive validation
 **Includes**: Auth testing, CRUD operations, AI chatbot, deployment verification
 **Special**: Autonomous self-examination and auto-resolution workflow

@@ -38,6 +38,9 @@ Located in: `agents/wshobson/`
 - [C4 Architecture](wshobson/c4-architecture/) - Architecture diagrams
 - [CI/CD Automation](wshobson/cicd-automation/) - Pipelines (10 files)
 - [Cloud Infrastructure](wshobson/cloud-infrastructure/) - Terraform (16 files)
+- [gemini-cli-github-integration.md](gemini-cli-github-integration.md) - Integrate Gemini CLI into GitHub workflows
+- [gemini-quota-recovery.md](gemini-quota-recovery.md) - Systematic recovery protocol for Gemini 429 errors
+- [git-flow-branch-creator.prompt.md](git-flow-branch-creator.prompt.md) - Create appropriate branches following Git Flow
 - [Code Documentation](wshobson/code-documentation/) - Auto-docs
 - [Code Refactoring](wshobson/code-refactoring/) - Refactoring patterns
 - [Code Review AI](wshobson/code-review-ai/) - Automated reviews
