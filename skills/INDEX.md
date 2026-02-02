@@ -28,10 +28,15 @@
    - Surgical VC/Git, Testing, and PM commands
    - 20+ community-contributed tools
 
-5. **[openai-agentkit-skills.md](openai-agentkit-skills.md)** - OpenAI agent toolkit
-   - Agent development
-   - Tool creation
-   - Workflow orchestration
+31. **[openai-agentkit-skills.md](openai-agentkit-skills.md)** - OpenAI agent toolkit
+    - Agent development
+    - Tool creation
+    - Workflow orchestration
+
+32. **[openclaw-management.md](openclaw-management.md)** - Local OpenClaw Gateway Mastery ⭐ NEW
+    - WSL2 technical isolation & security (openclaw-runner)
+    - Local LLM memory optimization (Modelfile presets)
+    - Insecure context/LAN dashboard bypasses (WebCrypto)
 
 ### Job Application & Career
 5. **[cv-optimization-skills.md](cv-optimization-skills.md)** - CV and application optimization
@@ -112,6 +117,7 @@
 - notebooklm-mastery.md ⭐
 - openai-agentkit-skills.md
 - enterprise-meta-orchestration-guide.md
+- openclaw-management.md ⭐
 
 ### 💼 Job & Career
 - gemini-ai-job-search.md
@@ -233,9 +239,8 @@ Skills cover diverse domains including:
 
 ---
 
-**Latest Additions** (2026-01-31):
-- **[claude-code-slash-commands.md](claude-code-slash-commands.md)** - Claude Code Slash Commands ⭐ NEW
-- 1,445% increase in multi-agent orchestration inquiries (Gartner)
-- Claude Code V4: Custom Agents, Session Teleportation, MCP Search
+**Latest Additions** (2026-02-02):
+- **[openclaw-management.md](openclaw-management.md)** - Local OpenClaw Gateway Mastery ⭐ NEW
+- **[claude-code-slash-commands.md](claude-code-slash-commands.md)** - Claude Code Slash Commands
 
-**Last Updated**: 2026-01-31 (Claude Code V4 & Gemini 3 Updates)
+**Last Updated**: 2026-02-02 (OpenClaw Local Setup & Optimization)
