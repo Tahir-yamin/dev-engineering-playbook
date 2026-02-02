@@ -117,5 +117,50 @@ chmod 600 ~/.openclaw/openclaw.json
 
 ---
 
-**Total Skills**: 3  
+## Skill #4: Service Management (Restarting)
+
+### When to Use
+- "Gateway failed to start: gateway already running" error.
+- "Port 18789 is already in use" error.
+- After installing new browser binaries or upgrading core packages.
+
+### The Problem
+OpenClaw doesn't always shut down cleanly, leaving a "zombie" process holding the port. Running `gateway run` again fails because the port is locked.
+
+### The Solution: Force Kill & Restart (One-Liner)
+
+This command safely kills any process belonging to the `openclaw-runner` user named `node` and restarts the gateway immediately.
+
+```bash
+# Force kill old process + Start new instance
+sudo pkill -u openclaw-runner node || true && sudo -u openclaw-runner bash -c 'export NVM_DIR="$HOME/.nvm"; . "$NVM_DIR/nvm.sh"; openclaw gateway run'
+```
+
+---
+
+## Skill #5: Advanced CLI Command Injection
+
+### When to Use
+- The Agent (LLM) is "too chatty" and refuses to execute a slash command.
+- You need to paste a sensitive token/cookie and don't want it in the browser history.
+- The UI is misformatting your input (e.g., smart quotes).
+
+### The Solution: Direct Injection via Session ID
+Bypass the frontend and inject the command directly into the agent's brain stream using the server CLI.
+
+**Step 1: Get the Session ID**
+```bash
+# Export env variables first!
+sudo -u openclaw-runner bash -c 'export NVM_DIR="$HOME/.nvm"; . "$NVM_DIR/nvm.sh"; openclaw sessions list'
+# Copy the 36-char ID (e.g., f6317d3d-...)
+```
+
+**Step 2: Inject the Command**
+```bash
+sudo -u openclaw-runner bash -c 'export NVM_DIR="$HOME/.nvm"; . "$NVM_DIR/nvm.sh"; openclaw sessions send <SESSION_ID> "/skill linkedin config cookie <YOUR_COOKIE>"'
+```
+
+---
+
+**Total Skills**: 5
 **Status**: Verified on Windows 11 / WSL2 (Ubuntu)
