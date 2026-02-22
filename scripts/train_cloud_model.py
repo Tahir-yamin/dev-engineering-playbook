@@ -96,7 +96,7 @@ def predict_bayesian_markov(df, slot_name, current_date, window_days=180):
         p_markov = markov_scores.get(b, 0.0)
         p_global = global_counts.get(b, 0.0)
         
-        final_scores[b] = (p_bayes * 0.60) + (p_markov * 0.30) + (p_global * 0.10)
+        final_scores[b] = (p_bayes * 0.20) + (p_markov * 0.00) + (p_global * 0.80)
         
     ranked_brands = sorted(final_scores.items(), key=lambda item: item[1], reverse=True)
     top_6 = [brand for brand, score in ranked_brands[:6]]
