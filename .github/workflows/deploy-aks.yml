@@ -245,6 +245,7 @@ jobs:
           
           echo "✅ ACR secret created"
       
+      - name: Deploy with Helm
         run: |
           helm upgrade --install todo-chatbot ./phase4/helm/todo-chatbot \
             --namespace ${{ env.NAMESPACE }} \
