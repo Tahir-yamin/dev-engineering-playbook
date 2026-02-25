@@ -9,8 +9,8 @@ import time
 warnings.filterwarnings('ignore')
 
 # --- CONFIGURATION ---
-JSON_KEYFILE = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS', r'C:\Users\Administrator\Documents\mcp-sheets-key.json')
-SHEET_ID = '1w_0p4yCFGaYvROFntaynCUDqOOEuTzgvoSZYhTv5FpY'
+JSON_KEYFILE = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS', r'C:\Users\USER\Documents\mcp-sheets-key.json')
+SHEET_ID = 'YOUR_SHEET_ID'
 WEIGHT_180 = 0.15
 WEIGHT_30 = 0.25
 WEIGHT_7 = 0.40

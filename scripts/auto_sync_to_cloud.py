@@ -7,9 +7,9 @@ import os
 
 warnings.simplefilter('ignore')
 
-EXCEL_FILE = r"C:\Users\Administrator\Documents\Logistics_AI_Final_Release\Logistics_AI_Production_Master.xlsm"
-SHEET_ID = '1w_0p4yCFGaYvROFntaynCUDqOOEuTzgvoSZYhTv5FpY'
-JSON_KEY = r"C:\Users\Administrator\Documents\mcp-sheets-key.json"
+EXCEL_FILE = r"C:\Users\USER\Documents\Logistics_AI_Final_Release\Logistics_AI_Production_Master.xlsm"
+SHEET_ID = 'YOUR_SHEET_ID'
+JSON_KEY = r"C:\Users\USER\Documents\mcp-sheets-key.json"
 
 def sync_actuals():
     print("🔄 Initializing Auto-Sync from Local Excel to Cloud...")

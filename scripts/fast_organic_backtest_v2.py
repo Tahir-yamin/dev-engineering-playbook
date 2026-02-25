@@ -13,7 +13,7 @@ from lightgbm import LGBMClassifier
 from sklearn.preprocessing import LabelEncoder
 from joblib import Parallel, delayed
 
-EXCEL_FILE = r'C:\Users\Administrator\Documents\Logistics_AI_Final_Release\Logistics_AI_Production_Master.xlsm'
+EXCEL_FILE = r'C:\Users\USER\Documents\Logistics_AI_Final_Release\Logistics_AI_Production_Master.xlsm'
 SLOT_NAMES = ["PH01 OIL","PH01 GHEE","PH02 OIL","PH02 GHEE","PH03 OIL","PH03 GHEE","PH04 OIL","PH04 GHEE","PH05 OIL","PH05 GHEE"]
 BRANDS = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 
@@ -204,7 +204,7 @@ def run_fast_backtest():
     print(f"Total Organic Accuracy (July 2024 - Dec 2025): {overall_acc:.2f}%")
     
     out_df = pd.DataFrame(daily_results)
-    out_df.to_csv(r'C:\Users\Administrator\Documents\Logistics_AI_Final_Release\Fast_Organic_Backtest.csv', index=False)
+    out_df.to_csv(r'C:\Users\USER\Documents\Logistics_AI_Final_Release\Fast_Organic_Backtest.csv', index=False)
 
 if __name__ == "__main__":
     run_fast_backtest()

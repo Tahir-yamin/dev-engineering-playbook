@@ -1,0 +1,7 @@
+flow: aidlc
+version: 0.1.19
+installed_at: '2026-01-25T13:41:46.858Z'
+tools:
+  - claude
+  - copilot
+  - antigravity

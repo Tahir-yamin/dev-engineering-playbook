@@ -1,0 +1,14 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/phase2/frontend"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "pip"
+    directory: "/phase2/backend"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "docker"
+    directory: "/phase4/docker"
+    schedule:
+      interval: "weekly"

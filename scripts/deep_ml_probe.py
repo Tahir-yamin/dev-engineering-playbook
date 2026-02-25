@@ -10,7 +10,7 @@ from joblib import Parallel, delayed
 
 warnings.filterwarnings('ignore')
 
-EXCEL_FILE = r'C:\Users\Administrator\Documents\Logistics_AI_Final_Release\Logistics_AI_Production_Master.xlsm'
+EXCEL_FILE = r'C:\Users\USER\Documents\Logistics_AI_Final_Release\Logistics_AI_Production_Master.xlsm'
 SLOT_NAMES = ["PH01 OIL","PH01 GHEE","PH02 OIL","PH02 GHEE","PH03 OIL","PH03 GHEE","PH04 OIL","PH04 GHEE","PH05 OIL","PH05 GHEE"]
 BRANDS = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 

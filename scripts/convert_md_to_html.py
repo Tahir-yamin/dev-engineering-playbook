@@ -5,8 +5,8 @@ Generates a print-ready HTML file from the existing Markdown source.
 import re
 import os
 
-MD_FILE = r"C:\Users\Administrator\.gemini\antigravity\brain\419b8a00-bf17-494d-b9bc-255902dfb865\Robotic_Thesis_White_Paper.md"
-HTML_FILE = r"C:\Users\Administrator\.gemini\antigravity\brain\419b8a00-bf17-494d-b9bc-255902dfb865\Robotic_Thesis_White_Paper.html"
+MD_FILE = r"C:\Users\USER\.gemini\antigravity\brain\419b8a00-bf17-494d-b9bc-255902dfb865\Robotic_Thesis_White_Paper.md"
+HTML_FILE = r"C:\Users\USER\.gemini\antigravity\brain\419b8a00-bf17-494d-b9bc-255902dfb865\Robotic_Thesis_White_Paper.html"
 
 CSS = """
 <style>

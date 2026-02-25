@@ -1,0 +1,30 @@
+# User Job Profile - Target Definitions
+# Used by linkedin_relevance_check.py to filter feed items
+
+targets:
+  - title: "Planning Engineer"
+    description: >
+      Senior Planning Engineer or Project Controls Manager roles in Construction, Oil & Gas, or Infrastructure.
+      Requires expertise in Primavera P6, Delay Analysis, EOT (Extension of Time), and Critical Path Method (CPM).
+      Looking for roles in UAE, Saudi Arabia (KSA), Qatar, or Middle East.
+    keywords:
+      - "Primavera P6"
+      - "Project Planning"
+      - "Delay Analysis"
+      - "EOT"
+      - "Claims"
+      - "Earned Value Management"
+      - "Forensic Planning"
+
+  - title: "Project Controls Manager"
+    description: >
+      Leadership role managing cost and schedule. Responsible for WBS, Budgeting, and Reporting.
+      Familiar with Power BI dashboards and Earned Value Management (EVM).
+    keywords:
+      - "Project Controls"
+      - "Cost Control"
+      - "Budgeting"
+      - "Power BI"
+      - "EVM"
+
+threshold: 0.45  # Similarity score threshold (0.0 to 1.0) for "Tiny Model"

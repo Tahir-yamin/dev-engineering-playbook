@@ -2,8 +2,8 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import pandas as pd
 
-JSON_KEY = r"C:\Users\Administrator\Documents\mcp-sheets-key.json"
-SHEET_ID = "1w_0p4yCFGaYvROFntaynCUDqOOEuTzgvoSZYhTv5FpY"
+JSON_KEY = r"C:\Users\USER\Documents\mcp-sheets-key.json"
+SHEET_ID = "YOUR_SHEET_ID"
 
 def audit():
     print("INITIATING CLOUD AUDIT...")

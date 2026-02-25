@@ -55,7 +55,7 @@ def setup_driver_attach():
         print("---------------------------------------------------")
         print("Could not find a Chrome instance listening on port 9222.")
         print("DID YOU RUN THIS COMMAND IN YOUR TERMINAL?")
-        print(r'"C:\Program Files\Google\Chrome\Application\chrome.exe" --remote-debugging-port=9222 --user-data-dir="C:\Users\Administrator\AppData\Local\Google\Chrome\User Data"')
+        print(r'"C:\Program Files\Google\Chrome\Application\chrome.exe" --remote-debugging-port=9222 --user-data-dir="C:\Users\USER\AppData\Local\Google\Chrome\User Data"')
         print("---------------------------------------------------")
         sys.exit(1)
 

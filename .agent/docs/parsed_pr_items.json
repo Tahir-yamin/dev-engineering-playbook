@@ -1,0 +1,163 @@
+[
+  {
+    "item_no": "1.004",
+    "description": "PUMP ISLAND",
+    "qty": "44.00",
+    "unit": "RFT",
+    "full_line": "1.004 PUMP ISLAND 44.00 RFT   7,500.00  330,000.00"
+  },
+  {
+    "item_no": "1.005",
+    "description": "Angle iron for DU Island and Plith tiles",
+    "qty": "22.00",
+    "unit": "RFT",
+    "full_line": "1.005 Angle iron for DU Island and Plith tiles 22.00 RFT   2,000.00  44,000.00"
+  },
+  {
+    "item_no": "1.006",
+    "description": "CONST. RCC PIT & INSTL UGFS TANK 15/25KL",
+    "qty": "1.00",
+    "unit": "EA",
+    "full_line": "1.006 CONST. RCC PIT & INSTL UGFS TANK 15/25KL 1.00 EA  3,000,000.00"
+  },
+  {
+    "item_no": "1.008",
+    "description": "54 mm dia.  UPP FUEL PIPE",
+    "qty": "110.00",
+    "unit": "M",
+    "full_line": "1.008 54 mm dia.  UPP FUEL PIPE 110.00 M   9,800.00  1,078,000.00"
+  },
+  {
+    "item_no": "1.009",
+    "description": "Piping work for Decantation",
+    "qty": "100.00",
+    "unit": "FT",
+    "full_line": "1.009 Piping work for Decantation 100.00 FT   2,600.00  260,000.00"
+  },
+  {
+    "item_no": "1.010",
+    "description": "GUARD RAIL FILL PT.",
+    "qty": "50.00",
+    "unit": "RFT",
+    "full_line": "1.010 GUARD RAIL FILL PT. 50.00 RFT   2,900.00  145,000.00"
+  },
+  {
+    "item_no": "1.012",
+    "description": "P/L CURB STONE",
+    "qty": "200.00",
+    "unit": "RFT",
+    "full_line": "1.012 P/L CURB STONE 200.00 RFT   2,121.00  424,200.00"
+  },
+  {
+    "item_no": "1.013",
+    "description": "P/L CUT OFF DRAIN",
+    "qty": "90.00",
+    "unit": "RFT",
+    "full_line": "1.013 P/L CUT OFF DRAIN 90.00 RFT   9,144.00  822,960.00"
+  },
+  {
+    "item_no": "1.017",
+    "description": "WIRING FOR LIGHT POLES",
+    "qty": "300.00",
+    "unit": "RFT",
+    "full_line": "1.017 WIRING FOR LIGHT POLES 300.00 RFT   600.00  180,000.00"
+  },
+  {
+    "item_no": "1.024",
+    "description": "SUPPLY & INSTALLATION OF DEFORMED STEEL",
+    "qty": "100.00",
+    "unit": "KG",
+    "full_line": "1.024 SUPPLY & INSTALLATION OF DEFORMED STEEL 100.00 KG   450.00  45,000.00"
+  },
+  {
+    "item_no": "1.030",
+    "description": "2\"X2\"X2.5\" CONCRETE MANHOLE",
+    "qty": "10.00",
+    "unit": "EA",
+    "full_line": "1.030 2\"X2\"X2.5\" CONCRETE MANHOLE 10.00 EA   1.00  10.00"
+  },
+  {
+    "item_no": "1.031",
+    "description": "CONSTRUCTION OF MANHOLE",
+    "qty": "10.00",
+    "unit": "EA",
+    "full_line": "1.031 CONSTRUCTION OF MANHOLE 10.00 EA   1.00  10.00"
+  },
+  {
+    "item_no": "1.034",
+    "description": "WIRING FOR SPREADER",
+    "qty": "400.00",
+    "unit": "RFT",
+    "full_line": "1.034 WIRING FOR SPREADER 400.00 RFT   400.00  160,000.00"
+  },
+  {
+    "item_no": "1.035",
+    "description": "WIRING FOR DU & MOTOR",
+    "qty": "400.00",
+    "unit": "RFT",
+    "full_line": "1.035 WIRING FOR DU & MOTOR 400.00 RFT   2,750.00  1,100,000.00"
+  },
+  {
+    "item_no": "1.036",
+    "description": "WIRING FOR MAIN 4X35 SQ.MM",
+    "qty": "100.00",
+    "unit": "RFT",
+    "full_line": "1.036 WIRING FOR MAIN 4X35 SQ.MM 100.00 RFT   3,000.00  300,000.00"
+  },
+  {
+    "item_no": "1.037",
+    "description": "S/I 1-HP CENTFUGAL PUMP",
+    "qty": "1.00",
+    "unit": "EA",
+    "full_line": "1.037 S/I 1-HP CENTFUGAL PUMP 1.00 EA   50,000.00  50,000.00"
+  },
+  {
+    "item_no": "1.038",
+    "description": "P/L UPVC 8\" DIA, CLASS-B FOR DRAIN LINES",
+    "qty": "80.00",
+    "unit": "RFT",
+    "full_line": "1.038 P/L UPVC 8\" DIA, CLASS-B FOR DRAIN LINES 80.00 RFT   2,000.00  160,000.00"
+  },
+  {
+    "item_no": "1.039",
+    "description": "P/L UPVC PIPE  6\" CLASS-B FOR CABLE SLEE",
+    "qty": "100.00",
+    "unit": "RFT",
+    "full_line": "1.039 P/L UPVC PIPE  6\" CLASS-B FOR CABLE SLEE 100.00 RFT   1,500.00  150,000.00"
+  },
+  {
+    "item_no": "1.040",
+    "description": "Supply and Installation of 4\" UPVC Pipe",
+    "qty": "40.00",
+    "unit": "M",
+    "full_line": "1.040 Supply and Installation of 4\" UPVC Pipe 40.00 M   3,000.00  120,000.00"
+  },
+  {
+    "item_no": "1.041",
+    "description": "P/L UPVC PIPE  2\" CLASS-B FOR CABLE SLEE",
+    "qty": "200.00",
+    "unit": "RFT",
+    "full_line": "1.041 P/L UPVC PIPE  2\" CLASS-B FOR CABLE SLEE 200.00 RFT   500.00  100,000.00"
+  },
+  {
+    "item_no": "1.042",
+    "description": "WIRING FOR MONOLITH",
+    "qty": "200.00",
+    "unit": "RFT",
+    "full_line": "1.042 WIRING FOR MONOLITH 200.00 RFT   675.00  135,000.00"
+  },
+  {
+    "item_no": "2",
+    "description": "Air Conditioner Split",
+    "qty": "1.5",
+    "unit": "Ton",
+    "full_line": "2 Air Conditioner Split 1.5 Ton 4.00 EA"
+  },
+  {
+    "item_no": "3",
+    "description": "Air Conditioner Split",
+    "qty": "1",
+    "unit": "Ton",
+    "full_line": "3 Air Conditioner Split 1 Ton 2.00 EA"
+  }
+]

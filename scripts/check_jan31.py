@@ -4,11 +4,11 @@ import gspread
 import sys
 from train_cloud_model import predict_bayesian_markov
 
-JSON_KEY = r'C:\Users\Administrator\Documents\mcp-sheets-key.json'
+JSON_KEY = r'C:\Users\USER\Documents\mcp-sheets-key.json'
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
 creds = ServiceAccountCredentials.from_json_keyfile_name(JSON_KEY, scope)
 client = gspread.authorize(creds)
-sh = client.open_by_key('1w_0p4yCFGaYvROFntaynCUDqOOEuTzgvoSZYhTv5FpY')
+sh = client.open_by_key('YOUR_SHEET_ID')
 ws = sh.worksheet('Sheet1')
 
 data = ws.get_all_records()

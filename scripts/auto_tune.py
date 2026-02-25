@@ -11,8 +11,8 @@ import os
 
 warnings.simplefilter('ignore')
 
-JSON_KEY = r"C:\Users\Administrator\Documents\mcp-sheets-key.json"
-SHEET_ID = "1w_0p4yCFGaYvROFntaynCUDqOOEuTzgvoSZYhTv5FpY"
+JSON_KEY = r"C:\Users\USER\Documents\mcp-sheets-key.json"
+SHEET_ID = "YOUR_SHEET_ID"
 SLOTS = [
     'PH01 OIL', 'PH01 GHEE', 'PH02 OIL', 'PH02 GHEE', 'PH03 OIL', 
     'PH03 GHEE', 'PH04 OIL', 'PH04 GHEE', 'PH05 OIL', 'PH05 GHEE'

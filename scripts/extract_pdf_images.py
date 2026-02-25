@@ -6,7 +6,7 @@ import numpy as np
 import argparse
 
 # Default Configuration
-DEFAULT_DOWNLOADS_DIR = r"C:\Users\Administrator\Downloads"
+DEFAULT_DOWNLOADS_DIR = r"C:\Users\USER\Downloads"
 DEFAULT_OUTPUT_DIR = r"d:\my-dev-knowledge-base\white-papers\wp3-images-extracted"
 
 def clean_watermark(image_bytes, corner_size_x=150, corner_size_y=50):

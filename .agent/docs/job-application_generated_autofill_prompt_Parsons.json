@@ -1,0 +1,75 @@
+{
+    "action": "AUTOFILL_JOB_APPLICATION",
+    "url": "https://parsons.wd5.myworkdayjobs.com/en-US/ParsonsCareers/job/Senior-Project-Controls-Manager_R154884",
+    "company": "Parsons",
+    "role": "Senior Project Controls Manager",
+    "files": {
+        "cv": "D:\\my-dev-knowledge-base\\job-application\\generated\\CV_TahirYamin_Parsons_20260203_160112.docx",
+        "cover_letter": "D:\\my-dev-knowledge-base\\job-application\\generated\\CoverLetter_Parsons_Senior_Project_Controls_Manager_20260203_160112.docx"
+    },
+    "profile_summary": {
+        "personal": {
+            "name": "TAHIR YAMIN",
+            "title": "Project Controls Manager | Senior Project Controls & Planning Engineer",
+            "credentials": "PMP",
+            "phone": "+92-314-9665917",
+            "email_primary": "tahiryamin52@gmail.com",
+            "email_secondary": "tahiryamin2050@gmail.com",
+            "linkedin": "linkedin.com/in/tahiryamin",
+            "portfolio": "sites.google.com/view/tahiryamin",
+            "location": "Karachi, Pakistan",
+            "address_details": {
+                "street": "Update with Street Address",
+                "city": "Karachi",
+                "state": "Sindh",
+                "postal_code": "Update with Postal Code",
+                "country": "Pakistan"
+            },
+            "relocation": "Open to UAE, Qatar, Saudi, Europe Relocation",
+            "availability": "Immediate",
+            "ats_disclosures": {
+                "gender": "Male",
+                "ethnicity": "Asian",
+                "veteran_status": "No",
+                "disability_status": "No",
+                "citizenship_status": "Pakistan",
+                "visa_sponsorship_required": "Yes"
+            }
+        },
+        "ats_disclosures": {
+            "gender": "Male",
+            "ethnicity": "Asian",
+            "veteran_status": "No",
+            "disability_status": "No",
+            "citizenship_status": "Pakistan",
+            "visa_sponsorship_required": "Yes"
+        },
+        "experience_summary": [
+            "Senior Planning Engineer / Project Controls Lead at Pakistan State Oil (PSO)",
+            "Project Planning & Scheduling Manager at Karachi Shipyard & Engineering Works (KS&EW)",
+            "Project Planning Manager at Titanno Pvt Ltd (Nova Marine)"
+        ],
+        "education": [
+            {
+                "degree": "MSc Mechanical Engineering",
+                "institution": "NUST, Pakistan"
+            },
+            {
+                "degree": "BSc Industrial & Manufacturing Engineering",
+                "institution": "NED University, Pakistan"
+            }
+        ],
+        "skills": [
+            "Primavera P6",
+            "MS Project",
+            "Power BI",
+            "Advanced Excel",
+            "SQL",
+            "SAP",
+            "Oracle ERP",
+            "IFS",
+            "AutoCAD",
+            "SolidWorks"
+        ]
+    }
+}

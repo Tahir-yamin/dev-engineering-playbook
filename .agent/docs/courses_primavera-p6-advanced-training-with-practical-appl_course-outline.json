@@ -1,0 +1,1135 @@
+{
+  "title": "Primavera P6 Advanced Training with Practical Application and Power BI Data Analytics Course",
+  "id": "primavera-p6-advanced-training-with-practical-appl",
+  "level": "advanced",
+  "duration": "full",
+  "created": "2026-01-20T22:37:45.477570",
+  "learning_outcomes": [
+    "Evaluate core concepts of Primavera P6 Advanced Training with Practical Application and Power BI Data Analytics",
+    "Design key techniques and methodologies",
+    "Optimize practical applications in real scenarios",
+    "Integrate best practices and advanced features"
+  ],
+  "modules": [
+    {
+      "id": "module-01",
+      "title": "Introduction to Primavera P6 Advanced Training with Practical Application and Power BI Data Analytics",
+      "lessons": [
+        {
+          "id": "lesson-01-01",
+          "title": "Introduction to Primavera P6 Advanced Training with Practical Application and Power BI Data Analytics - Part 1",
+          "content": "\n## Introduction to Primavera P6 Advanced Training with Practical Application and Power BI Data Analytics - Part 1\n\n### Overview\n[Content about Introduction to Primavera P6 Advanced Training with Practical Application and Power BI Data Analytics - Part 1]\n\n### Key Concepts\n1. [Concept 1]\n2. [Concept 2]\n3. [Concept 3]\n\n### Examples\n[Practical examples demonstrating the concepts]\n\n### Summary\n- Key takeaway 1\n- Key takeaway 2\n"
+        },
+        {
+          "id": "lesson-01-02",
+          "title": "Introduction to Primavera P6 Advanced Training with Practical Application and Power BI Data Analytics - Part 2",
+          "content": "\n## Introduction to Primavera P6 Advanced Training with Practical Application and Power BI Data Analytics - Part 2\n\n### Overview\n[Content about Introduction to Primavera P6 Advanced Training with Practical Application and Power BI Data Analytics - Part 2]\n\n### Key Concepts\n1. [Concept 1]\n2. [Concept 2]\n3. [Concept 3]\n\n### Examples\n[Practical examples demonstrating the concepts]\n\n### Summary\n- Key takeaway 1\n- Key takeaway 2\n"
+        },
+        {
+          "id": "lesson-01-03",
+          "title": "Introduction to Primavera P6 Advanced Training with Practical Application and Power BI Data Analytics - Part 3",
+          "content": "\n## Introduction to Primavera P6 Advanced Training with Practical Application and Power BI Data Analytics - Part 3\n\n### Overview\n[Content about Introduction to Primavera P6 Advanced Training with Practical Application and Power BI Data Analytics - Part 3]\n\n### Key Concepts\n1. [Concept 1]\n2. [Concept 2]\n3. [Concept 3]\n\n### Examples\n[Practical examples demonstrating the concepts]\n\n### Summary\n- Key takeaway 1\n- Key takeaway 2\n"
+        },
+        {
+          "id": "lesson-01-04",
+          "title": "Introduction to Primavera P6 Advanced Training with Practical Application and Power BI Data Analytics - Part 4",
+          "content": "\n## Introduction to Primavera P6 Advanced Training with Practical Application and Power BI Data Analytics - Part 4\n\n### Overview\n[Content about Introduction to Primavera P6 Advanced Training with Practical Application and Power BI Data Analytics - Part 4]\n\n### Key Concepts\n1. [Concept 1]\n2. [Concept 2]\n3. [Concept 3]\n\n### Examples\n[Practical examples demonstrating the concepts]\n\n### Summary\n- Key takeaway 1\n- Key takeaway 2\n"
+        }
+      ],
+      "quiz": {
+        "questions": [
+          {
+            "id": "q1",
+            "type": "multiple-choice",
+            "question": "Question 1 about Introduction to Primavera P6 Advanced Training with Practical Application and Power BI Data Analytics?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 1..."
+          },
+          {
+            "id": "q2",
+            "type": "multiple-choice",
+            "question": "Question 2 about Introduction to Primavera P6 Advanced Training with Practical Application and Power BI Data Analytics?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 2..."
+          },
+          {
+            "id": "q3",
+            "type": "multiple-choice",
+            "question": "Question 3 about Introduction to Primavera P6 Advanced Training with Practical Application and Power BI Data Analytics?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 3..."
+          },
+          {
+            "id": "q4",
+            "type": "multiple-choice",
+            "question": "Question 4 about Introduction to Primavera P6 Advanced Training with Practical Application and Power BI Data Analytics?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 4..."
+          },
+          {
+            "id": "q5",
+            "type": "multiple-choice",
+            "question": "Question 5 about Introduction to Primavera P6 Advanced Training with Practical Application and Power BI Data Analytics?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 5..."
+          },
+          {
+            "id": "q6",
+            "type": "multiple-choice",
+            "question": "Question 6 about Introduction to Primavera P6 Advanced Training with Practical Application and Power BI Data Analytics?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 6..."
+          },
+          {
+            "id": "q7",
+            "type": "multiple-choice",
+            "question": "Question 7 about Introduction to Primavera P6 Advanced Training with Practical Application and Power BI Data Analytics?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 7..."
+          },
+          {
+            "id": "q8",
+            "type": "multiple-choice",
+            "question": "Question 8 about Introduction to Primavera P6 Advanced Training with Practical Application and Power BI Data Analytics?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 8..."
+          },
+          {
+            "id": "q9",
+            "type": "multiple-choice",
+            "question": "Question 9 about Introduction to Primavera P6 Advanced Training with Practical Application and Power BI Data Analytics?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 9..."
+          },
+          {
+            "id": "q10",
+            "type": "multiple-choice",
+            "question": "Question 10 about Introduction to Primavera P6 Advanced Training with Practical Application and Power BI Data Analytics?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 10..."
+          }
+        ]
+      },
+      "practical": {
+        "title": "Practical Exercise 1: Introduction to Primavera P6 Advanced Training with Practical Application and Power BI Data Analytics",
+        "objective": "Apply Introduction to Primavera P6 Advanced Training with Practical Application and Power BI Data Analytics concepts in a hands-on scenario",
+        "scenario": "You are working on a project that requires Introduction to Primavera P6 Advanced Training with Practical Application and Power BI Data Analytics...",
+        "tasks": [
+          {
+            "task": "Task 1: Setup environment",
+            "steps": []
+          },
+          {
+            "task": "Task 2: Implement solution",
+            "steps": []
+          },
+          {
+            "task": "Task 3: Verify results",
+            "steps": []
+          }
+        ],
+        "time_limit": "30 minutes",
+        "deliverables": [
+          "Completed exercise file",
+          "Screenshot of results"
+        ]
+      }
+    },
+    {
+      "id": "module-02",
+      "title": "Core Concepts and Fundamentals",
+      "lessons": [
+        {
+          "id": "lesson-02-01",
+          "title": "Core Concepts and Fundamentals - Part 1",
+          "content": "\n## Core Concepts and Fundamentals - Part 1\n\n### Overview\n[Content about Core Concepts and Fundamentals - Part 1]\n\n### Key Concepts\n1. [Concept 1]\n2. [Concept 2]\n3. [Concept 3]\n\n### Examples\n[Practical examples demonstrating the concepts]\n\n### Summary\n- Key takeaway 1\n- Key takeaway 2\n"
+        },
+        {
+          "id": "lesson-02-02",
+          "title": "Core Concepts and Fundamentals - Part 2",
+          "content": "\n## Core Concepts and Fundamentals - Part 2\n\n### Overview\n[Content about Core Concepts and Fundamentals - Part 2]\n\n### Key Concepts\n1. [Concept 1]\n2. [Concept 2]\n3. [Concept 3]\n\n### Examples\n[Practical examples demonstrating the concepts]\n\n### Summary\n- Key takeaway 1\n- Key takeaway 2\n"
+        },
+        {
+          "id": "lesson-02-03",
+          "title": "Core Concepts and Fundamentals - Part 3",
+          "content": "\n## Core Concepts and Fundamentals - Part 3\n\n### Overview\n[Content about Core Concepts and Fundamentals - Part 3]\n\n### Key Concepts\n1. [Concept 1]\n2. [Concept 2]\n3. [Concept 3]\n\n### Examples\n[Practical examples demonstrating the concepts]\n\n### Summary\n- Key takeaway 1\n- Key takeaway 2\n"
+        },
+        {
+          "id": "lesson-02-04",
+          "title": "Core Concepts and Fundamentals - Part 4",
+          "content": "\n## Core Concepts and Fundamentals - Part 4\n\n### Overview\n[Content about Core Concepts and Fundamentals - Part 4]\n\n### Key Concepts\n1. [Concept 1]\n2. [Concept 2]\n3. [Concept 3]\n\n### Examples\n[Practical examples demonstrating the concepts]\n\n### Summary\n- Key takeaway 1\n- Key takeaway 2\n"
+        }
+      ],
+      "quiz": {
+        "questions": [
+          {
+            "id": "q1",
+            "type": "multiple-choice",
+            "question": "Question 1 about Core Concepts and Fundamentals?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 1..."
+          },
+          {
+            "id": "q2",
+            "type": "multiple-choice",
+            "question": "Question 2 about Core Concepts and Fundamentals?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 2..."
+          },
+          {
+            "id": "q3",
+            "type": "multiple-choice",
+            "question": "Question 3 about Core Concepts and Fundamentals?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 3..."
+          },
+          {
+            "id": "q4",
+            "type": "multiple-choice",
+            "question": "Question 4 about Core Concepts and Fundamentals?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 4..."
+          },
+          {
+            "id": "q5",
+            "type": "multiple-choice",
+            "question": "Question 5 about Core Concepts and Fundamentals?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 5..."
+          },
+          {
+            "id": "q6",
+            "type": "multiple-choice",
+            "question": "Question 6 about Core Concepts and Fundamentals?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 6..."
+          },
+          {
+            "id": "q7",
+            "type": "multiple-choice",
+            "question": "Question 7 about Core Concepts and Fundamentals?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 7..."
+          },
+          {
+            "id": "q8",
+            "type": "multiple-choice",
+            "question": "Question 8 about Core Concepts and Fundamentals?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 8..."
+          },
+          {
+            "id": "q9",
+            "type": "multiple-choice",
+            "question": "Question 9 about Core Concepts and Fundamentals?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 9..."
+          },
+          {
+            "id": "q10",
+            "type": "multiple-choice",
+            "question": "Question 10 about Core Concepts and Fundamentals?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 10..."
+          }
+        ]
+      },
+      "practical": {
+        "title": "Practical Exercise 2: Core Concepts and Fundamentals",
+        "objective": "Apply Core Concepts and Fundamentals concepts in a hands-on scenario",
+        "scenario": "You are working on a project that requires Core Concepts and Fundamentals...",
+        "tasks": [
+          {
+            "task": "Task 1: Setup environment",
+            "steps": []
+          },
+          {
+            "task": "Task 2: Implement solution",
+            "steps": []
+          },
+          {
+            "task": "Task 3: Verify results",
+            "steps": []
+          }
+        ],
+        "time_limit": "30 minutes",
+        "deliverables": [
+          "Completed exercise file",
+          "Screenshot of results"
+        ]
+      }
+    },
+    {
+      "id": "module-03",
+      "title": "Practical Application",
+      "lessons": [
+        {
+          "id": "lesson-03-01",
+          "title": "Practical Application - Part 1",
+          "content": "\n## Practical Application - Part 1\n\n### Overview\n[Content about Practical Application - Part 1]\n\n### Key Concepts\n1. [Concept 1]\n2. [Concept 2]\n3. [Concept 3]\n\n### Examples\n[Practical examples demonstrating the concepts]\n\n### Summary\n- Key takeaway 1\n- Key takeaway 2\n"
+        },
+        {
+          "id": "lesson-03-02",
+          "title": "Practical Application - Part 2",
+          "content": "\n## Practical Application - Part 2\n\n### Overview\n[Content about Practical Application - Part 2]\n\n### Key Concepts\n1. [Concept 1]\n2. [Concept 2]\n3. [Concept 3]\n\n### Examples\n[Practical examples demonstrating the concepts]\n\n### Summary\n- Key takeaway 1\n- Key takeaway 2\n"
+        },
+        {
+          "id": "lesson-03-03",
+          "title": "Practical Application - Part 3",
+          "content": "\n## Practical Application - Part 3\n\n### Overview\n[Content about Practical Application - Part 3]\n\n### Key Concepts\n1. [Concept 1]\n2. [Concept 2]\n3. [Concept 3]\n\n### Examples\n[Practical examples demonstrating the concepts]\n\n### Summary\n- Key takeaway 1\n- Key takeaway 2\n"
+        },
+        {
+          "id": "lesson-03-04",
+          "title": "Practical Application - Part 4",
+          "content": "\n## Practical Application - Part 4\n\n### Overview\n[Content about Practical Application - Part 4]\n\n### Key Concepts\n1. [Concept 1]\n2. [Concept 2]\n3. [Concept 3]\n\n### Examples\n[Practical examples demonstrating the concepts]\n\n### Summary\n- Key takeaway 1\n- Key takeaway 2\n"
+        }
+      ],
+      "quiz": {
+        "questions": [
+          {
+            "id": "q1",
+            "type": "multiple-choice",
+            "question": "Question 1 about Practical Application?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 1..."
+          },
+          {
+            "id": "q2",
+            "type": "multiple-choice",
+            "question": "Question 2 about Practical Application?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 2..."
+          },
+          {
+            "id": "q3",
+            "type": "multiple-choice",
+            "question": "Question 3 about Practical Application?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 3..."
+          },
+          {
+            "id": "q4",
+            "type": "multiple-choice",
+            "question": "Question 4 about Practical Application?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 4..."
+          },
+          {
+            "id": "q5",
+            "type": "multiple-choice",
+            "question": "Question 5 about Practical Application?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 5..."
+          },
+          {
+            "id": "q6",
+            "type": "multiple-choice",
+            "question": "Question 6 about Practical Application?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 6..."
+          },
+          {
+            "id": "q7",
+            "type": "multiple-choice",
+            "question": "Question 7 about Practical Application?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 7..."
+          },
+          {
+            "id": "q8",
+            "type": "multiple-choice",
+            "question": "Question 8 about Practical Application?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 8..."
+          },
+          {
+            "id": "q9",
+            "type": "multiple-choice",
+            "question": "Question 9 about Practical Application?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 9..."
+          },
+          {
+            "id": "q10",
+            "type": "multiple-choice",
+            "question": "Question 10 about Practical Application?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 10..."
+          }
+        ]
+      },
+      "practical": {
+        "title": "Practical Exercise 3: Practical Application",
+        "objective": "Apply Practical Application concepts in a hands-on scenario",
+        "scenario": "You are working on a project that requires Practical Application...",
+        "tasks": [
+          {
+            "task": "Task 1: Setup environment",
+            "steps": []
+          },
+          {
+            "task": "Task 2: Implement solution",
+            "steps": []
+          },
+          {
+            "task": "Task 3: Verify results",
+            "steps": []
+          }
+        ],
+        "time_limit": "30 minutes",
+        "deliverables": [
+          "Completed exercise file",
+          "Screenshot of results"
+        ]
+      }
+    },
+    {
+      "id": "module-04",
+      "title": "Advanced Techniques",
+      "lessons": [
+        {
+          "id": "lesson-04-01",
+          "title": "Advanced Techniques - Part 1",
+          "content": "\n## Advanced Techniques - Part 1\n\n### Overview\n[Content about Advanced Techniques - Part 1]\n\n### Key Concepts\n1. [Concept 1]\n2. [Concept 2]\n3. [Concept 3]\n\n### Examples\n[Practical examples demonstrating the concepts]\n\n### Summary\n- Key takeaway 1\n- Key takeaway 2\n"
+        },
+        {
+          "id": "lesson-04-02",
+          "title": "Advanced Techniques - Part 2",
+          "content": "\n## Advanced Techniques - Part 2\n\n### Overview\n[Content about Advanced Techniques - Part 2]\n\n### Key Concepts\n1. [Concept 1]\n2. [Concept 2]\n3. [Concept 3]\n\n### Examples\n[Practical examples demonstrating the concepts]\n\n### Summary\n- Key takeaway 1\n- Key takeaway 2\n"
+        },
+        {
+          "id": "lesson-04-03",
+          "title": "Advanced Techniques - Part 3",
+          "content": "\n## Advanced Techniques - Part 3\n\n### Overview\n[Content about Advanced Techniques - Part 3]\n\n### Key Concepts\n1. [Concept 1]\n2. [Concept 2]\n3. [Concept 3]\n\n### Examples\n[Practical examples demonstrating the concepts]\n\n### Summary\n- Key takeaway 1\n- Key takeaway 2\n"
+        },
+        {
+          "id": "lesson-04-04",
+          "title": "Advanced Techniques - Part 4",
+          "content": "\n## Advanced Techniques - Part 4\n\n### Overview\n[Content about Advanced Techniques - Part 4]\n\n### Key Concepts\n1. [Concept 1]\n2. [Concept 2]\n3. [Concept 3]\n\n### Examples\n[Practical examples demonstrating the concepts]\n\n### Summary\n- Key takeaway 1\n- Key takeaway 2\n"
+        }
+      ],
+      "quiz": {
+        "questions": [
+          {
+            "id": "q1",
+            "type": "multiple-choice",
+            "question": "Question 1 about Advanced Techniques?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 1..."
+          },
+          {
+            "id": "q2",
+            "type": "multiple-choice",
+            "question": "Question 2 about Advanced Techniques?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 2..."
+          },
+          {
+            "id": "q3",
+            "type": "multiple-choice",
+            "question": "Question 3 about Advanced Techniques?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 3..."
+          },
+          {
+            "id": "q4",
+            "type": "multiple-choice",
+            "question": "Question 4 about Advanced Techniques?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 4..."
+          },
+          {
+            "id": "q5",
+            "type": "multiple-choice",
+            "question": "Question 5 about Advanced Techniques?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 5..."
+          },
+          {
+            "id": "q6",
+            "type": "multiple-choice",
+            "question": "Question 6 about Advanced Techniques?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 6..."
+          },
+          {
+            "id": "q7",
+            "type": "multiple-choice",
+            "question": "Question 7 about Advanced Techniques?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 7..."
+          },
+          {
+            "id": "q8",
+            "type": "multiple-choice",
+            "question": "Question 8 about Advanced Techniques?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 8..."
+          },
+          {
+            "id": "q9",
+            "type": "multiple-choice",
+            "question": "Question 9 about Advanced Techniques?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 9..."
+          },
+          {
+            "id": "q10",
+            "type": "multiple-choice",
+            "question": "Question 10 about Advanced Techniques?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 10..."
+          }
+        ]
+      },
+      "practical": {
+        "title": "Practical Exercise 4: Advanced Techniques",
+        "objective": "Apply Advanced Techniques concepts in a hands-on scenario",
+        "scenario": "You are working on a project that requires Advanced Techniques...",
+        "tasks": [
+          {
+            "task": "Task 1: Setup environment",
+            "steps": []
+          },
+          {
+            "task": "Task 2: Implement solution",
+            "steps": []
+          },
+          {
+            "task": "Task 3: Verify results",
+            "steps": []
+          }
+        ],
+        "time_limit": "30 minutes",
+        "deliverables": [
+          "Completed exercise file",
+          "Screenshot of results"
+        ]
+      }
+    },
+    {
+      "id": "module-05",
+      "title": "Best Practices",
+      "lessons": [
+        {
+          "id": "lesson-05-01",
+          "title": "Best Practices - Part 1",
+          "content": "\n## Best Practices - Part 1\n\n### Overview\n[Content about Best Practices - Part 1]\n\n### Key Concepts\n1. [Concept 1]\n2. [Concept 2]\n3. [Concept 3]\n\n### Examples\n[Practical examples demonstrating the concepts]\n\n### Summary\n- Key takeaway 1\n- Key takeaway 2\n"
+        },
+        {
+          "id": "lesson-05-02",
+          "title": "Best Practices - Part 2",
+          "content": "\n## Best Practices - Part 2\n\n### Overview\n[Content about Best Practices - Part 2]\n\n### Key Concepts\n1. [Concept 1]\n2. [Concept 2]\n3. [Concept 3]\n\n### Examples\n[Practical examples demonstrating the concepts]\n\n### Summary\n- Key takeaway 1\n- Key takeaway 2\n"
+        },
+        {
+          "id": "lesson-05-03",
+          "title": "Best Practices - Part 3",
+          "content": "\n## Best Practices - Part 3\n\n### Overview\n[Content about Best Practices - Part 3]\n\n### Key Concepts\n1. [Concept 1]\n2. [Concept 2]\n3. [Concept 3]\n\n### Examples\n[Practical examples demonstrating the concepts]\n\n### Summary\n- Key takeaway 1\n- Key takeaway 2\n"
+        },
+        {
+          "id": "lesson-05-04",
+          "title": "Best Practices - Part 4",
+          "content": "\n## Best Practices - Part 4\n\n### Overview\n[Content about Best Practices - Part 4]\n\n### Key Concepts\n1. [Concept 1]\n2. [Concept 2]\n3. [Concept 3]\n\n### Examples\n[Practical examples demonstrating the concepts]\n\n### Summary\n- Key takeaway 1\n- Key takeaway 2\n"
+        }
+      ],
+      "quiz": {
+        "questions": [
+          {
+            "id": "q1",
+            "type": "multiple-choice",
+            "question": "Question 1 about Best Practices?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 1..."
+          },
+          {
+            "id": "q2",
+            "type": "multiple-choice",
+            "question": "Question 2 about Best Practices?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 2..."
+          },
+          {
+            "id": "q3",
+            "type": "multiple-choice",
+            "question": "Question 3 about Best Practices?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 3..."
+          },
+          {
+            "id": "q4",
+            "type": "multiple-choice",
+            "question": "Question 4 about Best Practices?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 4..."
+          },
+          {
+            "id": "q5",
+            "type": "multiple-choice",
+            "question": "Question 5 about Best Practices?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 5..."
+          },
+          {
+            "id": "q6",
+            "type": "multiple-choice",
+            "question": "Question 6 about Best Practices?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 6..."
+          },
+          {
+            "id": "q7",
+            "type": "multiple-choice",
+            "question": "Question 7 about Best Practices?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 7..."
+          },
+          {
+            "id": "q8",
+            "type": "multiple-choice",
+            "question": "Question 8 about Best Practices?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 8..."
+          },
+          {
+            "id": "q9",
+            "type": "multiple-choice",
+            "question": "Question 9 about Best Practices?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 9..."
+          },
+          {
+            "id": "q10",
+            "type": "multiple-choice",
+            "question": "Question 10 about Best Practices?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 10..."
+          }
+        ]
+      },
+      "practical": {
+        "title": "Practical Exercise 5: Best Practices",
+        "objective": "Apply Best Practices concepts in a hands-on scenario",
+        "scenario": "You are working on a project that requires Best Practices...",
+        "tasks": [
+          {
+            "task": "Task 1: Setup environment",
+            "steps": []
+          },
+          {
+            "task": "Task 2: Implement solution",
+            "steps": []
+          },
+          {
+            "task": "Task 3: Verify results",
+            "steps": []
+          }
+        ],
+        "time_limit": "30 minutes",
+        "deliverables": [
+          "Completed exercise file",
+          "Screenshot of results"
+        ]
+      }
+    },
+    {
+      "id": "module-06",
+      "title": "Real-World Projects",
+      "lessons": [
+        {
+          "id": "lesson-06-01",
+          "title": "Real-World Projects - Part 1",
+          "content": "\n## Real-World Projects - Part 1\n\n### Overview\n[Content about Real-World Projects - Part 1]\n\n### Key Concepts\n1. [Concept 1]\n2. [Concept 2]\n3. [Concept 3]\n\n### Examples\n[Practical examples demonstrating the concepts]\n\n### Summary\n- Key takeaway 1\n- Key takeaway 2\n"
+        },
+        {
+          "id": "lesson-06-02",
+          "title": "Real-World Projects - Part 2",
+          "content": "\n## Real-World Projects - Part 2\n\n### Overview\n[Content about Real-World Projects - Part 2]\n\n### Key Concepts\n1. [Concept 1]\n2. [Concept 2]\n3. [Concept 3]\n\n### Examples\n[Practical examples demonstrating the concepts]\n\n### Summary\n- Key takeaway 1\n- Key takeaway 2\n"
+        },
+        {
+          "id": "lesson-06-03",
+          "title": "Real-World Projects - Part 3",
+          "content": "\n## Real-World Projects - Part 3\n\n### Overview\n[Content about Real-World Projects - Part 3]\n\n### Key Concepts\n1. [Concept 1]\n2. [Concept 2]\n3. [Concept 3]\n\n### Examples\n[Practical examples demonstrating the concepts]\n\n### Summary\n- Key takeaway 1\n- Key takeaway 2\n"
+        },
+        {
+          "id": "lesson-06-04",
+          "title": "Real-World Projects - Part 4",
+          "content": "\n## Real-World Projects - Part 4\n\n### Overview\n[Content about Real-World Projects - Part 4]\n\n### Key Concepts\n1. [Concept 1]\n2. [Concept 2]\n3. [Concept 3]\n\n### Examples\n[Practical examples demonstrating the concepts]\n\n### Summary\n- Key takeaway 1\n- Key takeaway 2\n"
+        }
+      ],
+      "quiz": {
+        "questions": [
+          {
+            "id": "q1",
+            "type": "multiple-choice",
+            "question": "Question 1 about Real-World Projects?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 1..."
+          },
+          {
+            "id": "q2",
+            "type": "multiple-choice",
+            "question": "Question 2 about Real-World Projects?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 2..."
+          },
+          {
+            "id": "q3",
+            "type": "multiple-choice",
+            "question": "Question 3 about Real-World Projects?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 3..."
+          },
+          {
+            "id": "q4",
+            "type": "multiple-choice",
+            "question": "Question 4 about Real-World Projects?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 4..."
+          },
+          {
+            "id": "q5",
+            "type": "multiple-choice",
+            "question": "Question 5 about Real-World Projects?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 5..."
+          },
+          {
+            "id": "q6",
+            "type": "multiple-choice",
+            "question": "Question 6 about Real-World Projects?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 6..."
+          },
+          {
+            "id": "q7",
+            "type": "multiple-choice",
+            "question": "Question 7 about Real-World Projects?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 7..."
+          },
+          {
+            "id": "q8",
+            "type": "multiple-choice",
+            "question": "Question 8 about Real-World Projects?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 8..."
+          },
+          {
+            "id": "q9",
+            "type": "multiple-choice",
+            "question": "Question 9 about Real-World Projects?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 9..."
+          },
+          {
+            "id": "q10",
+            "type": "multiple-choice",
+            "question": "Question 10 about Real-World Projects?",
+            "options": [
+              "Option A - correct answer",
+              "Option B - incorrect",
+              "Option C - incorrect",
+              "Option D - incorrect"
+            ],
+            "correct": 0,
+            "explanation": "Explanation for question 10..."
+          }
+        ]
+      },
+      "practical": {
+        "title": "Practical Exercise 6: Real-World Projects",
+        "objective": "Apply Real-World Projects concepts in a hands-on scenario",
+        "scenario": "You are working on a project that requires Real-World Projects...",
+        "tasks": [
+          {
+            "task": "Task 1: Setup environment",
+            "steps": []
+          },
+          {
+            "task": "Task 2: Implement solution",
+            "steps": []
+          },
+          {
+            "task": "Task 3: Verify results",
+            "steps": []
+          }
+        ],
+        "time_limit": "30 minutes",
+        "deliverables": [
+          "Completed exercise file",
+          "Screenshot of results"
+        ]
+      }
+    }
+  ],
+  "assessments": {
+    "pre_assessment": {
+      "title": "Pre-Course Assessment",
+      "description": "Test your current knowledge",
+      "time_limit": "15 minutes",
+      "questions": 10,
+      "passing_score": "N/A"
+    },
+    "final_assessment": {
+      "title": "Final Assessment",
+      "description": "Demonstrate your mastery",
+      "time_limit": "60 minutes",
+      "questions": 30,
+      "passing_score": "80%"
+    }
+  }
+}

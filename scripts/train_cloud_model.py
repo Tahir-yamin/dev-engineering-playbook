@@ -13,7 +13,7 @@ warnings.filterwarnings('ignore')
 
 # --- CONFIGURATION ---
 JSON_KEYFILE = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS')
-SHEET_ID = '1w_0p4yCFGaYvROFntaynCUDqOOEuTzgvoSZYhTv5FpY'
+SHEET_ID = 'YOUR_SHEET_ID'
 SHEET_NAME = 'Sheet1'
 DASHBOARD_SHEET_NAME = 'Dashboard'
 WEIGHT_180 = 0.15
@@ -28,7 +28,7 @@ def authenticate_google_sheets():
         creds = ServiceAccountCredentials.from_json_keyfile_name(JSON_KEYFILE, scopes)
     else:
         # Fallback to local dev path if environment variable is missing
-        local_path = r'C:\Users\Administrator\Documents\mcp-sheets-key.json'
+        local_path = r'C:\Users\USER\Documents\mcp-sheets-key.json'
         if os.path.exists(local_path):
             creds = ServiceAccountCredentials.from_json_keyfile_name(local_path, scopes)
         else:

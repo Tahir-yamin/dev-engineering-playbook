@@ -6,8 +6,8 @@ import warnings
 
 warnings.filterwarnings('ignore')
 
-JSON_KEYFILE = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS', r'C:\Users\Administrator\Documents\mcp-sheets-key.json')
-SHEET_ID = '1w_0p4yCFGaYvROFntaynCUDqOOEuTzgvoSZYhTv5FpY'
+JSON_KEYFILE = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS', r'C:\Users\USER\Documents\mcp-sheets-key.json')
+SHEET_ID = 'YOUR_SHEET_ID'
 
 def evaluate_backtest():
     print("Connecting to Google Sheets to download Cloud_Backtest_24_26...")

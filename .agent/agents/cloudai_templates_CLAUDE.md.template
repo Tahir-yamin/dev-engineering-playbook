@@ -1,0 +1,138 @@
+# Claude Code Project Guidelines
+
+> Team workflow document. Update frequently with project-specific learnings.
+> Based on Boris Cherny's approach to shared development guidelines.
+
+## Quick Reference
+
+- **Package manager**: [npm | yarn | pnpm | bun]
+- **Run tests**: `[test command]`
+- **Build**: `[build command]`
+- **Lint**: `[lint command]`
+
+## Development Workflow
+
+### Making Changes
+
+1. **Before starting**:
+   - Pull latest from main
+   - Run typecheck: `[typecheck command]`
+   - Run tests: `[test command]`
+
+2. **While developing**:
+   - Keep changes focused and small
+   - Write tests alongside code
+   - Update documentation if behavior changes
+
+3. **Before committing**:
+   - Run full test suite
+   - Run linter/formatter
+   - Self-review the diff
+
+4. **Commit message format**:
+   ```
+   <type>: <description>
+
+   [optional body]
+   ```
+   Types: feat, fix, docs, refactor, test, chore
+
+## Code Conventions
+
+### [Language/Framework] Specific
+
+<!-- Add your project's conventions here -->
+- [Convention 1]
+- [Convention 2]
+- [Convention 3]
+
+### File Organization
+
+```
+src/
+  components/    # [description]
+  utils/         # [description]
+  services/      # [description]
+tests/
+  unit/          # [description]
+  integration/   # [description]
+```
+
+### Naming Conventions
+
+- Files: [convention]
+- Functions: [convention]
+- Components: [convention]
+- Constants: [convention]
+
+## Architecture Decisions
+
+<!-- Document key decisions here -->
+
+### [Decision 1 Title]
+- **Context**: [why this decision was needed]
+- **Decision**: [what was decided]
+- **Consequences**: [impact of the decision]
+
+## Testing Strategy
+
+- Unit tests: [when to write, what to cover]
+- Integration tests: [when to write, what to cover]
+- E2E tests: [when to write, what to cover]
+
+## Common Tasks
+
+### Adding a New Feature
+1. [Step 1]
+2. [Step 2]
+3. [Step 3]
+
+### Fixing a Bug
+1. Write failing test that reproduces the bug
+2. Fix the bug
+3. Verify test passes
+4. Check for similar issues elsewhere
+
+### Deploying
+1. [Step 1]
+2. [Step 2]
+3. [Step 3]
+
+## Environment Setup
+
+### Required Tools
+- [Tool 1]: version X.Y+
+- [Tool 2]: version X.Y+
+
+### Environment Variables
+```
+# Required
+VARIABLE_1=description
+VARIABLE_2=description
+
+# Optional
+OPTIONAL_VAR=description
+```
+
+## Troubleshooting
+
+### [Common Issue 1]
+- **Symptom**: [what you see]
+- **Cause**: [why it happens]
+- **Fix**: [how to resolve]
+
+### [Common Issue 2]
+- **Symptom**: [what you see]
+- **Cause**: [why it happens]
+- **Fix**: [how to resolve]
+
+## Team Notes
+
+<!-- Add learnings, gotchas, and tips here as the team discovers them -->
+
+- [Learning 1]
+- [Learning 2]
+
+---
+
+*Last updated: [date] by [person]*

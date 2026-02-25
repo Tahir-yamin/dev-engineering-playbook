@@ -1,0 +1,16 @@
+{
+    "mcpServers": {
+        "pubmed": {
+            "command": "python",
+            "args": [
+                "d:/my-dev-knowledge-base/external-libs/PubMed-MCP-Server/pubmed_server.py"
+            ]
+        },
+        "davinci-resolve": {
+            "command": "python",
+            "args": [
+                "d:/my-dev-knowledge-base/external-libs/davinci-resolve-mcp/resolve_mcp_server.py"
+            ]
+        }
+    }
+}

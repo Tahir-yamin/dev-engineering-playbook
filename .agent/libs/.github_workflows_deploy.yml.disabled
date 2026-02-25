@@ -1,0 +1,66 @@
+name: Build and Deploy to AKS
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+env:
+  ACR_NAME: tahirtodo123
+  RESOURCE_GROUP: todo-rg
+  AKS_CLUSTER: todo-aks-cluster
+  FRONTEND_IMAGE: todo-frontend
+  BACKEND_IMAGE: todo-backend
+  NAMESPACE: todo-chatbot
+  FRONTEND_DEPLOYMENT: todo-chatbot-frontend
+  BACKEND_DEPLOYMENT: todo-chatbot-notification
+  BACKEND_URL: http://134.33.248.45:8000
+  FRONTEND_URL: http://128.203.86.119:3000
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Login to ACR
+      run: |
+        az acr login --name ${{ env.ACR_NAME }}
+
+    - name: Build and push frontend
+      run: |
+        docker build \
+          --build-arg NEXT_PUBLIC_API_URL=${{ env.BACKEND_URL }} \
+          --build-arg NEXT_PUBLIC_APP_URL=${{ env.FRONTEND_URL }} \
+          -t ${{ env.ACR_NAME }}.azurecr.io/${{ env.FRONTEND_IMAGE }}:${{ github.sha }} \
+          phase2/frontend
+        docker push ${{ env.ACR_NAME }}.azurecr.io/${{ env.FRONTEND_IMAGE }}:${{ github.sha }}
+
+    - name: Build and push backend
+      run: |
+        docker build -t ${{ env.ACR_NAME }}.azurecr.io/${{ env.BACKEND_IMAGE }}:${{ github.sha }} phase2/backend
+        docker push ${{ env.ACR_NAME }}.azurecr.io/${{ env.BACKEND_IMAGE }}:${{ github.sha }}
+
+    - name: Get AKS credentials
+      uses: azure/aks-set-context@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        resource-group: ${{ env.RESOURCE_GROUP }}
+        cluster-name: ${{ env.AKS_CLUSTER }}
+
+    - name: Deploy to AKS
+      run: |
+        kubectl set image deployment/${{ env.FRONTEND_DEPLOYMENT }} frontend=${{ env.ACR_NAME }}.azurecr.io/${{ env.FRONTEND_IMAGE }}:${{ github.sha }} -n ${{ env.NAMESPACE }}
+        kubectl set image deployment/${{ env.BACKEND_DEPLOYMENT }} notification-service=${{ env.ACR_NAME }}.azurecr.io/${{ env.BACKEND_IMAGE }}:${{ github.sha }} -n ${{ env.NAMESPACE }}
+
+    - name: Verify deployment
+      run: |
+        kubectl rollout status deployment/${{ env.FRONTEND_DEPLOYMENT }} -n ${{ env.NAMESPACE }}
+        kubectl rollout status deployment/${{ env.BACKEND_DEPLOYMENT }} -n ${{ env.NAMESPACE }}
+        kubectl get pods -n ${{ env.NAMESPACE }}
