@@ -1,0 +1,55 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+.env
+.env.*
+
+# Large Data & Flattened Artifacts (BLOCKED)
+temp_scraper_profile*/
+agent_chrome_profile*/
+temp_scraper_profile_*
+agent_chrome_profile_*
+cachedir/
+models/
+ComfyUI_Bridge/
+*.safetensors
+*.bin
+*.pma
+*.pdf
+*.xlsx
+*.csv
+*.html
+*.log
+*.txt
+!README.md
+!CODEBASE.md
+!ARCHITECTURE.md
+!KNOWLEDGE_INDEX.md
+!MASTER_KNOWLEDGE_INDEX.md
+!GEMINI.md
+!CLEAN_BRAIN_POLICY.md
+!COMMAND_CENTER.md
+!RECALL_SHEET.md
+!SKILL_NAMES.md
+
+# Credentials & Secrets
+*credentials*.json
+*secret*.json
+patch-config.json
+*.key
+*.pem
+*.token
+token.json
+credentials.json
+
+# IDE
+.idea/
+.vscode/
+*.swp
+.history/
+
+# OS
+.DS_Store
+Thumbs.db

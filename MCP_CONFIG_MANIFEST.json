@@ -1,0 +1,47 @@
+{
+    "mcpServers": {
+        "n8n-mcp-server": {
+            "command": "node",
+            "args": [
+                "d:/my-dev-knowledge-base/.agent/mcp/n8n-mcp-server-custom/dist/index.js"
+            ],
+            "env": {
+                "N8N_API_URL": "REPLACE_WITH_YOUR_N8N_URL",
+                "N8N_API_KEY": "REPLACE_WITH_YOUR_N8N_API_KEY"
+            }
+        },
+        "pubmed": {
+            "command": "python",
+            "args": [
+                "d:/my-dev-knowledge-base/.agent/mcp/PubMed-MCP-Server/pubmed_server.py"
+            ]
+        },
+        "p6xer": {
+            "command": "python",
+            "args": [
+                "d:/my-dev-knowledge-base/.agent/mcp/p6xer-mcp-server/server.py"
+            ]
+        },
+        "davinci-resolve": {
+            "command": "python",
+            "args": [
+                "d:/my-dev-knowledge-base/.agent/mcp/davinci-resolve-mcp/resolve_mcp_server.py"
+            ]
+        },
+        "composio-rube": {
+            "url": "https://rube.app/mcp"
+        },
+        "twitter-mcp": {
+            "command": "node",
+            "args": [
+                "d:/my-dev-knowledge-base/.agent/mcp/twitter-mcp/build/index.js"
+            ],
+            "env": {
+                "API_KEY": "REPLACE_WITH_YOUR_TWITTER_API_KEY",
+                "API_SECRET_KEY": "REPLACE_WITH_YOUR_TWITTER_API_SECRET_KEY",
+                "ACCESS_TOKEN": "REPLACE_WITH_YOUR_TWITTER_ACCESS_TOKEN",
+                "ACCESS_TOKEN_SECRET": "REPLACE_WITH_YOUR_TWITTER_ACCESS_TOKEN_SECRET"
+            }
+        }
+    }
+}
