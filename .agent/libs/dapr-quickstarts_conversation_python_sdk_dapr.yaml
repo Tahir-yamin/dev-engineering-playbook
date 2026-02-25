@@ -1,7 +1,0 @@
-version: 1
-common:
-  resourcesPath: ../../components/
-apps:
-  - appID: conversation-sdk
-    appDirPath: ./conversation/
-    command: ["python3", "app.py"]
