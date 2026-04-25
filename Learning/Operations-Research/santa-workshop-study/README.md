@@ -1,6 +1,6 @@
 # Bridging Discrete Scheduling and Continuous Optimization: A High-Speed Hybrid LP-Annealing Engine for Highly Constrained, Non-Linear Objective Functions 
 
-**Tahir Yamin**  
+**Tahir Yamin** (tahiryamin2050@gmail.com)  
 *Submitted as an Applied Operations Research Demonstration*
 
 [![Score](https://img.shields.io/badge/Global_Score-69%2C953-brightgreen)](#)
