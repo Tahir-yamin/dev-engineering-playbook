@@ -1,0 +1,43 @@
+name: sitara
+description: AI Companion Game for Non-Verbal Autistic Children
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State Management
+  provider: ^6.1.1
+
+  # Local Storage (offline-first, privacy-safe, works on web + mobile + desktop)
+  # shared_preferences replaces sqflite — zero native deps, works in Docker/web builds
+  shared_preferences: ^2.2.2
+
+  # HTTP for Antigravity API
+  http: ^1.2.0
+
+  # Charts for parent dashboard
+  fl_chart: ^0.67.0
+
+  # Typography — Nunito via google_fonts (no font file needed)
+  google_fonts: ^6.2.1
+
+  # Utilities
+  uuid: ^4.3.3
+  intl: ^0.19.0
+  flutter_tts: ^4.0.2
+  flutter_secure_storage: ^9.2.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/logo.png
+    - assets/symbols.png
